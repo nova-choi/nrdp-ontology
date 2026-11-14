@@ -6,7 +6,7 @@
 - SHACL shape, 데이터셋 설명(VoID/DCAT), 역량질문 세트 페이지, 첫 화면
 
 실행: python tools/build_site.py            (저장소 루트에서)
-설정: tools/configure_release.py 로 nova-choi, ZENODO_DOI 를 실제 값으로 바꾼 뒤 실행한다.
+설정: tools/configure_release.py 로 nova-choi, 10.5281/zenodo.24217214 를 실제 값으로 바꾼 뒤 실행한다.
 """
 import csv, html, json, os, shutil, sys
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
@@ -325,7 +325,7 @@ def landing(mods, shp, data, cq, rel):
             '<h2>이용</h2><p>모든 IRI는 w3id.org에서 내용 협상(content negotiation)으로 응답한다. '
             '브라우저는 이 문서로, <code>Accept: text/turtle</code>·<code>application/rdf+xml</code>·<code>application/ld+json</code>·'
             '<code>application/n-triples</code> 요청은 해당 직렬화로 연결된다.</p>'
-            f'<p>소스·릴리스: <a href="{gh}">{gh}</a> · 보관본: Zenodo DOI (ZENODO_DOI)</p>'
+            f'<p>소스·릴리스: <a href="{gh}">{gh}</a> · 보관본: Zenodo DOI (10.5281/zenodo.24217214)</p>'
             '<p class="meta">온톨로지·SHACL·데이터·문서: CC BY 4.0 / 코드: MIT. 데이터 원자료는 NTIS OpenAPI 과제검색·성과검색(공공누리 제1유형).</p>')
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as f:
         f.write(page("nrdp 온톨로지", body))

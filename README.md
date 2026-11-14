@@ -4,7 +4,7 @@
 
 - 문서: https://nova-choi.github.io/nrdp-ontology/
 - 영구 IRI: `https://w3id.org/nrdp/` (내용 협상 지원)
-- 보관본(DOI): ZENODO_DOI
+- 보관본(DOI): 10.5281/zenodo.24217214
 - 관련 학위논문: 최혜석, 「국가 R&D 포트폴리오 평가를 위한 방법 중립적 MCDM 온톨로지 설계 및 검증」, 성균관대학교 정보통신대학원 빅데이터학과 석사학위논문(작성 중)
 
 ## 자원
