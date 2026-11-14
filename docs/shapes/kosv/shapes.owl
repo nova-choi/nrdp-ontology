@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sh="http://www.w3.org/ns/shacl#"
+>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b16">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/kosv#sh_prefixes"/>
+    <sh:message>K5: 분할·N:M 연관에 배분 비중이 없음 — 집계 시 기본 배분 규칙(균등 배분 등)이 적용됨을 기록할 것</sh:message>
+    <sh:select>
+          SELECT $this WHERE {
+            $this kosv:changeType ?ct . FILTER (?ct IN (kosv:Split, kosv:MergeResplit))
+            FILTER NOT EXISTS { ?x kosv:shareOf $this }
+          }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b4">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#sourceEdition"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:message>K1: 대응표의 이전 판이 정확히 1개여야 함</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#AssociationCardinalityShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b8"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b9"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b10"/>
+    <sh:sparql rdf:nodeID="nb46259a6340943a2868dd37de995b665b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#sh_prefixes">
+    <sh:declare rdf:nodeID="nb46259a6340943a2868dd37de995b665b1"/>
+    <sh:declare rdf:nodeID="nb46259a6340943a2868dd37de995b665b2"/>
+    <sh:declare rdf:nodeID="nb46259a6340943a2868dd37de995b665b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#CorrespondenceShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b4"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b5"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b6"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b3">
+    <sh:prefix>skos</sh:prefix>
+    <sh:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/2004/02/skos/core#</sh:namespace>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#AllocationShareShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/kosv#AllocationShare"/>
+    <sh:property rdf:nodeID="nb46259a6340943a2868dd37de995b665b13"/>
+    <sh:sparql rdf:nodeID="nb46259a6340943a2868dd37de995b665b14"/>
+    <sh:sparql rdf:nodeID="nb46259a6340943a2868dd37de995b665b15"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b11">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/kosv#sh_prefixes"/>
+    <sh:message>K2: 변경 유형 {?ct} 와 원천 {?ns}개·대상 {?nt}개가 맞지 않음</sh:message>
+    <sh:select>
+          SELECT $this ?ct ?ns ?nt WHERE {
+            $this kosv:changeType ?ct .
+            { SELECT $this (COUNT(DISTINCT ?s) AS ?ns) WHERE { $this xkos:sourceConcept ?s } GROUP BY $this }
+            { SELECT $this (COUNT(DISTINCT ?t) AS ?nt) WHERE { $this xkos:targetConcept ?t } GROUP BY $this }
+            FILTER (
+              ( ?ct IN (kosv:Identity, kosv:Rename, kosv:Relocation) &amp;&amp; (?ns != 1 || ?nt != 1) ) ||
+              ( ?ct = kosv:Merge        &amp;&amp; (?ns &lt; 2  || ?nt != 1) ) ||
+              ( ?ct = kosv:Split        &amp;&amp; (?ns != 1 || ?nt &lt; 2) ) ||
+              ( ?ct = kosv:MergeResplit &amp;&amp; (?ns &lt; 2  || ?nt &lt; 2) )
+            )
+          }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b7">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#correspondenceBasis"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:message>K1: 대응 근거 누락</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#SplitAllocationWarningShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"/>
+    <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Warning"/>
+    <sh:sparql rdf:nodeID="nb46259a6340943a2868dd37de995b665b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b14">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/kosv#sh_prefixes"/>
+    <sh:message>K4: 연관 {?a} 의 원천 {?f} 에 대한 배분 비중 합이 {?sum} (1이어야 함)</sh:message>
+    <sh:select>
+          SELECT $this ?a ?f (SUM(?v) AS ?sum) WHERE {
+            $this kosv:shareOf ?a ; kosv:fromConcept ?f .
+            ?x kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:shareValue ?v .
+          } GROUP BY $this ?a ?f
+            HAVING (ABS(SUM(?v) - 1.0) &gt; 0.0001)
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/shapes/kosv">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="ko">분류 판 관리 SHACL shape (K1~K5)</dcterms:title>
+    <dcterms:title xml:lang="en">SHACL shapes for the classification-edition module (K1-K5)</dcterms:title>
+    <dcterms:creator>최혜석</dcterms:creator>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-31</dcterms:modified>
+    <dcterms:requires rdf:resource="https://w3id.org/nrdp/kosv/0.1.2"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/nrdp/shapes/kosv/0.1.2"/>
+    <owl:versionInfo>0.1.2</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b5">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#targetEdition"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:message>K1: 대응표의 이후 판이 정확히 1개여야 함</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b1">
+    <sh:prefix>kosv</sh:prefix>
+    <sh:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://w3id.org/nrdp/kosv#</sh:namespace>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b12">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/kosv#sh_prefixes"/>
+    <sh:message>K3: 개념 {?c} 가 대응표의 해당 판({?ed})에 속하지 않음</sh:message>
+    <sh:select>
+          SELECT $this ?c ?ed WHERE {
+            ?corr xkos:madeOf $this .
+            { ?corr kosv:sourceEdition ?ed . $this xkos:sourceConcept ?c . }
+            UNION
+            { ?corr kosv:targetEdition ?ed . $this xkos:targetConcept ?c . }
+            FILTER NOT EXISTS { ?c skos:inScheme ?ed }
+          }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b8">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#changeType"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:message>K2: 변경 유형이 정확히 1개여야 함</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b10">
+    <sh:path rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#targetConcept"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:message>K2: 대상 개념 없음(종료는 연관이 아니라 kosv:discontinuedIn 으로 기록)</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/kosv#AssociationEditionShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"/>
+    <sh:sparql rdf:nodeID="nb46259a6340943a2868dd37de995b665b12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b9">
+    <sh:path rdf:resource="http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:message>K2: 원천 개념 없음(신설은 연관이 아니라 kosv:introducedIn 으로 기록)</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b2">
+    <sh:prefix>xkos</sh:prefix>
+    <sh:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://rdf-vocabulary.ddialliance.org/xkos#</sh:namespace>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b6">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#sourceEdition"/>
+    <sh:disjoint rdf:resource="https://w3id.org/nrdp/kosv#targetEdition"/>
+    <sh:message>K1: 이전 판과 이후 판이 같음</sh:message>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b15">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/kosv#sh_prefixes"/>
+    <sh:message>K4: 배분 쌍({?f}→{?t})이 연관의 원천·대상이 아님</sh:message>
+    <sh:select>
+          SELECT $this ?f ?t WHERE {
+            $this kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:toConcept ?t .
+            FILTER ( NOT EXISTS { ?a xkos:sourceConcept ?f } || NOT EXISTS { ?a xkos:targetConcept ?t } )
+          }</sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb46259a6340943a2868dd37de995b665b13">
+    <sh:path rdf:resource="https://w3id.org/nrdp/kosv#shareValue"/>
+    <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:minCount>
+    <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+    <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <sh:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sh:minInclusive>
+    <sh:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxInclusive>
+  </rdf:Description>
+</rdf:RDF>

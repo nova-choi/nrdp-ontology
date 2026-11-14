@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "이 자원을 이용하면 아래와 같이 인용해 주십시오."
+title: "nrdp: 국가 R&D 포트폴리오 평가를 위한 방법 중립적 MCDM 온톨로지와 NTIS 지식그래프"
+type: dataset
+authors:
+  - name: "최혜석"
+    affiliation: "성균관대학교 정보통신대학원 빅데이터학과"
+version: "0.3.5"
+license: CC-BY-4.0
+repository-code: "https://github.com/nova-choi/nrdp-ontology"
+url: "https://w3id.org/nrdp/"
+keywords:
+  - ontology
+  - knowledge graph
+  - multi-criteria decision making
+  - national R&D portfolio
+  - explainability

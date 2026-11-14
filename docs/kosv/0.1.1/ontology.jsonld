@@ -1,0 +1,1404 @@
+[
+  {
+    "@id": "https://w3id.org/nrdp/kosv#sourceDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "근거 문서"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#sourceEdition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "이전 판"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#compares"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#used",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#supersedes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대체(이전 판 폐기)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#follows"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#introducedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "대비표의 '신설' 항목. 이전 판에 원천 개념이 없다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "도입 판"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#sourceLocator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "근거 문서 내 위치(쪽·행). 감사 추적용."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "근거 위치"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "원천 개념 n개와 대상 개념 m개의 연관(n:m을 한 개체로 표현). 원천·대상 개수와 변경 유형의 정합성은 폐쇄세계 검사이므로 SHACL(kosv-shapes.ttl)로 위임한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "개념 연관"
+      },
+      {
+        "@language": "en",
+        "@value": "Concept association"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ChangeType"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#changeType"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "분류체계의 한 개정판. 유효기간은 연도 정수로 기록(xsd:gYear 는 OWL 2 datatype map 밖). XKOS 권고에 따라 dcterms:valid 를 주석으로 병기할 수 있다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "분류체계 판"
+      },
+      {
+        "@language": "en",
+        "@value": "Classification edition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#toConcept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#AllocationShare"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배분 대상 개념"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#alsoRelocated",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "통합·분할이 중분류 이동을 동반하는 경우(대비표 '통합, 이동')."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "이동 동반"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Classification",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "판을 묶는 분류체계 자체(예: 국가과학기술표준분류). XKOS는 이를 skos:Concept 로 모델링하도록 권고하나, 여기서는 판(ConceptScheme)과 구분되는 별도 클래스로 둔다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "분류체계"
+      },
+      {
+        "@language": "en",
+        "@value": "Classification"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#ResearcherAuthored",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "공식 대응표가 없는 경우. 연관마다 근거 문서·위치(sourceDocument)와 판정 사유를 기록하여, 판정자 합의 대신 기록 대조로 검토한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구자 작성"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b11",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Identity"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Rename"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Merge"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Split"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#MergeResplit"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Relocation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#announcedYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "고시(발표) 연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#HarmonizationActivity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "원래 판의 분류값을 특정 대응표(prov:used)로 다른 판에 맞춘 값을 생성하는 활동. 생성된 값은 prov:wasDerivedFrom 으로 원래 값을 가리킨다. 원래 값은 덮어쓰지 않는다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "판 맞춤"
+      },
+      {
+        "@language": "en",
+        "@value": "Harmonization run"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      },
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b39"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b39",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#used"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#targetEdition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "이후 판"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#compares"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#validToYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "적용 종료연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#fromConcept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#AllocationShare"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배분 원천 개념"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#targetConcept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대상 개념"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Relocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "다른 중분류로 이동하며 코드 변경. 1:1 또는 통합과 결합."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "이동"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#RuleDerived",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "명시적 규칙에서 도출(예: 대비표에 수록되지 않은 중분류는 코드 동일 개념끼리 1:1)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "규칙 도출"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#reviewStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "자동 추출 → 수작업 검토 → 근거 재대조(재검토)의 단계. 재검토에서 바뀐 판정은 변경 전후를 함께 기록한다. 값은 ReviewStatus 체계(kosv-schemes, 미작성)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "검토 상태"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Merge",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "N:1."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "통합"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#shareOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#AllocationShare"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배분 대상 연관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#belongsTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Rename",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "코드 유지·명칭 변경. 1:1. 의미 범위 변화 여부는 해설서 대조로 별도 판단."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "명칭변경"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#madeOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "구성 연관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#shareValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#AllocationShare"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비중"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b34"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b34",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#onDatatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#withRestrictions": [
+      {
+        "@list": [
+          {
+            "@id": "_:n7e45027791f14122a751d5c4eab1cd06b35"
+          },
+          {
+            "@id": "_:n7e45027791f14122a751d5c4eab1cd06b36"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b35",
+    "http://www.w3.org/2001/XMLSchema#minInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b36",
+    "http://www.w3.org/2001/XMLSchema#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Identity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "코드·명칭 동일. 1:1."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "동일"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Activity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#compares",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비교 대상 판"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#DataDerived",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "동일 과제의 이중 코딩(구·신 분류 병기) 빈도에서 추정."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "데이터 도출"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#MergeResplit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "N:M. 집계 시 배분 규칙 필요."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "통합 후 재분할"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#correspondenceBasis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "대응표 단위로 부여하되, 같은 대응표 안에서 근거가 다른 연관(공식 대비표 + 규칙 도출)은 연관 단위로 덮어쓴다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b28"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대응 근거"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b28",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+          },
+          {
+            "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#Split",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#ChangeType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "1:N. 집계 시 배분 규칙 필요."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "분할"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#ChangeType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "변경 유형"
+      },
+      {
+        "@language": "en",
+        "@value": "Change type"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b4"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#oneOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Identity"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Rename"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Merge"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Split"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#MergeResplit"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#Relocation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#AllocationShare",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "분할·통합 후 재분할 연관에서 (원천, 대상) 쌍별 배분 비중. 집계값이 이 비중에 의존하므로 근거를 함께 기록한다. 같은 원천의 비중 합 = 1 은 SHACL로 검사."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배분 비중"
+      },
+      {
+        "@language": "en",
+        "@value": "Allocation share"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b31"
+      },
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b32"
+      },
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b33"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b31",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#shareOf"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b32",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#fromConcept"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b33",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#toConcept"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#OfficialTable",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "고시 문서의 신구 대비표에서 추출."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "공식 대비표"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#changeType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "변경 유형"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ChangeType"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "원천 개념"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@value": "최혜석"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Classification edition and correspondence module"
+      },
+      {
+        "@language": "ko",
+        "@value": "분류체계 판 관리·대응표 모듈"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv/0.1.0"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionIRI": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv/0.1.1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.1.1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#discontinuedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "후속 판에서 대상 개념이 없는 개념. 대비표의 '삭제' 표기는 실제로는 다른 중분류로의 이동·통합인 경우가 있으므로(예: 2018판 EE08·EE09 → 2023판 EE1207·EE1208), 검토 후에만 부여한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "종료 판"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/kosv#OfficialTable"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#RuleDerived"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#ResearcherAuthored"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#DataDerived"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#validFromYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "이 판이 과제정보 입력에 적용되기 시작한 연도(고시 연도와 다를 수 있음)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "적용 시작연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#editionOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "소속 분류체계"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#Classification"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#belongsTo"
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "두 판 사이의 개념 연관 집합."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대응표"
+      },
+      {
+        "@language": "en",
+        "@value": "Correspondence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b1"
+      },
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b2"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "2"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#compares"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#CorrespondenceBasis"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#correspondenceBasis"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#CorrespondenceBasis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대응 근거"
+      },
+      {
+        "@language": "en",
+        "@value": "Correspondence basis"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n7e45027791f14122a751d5c4eab1cd06b18"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e45027791f14122a751d5c4eab1cd06b18",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#oneOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/kosv#OfficialTable"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#RuleDerived"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#ResearcherAuthored"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/kosv#DataDerived"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://rdf-vocabulary.ddialliance.org/xkos#follows",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#IrreflexiveProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "계승"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ]
+  }
+]

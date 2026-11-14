@@ -1,0 +1,23 @@
+{
+ "budget_allocations": 143,
+ "budget_allocations_multi_code": 2,
+ "excluded_no_canonical_or_unselected": 2520,
+ "excluded_rejected_alias": 493,
+ "excluded_secret": 1,
+ "field_assignments": 30361,
+ "generated": "2026-10-23T03:53:27",
+ "indicator_observations": 1144,
+ "organizations": 1810,
+ "output_attributions": 53296,
+ "outputs_unmatched_rpaper": 497,
+ "outputs_unmatched_rpatent": 2128,
+ "preceded_by_links": 8593,
+ "programs": 41,
+ "project_year_records": 13539,
+ "projects": 6977,
+ "research_outputs": 53296,
+ "subprograms": 295,
+ "technology_fields": 1902,
+ "triples_domain": 1043949,
+ "triples_schemes": 15501
+}

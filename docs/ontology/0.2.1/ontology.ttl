@@ -1,0 +1,450 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mcdm: <https://w3id.org/nrdp/mcdm#> .
+@prefix nrdp: <https://w3id.org/nrdp/ontology#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mcdm:Benefit a mcdm:OptimizationDirection ;
+    rdfs:label "편익(최대화)"@ko .
+
+mcdm:CompensatoryMethod a owl:Class ;
+    rdfs:label "보상형 기법"@ko ;
+    rdfs:subClassOf mcdm:AggregationMethod .
+
+mcdm:Cost a mcdm:OptimizationDirection ;
+    rdfs:label "비용(최소화)"@ko .
+
+mcdm:EvidencePath a owl:Class ;
+    rdfs:label "근거경로"@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+mcdm:IntervalScale a mcdm:MeasurementScale ;
+    rdfs:label "등간척도"@ko .
+
+mcdm:OrdinalScale a mcdm:MeasurementScale ;
+    rdfs:label "순서척도"@ko .
+
+mcdm:OutrankingMethod a owl:Class ;
+    rdfs:label "열위관계형 기법"@ko ;
+    rdfs:subClassOf mcdm:AggregationMethod .
+
+mcdm:RatioScale a mcdm:MeasurementScale ;
+    rdfs:label "비율척도"@ko .
+
+mcdm:assignedToCriterion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain mcdm:Weight ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:byMethod a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:AggregationMethod .
+
+mcdm:concernsCriterion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "개선 대상 기준"@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:contributionOf a owl:ObjectProperty ;
+    rdfs:domain mcdm:CriterionContribution ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:derivedFrom a owl:ObjectProperty ;
+    rdfs:domain mcdm:Weight .
+
+mcdm:explains a owl:ObjectProperty ;
+    rdfs:domain mcdm:Explanation ;
+    rdfs:range mcdm:DecisionResult .
+
+mcdm:forProblem a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:DecisionProblem .
+
+mcdm:forScenario a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:DecisionScenario .
+
+mcdm:hasAlternative a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionProblem ;
+    rdfs:range mcdm:Alternative .
+
+mcdm:hasContributionRatio a owl:DatatypeProperty ;
+    rdfs:domain mcdm:CriterionContribution ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasCriterion a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionProblem ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:hasDirection a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain mcdm:Criterion ;
+    rdfs:range mcdm:OptimizationDirection .
+
+mcdm:hasNormalizedValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "v0.1 전용. 정규화값이 (평가값×정규화방법) 3항 관계여서 기법마다 값이 달라지므로 v0.2부터 CriterionValue -[hasNormalization]-> NormalizedValue -[hasValue]-> decimal 패턴으로 대체됨. 하위호환 문서화 목적으로만 남김."@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range xsd:decimal ;
+    owl:deprecated true .
+
+mcdm:hasPreferenceModel a owl:DatatypeProperty ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range xsd:string .
+
+mcdm:hasRank a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range xsd:integer .
+
+mcdm:hasRawValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasScale a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain mcdm:Criterion ;
+    rdfs:range mcdm:MeasurementScale .
+
+mcdm:hasScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasSubCriterion a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain mcdm:Criterion ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:hasUnit a owl:DatatypeProperty ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range xsd:string .
+
+mcdm:hasValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "정규화값(수치)"@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasWeight a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range mcdm:Weight .
+
+mcdm:hasWeightValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mcdm:Weight ;
+    rdfs:range xsd:decimal .
+
+mcdm:isFeasible a owl:DatatypeProperty ;
+    rdfs:label "실현가능성"@ko ;
+    rdfs:comment "요구 개선량이 관측 범위 내인지. 정규화값 1.0 초과 시 false."@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:boolean .
+
+mcdm:measuredBy a owl:ObjectProperty ;
+    rdfs:comment "MCDM 계층과 도메인 계층의 연결점."@ko ;
+    rdfs:domain mcdm:Criterion ;
+    rdfs:range nrdp:PerformanceIndicator .
+
+mcdm:preferenceThresholdP a owl:DatatypeProperty ;
+    rdfs:domain mcdm:PreferenceFunction ;
+    rdfs:range xsd:decimal .
+
+mcdm:preferenceThresholdQ a owl:DatatypeProperty ;
+    rdfs:domain mcdm:PreferenceFunction ;
+    rdfs:range xsd:decimal .
+
+mcdm:reflectsPolicyGoal a owl:ObjectProperty ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range nrdp:PolicyGoal .
+
+mcdm:requiredNormalizedValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "필요 정규화값"@ko ;
+    rdfs:comment "목표 순위 진입에 필요한 해당 기준의 정규화값. 1.0을 넘으면 관측 범위 밖이므로 isFeasible=false."@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:decimal .
+
+mcdm:requiredRawValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "필요 원시값"@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:decimal .
+
+mcdm:requiresNormalization a owl:DatatypeProperty ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range xsd:boolean .
+
+mcdm:scenarioLabel a owl:DatatypeProperty ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range xsd:string .
+
+mcdm:usesNormalization a owl:ObjectProperty ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range mcdm:NormalizationMethod .
+
+mcdm:usesPreferenceFunction a owl:ObjectProperty ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range mcdm:PreferenceFunction .
+
+<https://w3id.org/nrdp/ontology> a owl:Ontology ;
+    dcterms:creator "최혜석" ;
+    dcterms:title "국가 R&D 포트폴리오 MCDM 온톨로지"@ko ;
+    rdfs:comment "국가 R&D 포트폴리오 평가를 위한 방법 중립적 MCDM 온톨로지. v0.2: 정규화값을 (평가값×정규화방법) 3항 관계로 재화."@ko ;
+    owl:versionInfo "0.2.1" .
+
+nrdp:RnDProject a owl:Class ;
+    rdfs:label "연구개발과제"@ko .
+
+nrdp:RnDSubProgram a owl:Class ;
+    rdfs:label "세부사업"@ko ;
+    rdfs:comment "CERIF에 직접 대응물이 없는 국내 특유의 중간 계층."@ko .
+
+nrdp:belongsToField a owl:ObjectProperty ;
+    rdfs:label "기술분야"@ko ;
+    rdfs:range nrdp:TechnologyField .
+
+nrdp:contributesTo a owl:ObjectProperty ;
+    rdfs:label "기여정책목표"@ko ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range nrdp:PolicyGoal .
+
+nrdp:forIndicator a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain nrdp:IndicatorObservation ;
+    rdfs:range nrdp:PerformanceIndicator .
+
+nrdp:fundedBy a owl:ObjectProperty ;
+    rdfs:label "소관부처"@ko ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range nrdp:Ministry .
+
+nrdp:hasAllocation a owl:ObjectProperty ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range nrdp:BudgetAllocation .
+
+nrdp:hasAmount a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "예산액(백만원)"@ko ;
+    rdfs:domain nrdp:BudgetAllocation ;
+    rdfs:range xsd:decimal .
+
+nrdp:hasObservation a owl:ObjectProperty ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range nrdp:IndicatorObservation .
+
+nrdp:hasObservedValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain nrdp:IndicatorObservation ;
+    rdfs:range xsd:decimal .
+
+nrdp:indicatorUnit a owl:DatatypeProperty ;
+    rdfs:domain nrdp:PerformanceIndicator ;
+    rdfs:range xsd:string .
+
+nrdp:managedBy a owl:ObjectProperty ;
+    rdfs:label "전담전문기관"@ko ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range nrdp:FundingAgency .
+
+nrdp:partOfProgram a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "상위사업"@ko ;
+    rdfs:comment "과제→세부사업→사업의 3계층을 추이적으로 연결."@ko .
+
+nrdp:performedBy a owl:ObjectProperty ;
+    rdfs:label "수행기관"@ko ;
+    rdfs:range nrdp:PerformingOrganization .
+
+nrdp:playsRoleOf a owl:ObjectProperty ;
+    rdfs:label "대안 역할 수행"@ko ;
+    owl:inverseOf mcdm:representsEntity .
+
+nrdp:programCode a owl:DatatypeProperty ;
+    rdfs:domain nrdp:RnDProgram ;
+    rdfs:range xsd:string .
+
+nrdp:yearValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "xsd:gYear 는 OWL 2 datatype map 밖이라 HermiT 가 거부 → xsd:integer 사용"@ko ;
+    rdfs:domain nrdp:FiscalYear ;
+    rdfs:range xsd:integer .
+
+mcdm:BenefitCriterion a owl:Class ;
+    rdfs:label "편익형 기준"@ko ;
+    rdfs:subClassOf mcdm:Criterion ;
+    owl:disjointWith mcdm:CostCriterion .
+
+mcdm:hasNormalization a owl:ObjectProperty ;
+    rdfs:label "정규화값 보유"@ko ;
+    rdfs:comment "v0.2 신설. 하나의 CriterionValue는 정규화방법 수만큼(1..*) NormalizedValue를 가질 수 있다."@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range mcdm:NormalizedValue .
+
+mcdm:normalizedBy a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "정규화방법"@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range mcdm:NormalizationMethod .
+
+mcdm:ofAlternative a owl:ObjectProperty ;
+    rdfs:range mcdm:Alternative .
+
+mcdm:ofCriterionValue a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "원평가값"@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range mcdm:CriterionValue ;
+    owl:inverseOf mcdm:hasNormalization .
+
+mcdm:onCriterion a owl:ObjectProperty ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:representsEntity a owl:ObjectProperty ;
+    rdfs:label "대안이 표상하는 도메인 개체"@ko ;
+    rdfs:domain mcdm:Alternative .
+
+nrdp:FundingAgency a owl:Class ;
+    rdfs:label "전문기관"@ko ;
+    rdfs:comment "부처와 수행기관 사이의 국내 특유 중간 역할. CERIF 대응물 불완전."@ko ;
+    rdfs:subClassOf nrdp:Organization .
+
+nrdp:Ministry a owl:Class ;
+    rdfs:label "중앙행정기관"@ko ;
+    rdfs:subClassOf nrdp:Organization .
+
+nrdp:PerformingOrganization a owl:Class ;
+    rdfs:label "연구수행기관"@ko ;
+    rdfs:subClassOf nrdp:Organization .
+
+nrdp:TechnologyField a owl:Class ;
+    rdfs:label "기술분야"@ko ;
+    rdfs:comment "국가과학기술표준분류체계(과기정통부 고시) 기반."@ko ;
+    rdfs:subClassOf skos:Concept .
+
+nrdp:inFiscalYear a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range nrdp:FiscalYear .
+
+nrdp:ofProgram a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range nrdp:RnDProgram .
+
+mcdm:CostCriterion a owl:Class ;
+    rdfs:label "비용형 기준"@ko ;
+    rdfs:subClassOf mcdm:Criterion .
+
+mcdm:CriterionContribution a owl:Class ;
+    rdfs:label "기준별 기여도"@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+nrdp:BudgetAllocation a owl:Class ;
+    rdfs:label "예산배분"@ko ;
+    rdfs:comment "사업×연도×금액의 3항 관계를 재화한 클래스."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass nrdp:RnDProgram ;
+            owl:onProperty nrdp:ofProgram ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass nrdp:FiscalYear ;
+            owl:onProperty nrdp:inFiscalYear ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+nrdp:PolicyGoal a owl:Class ;
+    rdfs:label "정책목표"@ko ;
+    rdfs:comment "과학기술기본계획의 목표 체계."@ko .
+
+mcdm:DecisionProblem a owl:Class ;
+    rdfs:label "의사결정문제"@ko .
+
+mcdm:NormalizationMethod a owl:Class ;
+    rdfs:label "정규화방법"@ko .
+
+mcdm:OptimizationDirection a owl:Class ;
+    rdfs:label "최적화방향"@ko .
+
+mcdm:PreferenceFunction a owl:Class ;
+    rdfs:label "선호함수"@ko .
+
+nrdp:FiscalYear a owl:Class ;
+    rdfs:label "회계연도"@ko .
+
+nrdp:IndicatorObservation a owl:Class ;
+    rdfs:label "성과관측치"@ko ;
+    rdfs:comment "사업×연도×지표×값의 4항 관계를 재화한 클래스."@ko .
+
+nrdp:Organization a owl:Class ;
+    rdfs:label "기관"@ko ;
+    rdfs:subClassOf org:Organization .
+
+nrdp:PerformanceIndicator a owl:Class ;
+    rdfs:label "성과지표"@ko .
+
+mcdm:Alternative a owl:Class ;
+    rdfs:label "대안"@ko ;
+    rdfs:comment "평가 대상이 특정 의사결정 문제 안에서 맡는 역할(role). 도메인 개체와 동일시하지 않음 (Agent-Role ODP)."@ko .
+
+mcdm:CounterfactualCondition a owl:Class ;
+    rdfs:label "반사실조건"@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+mcdm:DecisionScenario a owl:Class ;
+    rdfs:label "의사결정 시나리오"@ko ;
+    rdfs:comment "하나의 정책 선호 = 하나의 가중치 집합."@ko .
+
+mcdm:Explanation a owl:Class ;
+    rdfs:label "설명"@ko .
+
+mcdm:MeasurementScale a owl:Class ;
+    rdfs:label "측정척도"@ko .
+
+mcdm:NormalizedValue a owl:Class ;
+    rdfs:label "정규화값"@ko ;
+    rdfs:comment "CriterionValue가 특정 NormalizationMethod로 변환된 값. (평가값×정규화방법)의 이항 관계를 재화한 n-ary 클래스. WSM·PROMETHEE II는 min-max, TOPSIS는 벡터 정규화를 쓰므로 동일 CriterionValue가 방법별로 서로 다른 NormalizedValue를 가질 수 있다 (v0.2, RQ2 대응)."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:CriterionValue ;
+            owl:onProperty mcdm:ofCriterionValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:NormalizationMethod ;
+            owl:onProperty mcdm:normalizedBy ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+mcdm:Weight a owl:Class ;
+    rdfs:label "가중치"@ko ;
+    rdfs:comment "기준의 고유 속성이 아니라 시나리오에 종속되는 개체."@ko .
+
+mcdm:CriterionValue a owl:Class ;
+    rdfs:label "평가값"@ko ;
+    rdfs:comment "대안×기준의 원시 평가값. n-ary 재화. v0.2부터 정규화값은 별도 보유하지 않고 hasNormalization으로 NormalizedValue를 참조."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:Alternative ;
+            owl:onProperty mcdm:ofAlternative ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:Criterion ;
+            owl:onProperty mcdm:onCriterion ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+mcdm:DecisionResult a owl:Class ;
+    rdfs:label "평가결과"@ko ;
+    rdfs:comment "(문제, 시나리오, 기법, 대안) 조합의 산출."@ko .
+
+mcdm:AggregationMethod a owl:Class ;
+    rdfs:label "집계기법"@ko .
+
+nrdp:RnDProgram a owl:Class ;
+    rdfs:label "국가연구개발사업"@ko ;
+    rdfs:comment "혁신법 별지 서식의 '사업' 단위. CERIF cfProj에 대응하나 3계층 중 최상위."@ko .
+
+mcdm:Criterion a owl:Class ;
+    rdfs:label "평가기준"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( mcdm:BenefitCriterion mcdm:CostCriterion ) ] .
+

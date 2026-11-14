@@ -1,0 +1,13 @@
+{
+  "title": "nrdp: 국가 R&D 포트폴리오 평가를 위한 방법 중립적 MCDM 온톨로지와 NTIS 지식그래프",
+  "upload_type": "dataset",
+  "description": "국가 R&D 포트폴리오 평가의 의사결정 구조를 특정 MCDM 기법에 종속되지 않게 표현하는 OWL 2 DL 온톨로지(MCDM 표현 계층, 도메인 계층, 분류 판 관리 모듈), SHACL shape, NTIS OpenAPI 과제검색·성과검색(공공누리 제1유형)으로 구축한 지식그래프, 역량질문 세트와 구축·검증 코드. 영구 IRI: https://w3id.org/nrdp/",
+  "creators": [{"name": "최혜석", "affiliation": "성균관대학교 정보통신대학원 빅데이터학과"}],
+  "license": "cc-by-4.0",
+  "keywords": ["ontology", "knowledge graph", "MCDM", "national R&D", "explainability", "OWL", "SHACL"],
+  "related_identifiers": [
+    {"identifier": "https://w3id.org/nrdp/", "relation": "isIdenticalTo", "resource_type": "dataset"},
+    {"identifier": "https://github.com/nova-choi/nrdp-ontology", "relation": "isSupplementTo"}
+  ],
+  "language": "kor"
+}

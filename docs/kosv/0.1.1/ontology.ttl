@@ -1,0 +1,311 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix kosv: <https://w3id.org/nrdp/kosv#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xkos: <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+xkos:madeOf a owl:ObjectProperty ;
+    rdfs:label "구성 연관"@ko ;
+    rdfs:domain xkos:Correspondence ;
+    rdfs:range xkos:ConceptAssociation .
+
+xkos:sourceConcept a owl:ObjectProperty ;
+    rdfs:label "원천 개념"@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range skos:Concept .
+
+xkos:supersedes a owl:ObjectProperty ;
+    rdfs:label "대체(이전 판 폐기)"@ko ;
+    rdfs:subPropertyOf xkos:follows .
+
+xkos:targetConcept a owl:ObjectProperty ;
+    rdfs:label "대상 개념"@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range skos:Concept .
+
+<https://w3id.org/nrdp/kosv> a owl:Ontology ;
+    dcterms:creator "최혜석" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:title "Classification edition and correspondence module"@en,
+        "분류체계 판 관리·대응표 모듈"@ko ;
+    owl:priorVersion <https://w3id.org/nrdp/kosv/0.1.0> ;
+    owl:versionIRI <https://w3id.org/nrdp/kosv/0.1.1> ;
+    owl:versionInfo "0.1.1" .
+
+kosv:HarmonizationActivity a owl:Class ;
+    rdfs:label "Harmonization run"@en,
+        "판 맞춤"@ko ;
+    rdfs:comment "원래 판의 분류값을 특정 대응표(prov:used)로 다른 판에 맞춘 값을 생성하는 활동. 생성된 값은 prov:wasDerivedFrom 으로 원래 값을 가리킨다. 원래 값은 덮어쓰지 않는다."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom xkos:Correspondence ],
+        prov:Activity .
+
+kosv:alsoRelocated a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "이동 동반"@ko ;
+    rdfs:comment "통합·분할이 중분류 이동을 동반하는 경우(대비표 '통합, 이동')."@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range xsd:boolean .
+
+kosv:announcedYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "고시(발표) 연도"@ko ;
+    rdfs:domain kosv:ClassificationEdition ;
+    rdfs:range xsd:integer .
+
+kosv:discontinuedIn a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "종료 판"@ko ;
+    rdfs:comment "후속 판에서 대상 개념이 없는 개념. 대비표의 '삭제' 표기는 실제로는 다른 중분류로의 이동·통합인 경우가 있으므로(예: 2018판 EE08·EE09 → 2023판 EE1207·EE1208), 검토 후에만 부여한다."@ko ;
+    rdfs:domain skos:Concept ;
+    rdfs:range kosv:ClassificationEdition .
+
+kosv:editionOf a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "소속 분류체계"@ko ;
+    rdfs:domain kosv:ClassificationEdition ;
+    rdfs:range kosv:Classification ;
+    rdfs:subPropertyOf xkos:belongsTo .
+
+kosv:introducedIn a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "도입 판"@ko ;
+    rdfs:comment "대비표의 '신설' 항목. 이전 판에 원천 개념이 없다."@ko ;
+    rdfs:domain skos:Concept ;
+    rdfs:range kosv:ClassificationEdition .
+
+kosv:reviewStatus a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "검토 상태"@ko ;
+    rdfs:comment "자동 추출 → 수작업 검토 → 근거 재대조(재검토)의 단계. 재검토에서 바뀐 판정은 변경 전후를 함께 기록한다. 값은 ReviewStatus 체계(kosv-schemes, 미작성)."@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range skos:Concept .
+
+kosv:shareValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "비중"@ko ;
+    rdfs:domain kosv:AllocationShare ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:decimal ;
+            owl:withRestrictions ( [ xsd:minInclusive 0.0 ] [ xsd:maxInclusive 1.0 ] ) ] .
+
+kosv:sourceDocument a owl:DatatypeProperty ;
+    rdfs:label "근거 문서"@ko ;
+    rdfs:domain xkos:Correspondence ;
+    rdfs:range xsd:string .
+
+kosv:sourceEdition a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "이전 판"@ko ;
+    rdfs:domain xkos:Correspondence ;
+    rdfs:range kosv:ClassificationEdition ;
+    rdfs:subPropertyOf xkos:compares .
+
+kosv:sourceLocator a owl:DatatypeProperty ;
+    rdfs:label "근거 위치"@ko ;
+    rdfs:comment "근거 문서 내 위치(쪽·행). 감사 추적용."@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range xsd:string .
+
+kosv:targetEdition a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "이후 판"@ko ;
+    rdfs:domain xkos:Correspondence ;
+    rdfs:range kosv:ClassificationEdition ;
+    rdfs:subPropertyOf xkos:compares .
+
+kosv:validFromYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "적용 시작연도"@ko ;
+    rdfs:comment "이 판이 과제정보 입력에 적용되기 시작한 연도(고시 연도와 다를 수 있음)."@ko ;
+    rdfs:domain kosv:ClassificationEdition ;
+    rdfs:range xsd:integer .
+
+kosv:validToYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "적용 종료연도"@ko ;
+    rdfs:domain kosv:ClassificationEdition ;
+    rdfs:range xsd:integer .
+
+xkos:belongsTo a owl:ObjectProperty .
+
+xkos:follows a owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "계승"@ko ;
+    rdfs:domain kosv:ClassificationEdition ;
+    rdfs:range kosv:ClassificationEdition .
+
+prov:Activity a owl:Class .
+
+prov:used a owl:ObjectProperty .
+
+kosv:Classification a owl:Class ;
+    rdfs:label "Classification"@en,
+        "분류체계"@ko ;
+    rdfs:comment "판을 묶는 분류체계 자체(예: 국가과학기술표준분류). XKOS는 이를 skos:Concept 로 모델링하도록 권고하나, 여기서는 판(ConceptScheme)과 구분되는 별도 클래스로 둔다."@ko .
+
+kosv:changeType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "변경 유형"@ko ;
+    rdfs:domain xkos:ConceptAssociation ;
+    rdfs:range kosv:ChangeType .
+
+kosv:correspondenceBasis a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "대응 근거"@ko ;
+    rdfs:comment "대응표 단위로 부여하되, 같은 대응표 안에서 근거가 다른 연관(공식 대비표 + 규칙 도출)은 연관 단위로 덮어쓴다."@ko ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( xkos:Correspondence xkos:ConceptAssociation ) ] ;
+    rdfs:range kosv:CorrespondenceBasis .
+
+kosv:fromConcept a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "배분 원천 개념"@ko ;
+    rdfs:domain kosv:AllocationShare ;
+    rdfs:range skos:Concept .
+
+kosv:shareOf a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "배분 대상 연관"@ko ;
+    rdfs:domain kosv:AllocationShare ;
+    rdfs:range xkos:ConceptAssociation .
+
+kosv:toConcept a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "배분 대상 개념"@ko ;
+    rdfs:domain kosv:AllocationShare ;
+    rdfs:range skos:Concept .
+
+kosv:DataDerived a owl:NamedIndividual,
+        kosv:CorrespondenceBasis ;
+    rdfs:label "데이터 도출"@ko ;
+    rdfs:comment "동일 과제의 이중 코딩(구·신 분류 병기) 빈도에서 추정."@ko .
+
+kosv:Identity a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "동일"@ko ;
+    rdfs:comment "코드·명칭 동일. 1:1."@ko .
+
+kosv:Merge a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "통합"@ko ;
+    rdfs:comment "N:1."@ko .
+
+kosv:MergeResplit a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "통합 후 재분할"@ko ;
+    rdfs:comment "N:M. 집계 시 배분 규칙 필요."@ko .
+
+kosv:OfficialTable a owl:NamedIndividual,
+        kosv:CorrespondenceBasis ;
+    rdfs:label "공식 대비표"@ko ;
+    rdfs:comment "고시 문서의 신구 대비표에서 추출."@ko .
+
+kosv:Relocation a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "이동"@ko ;
+    rdfs:comment "다른 중분류로 이동하며 코드 변경. 1:1 또는 통합과 결합."@ko .
+
+kosv:Rename a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "명칭변경"@ko ;
+    rdfs:comment "코드 유지·명칭 변경. 1:1. 의미 범위 변화 여부는 해설서 대조로 별도 판단."@ko .
+
+kosv:ResearcherAuthored a owl:NamedIndividual,
+        kosv:CorrespondenceBasis ;
+    rdfs:label "연구자 작성"@ko ;
+    rdfs:comment "공식 대응표가 없는 경우. 연관마다 근거 문서·위치(sourceDocument)와 판정 사유를 기록하여, 판정자 합의 대신 기록 대조로 검토한다."@ko .
+
+kosv:RuleDerived a owl:NamedIndividual,
+        kosv:CorrespondenceBasis ;
+    rdfs:label "규칙 도출"@ko ;
+    rdfs:comment "명시적 규칙에서 도출(예: 대비표에 수록되지 않은 중분류는 코드 동일 개념끼리 1:1)."@ko .
+
+kosv:Split a owl:NamedIndividual,
+        kosv:ChangeType ;
+    rdfs:label "분할"@ko ;
+    rdfs:comment "1:N. 집계 시 배분 규칙 필요."@ko .
+
+xkos:compares a owl:ObjectProperty ;
+    rdfs:label "비교 대상 판"@ko ;
+    rdfs:domain xkos:Correspondence ;
+    rdfs:range skos:ConceptScheme .
+
+skos:ConceptScheme a owl:Class .
+
+kosv:AllocationShare a owl:Class ;
+    rdfs:label "Allocation share"@en,
+        "배분 비중"@ko ;
+    rdfs:comment "분할·통합 후 재분할 연관에서 (원천, 대상) 쌍별 배분 비중. 집계값이 이 비중에 의존하므로 근거를 함께 기록한다. 같은 원천의 비중 합 = 1 은 SHACL로 검사."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass xkos:ConceptAssociation ;
+            owl:onProperty kosv:shareOf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass skos:Concept ;
+            owl:onProperty kosv:fromConcept ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass skos:Concept ;
+            owl:onProperty kosv:toConcept ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+kosv:CorrespondenceBasis a owl:Class ;
+    rdfs:label "Correspondence basis"@en,
+        "대응 근거"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( kosv:OfficialTable kosv:RuleDerived kosv:ResearcherAuthored kosv:DataDerived ) ] .
+
+xkos:Correspondence a owl:Class ;
+    rdfs:label "Correspondence"@en,
+        "대응표"@ko ;
+    rdfs:comment "두 판 사이의 개념 연관 집합."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass skos:ConceptScheme ;
+            owl:onProperty xkos:compares ],
+        [ a owl:Restriction ;
+            owl:onClass kosv:CorrespondenceBasis ;
+            owl:onProperty kosv:correspondenceBasis ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+kosv:ChangeType a owl:Class ;
+    rdfs:label "Change type"@en,
+        "변경 유형"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( kosv:Identity kosv:Rename kosv:Merge kosv:Split kosv:MergeResplit kosv:Relocation ) ] .
+
+skos:Concept a owl:Class .
+
+xkos:ConceptAssociation a owl:Class ;
+    rdfs:label "Concept association"@en,
+        "개념 연관"@ko ;
+    rdfs:comment "원천 개념 n개와 대상 개념 m개의 연관(n:m을 한 개체로 표현). 원천·대상 개수와 변경 유형의 정합성은 폐쇄세계 검사이므로 SHACL(kosv-shapes.ttl)로 위임한다."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass kosv:ChangeType ;
+            owl:onProperty kosv:changeType ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+kosv:ClassificationEdition a owl:Class ;
+    rdfs:label "Classification edition"@en,
+        "분류체계 판"@ko ;
+    rdfs:comment "분류체계의 한 개정판. 유효기간은 연도 정수로 기록(xsd:gYear 는 OWL 2 datatype map 밖). XKOS 권고에 따라 dcterms:valid 를 주석으로 병기할 수 있다."@ko ;
+    rdfs:subClassOf skos:ConceptScheme .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( kosv:Identity kosv:Rename kosv:Merge kosv:Split kosv:MergeResplit kosv:Relocation ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( kosv:OfficialTable kosv:RuleDerived kosv:ResearcherAuthored kosv:DataDerived ) .
+

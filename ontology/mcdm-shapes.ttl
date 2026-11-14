@@ -1,0 +1,155 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mcdm: <https://w3id.org/nrdp/mcdm#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/nrdp/shapes/mcdm> a owl:Ontology ;
+    dcterms:title "MCDM 표현 계층 SHACL shape (M1~M7)"@ko , "SHACL shapes for the MCDM representation layer (M1-M7)"@en ;
+    dcterms:creator "최혜석" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-31"^^xsd:date ;
+    dcterms:requires <https://w3id.org/nrdp/mcdm/0.3.5> ;
+    owl:versionIRI <https://w3id.org/nrdp/shapes/mcdm/0.3.5> ;
+    owl:versionInfo "0.3.5" .
+
+
+#################################################################
+#  MCDM 표현 계층 SHACL shape (mcdm-core.ttl 이 OWL 2 DL 밖으로 위임한 제약)
+#  작성 2026-10-19. 대상 어휘: mcdm-core v0.3.0 (M1~M5는 v0.2.1 합성 데이터에도 적용 가능한 속성만 사용)
+#  M6 추가 2026-10-19 (mcdm-core v0.3.2: OWL 데이터타입 제한에서 이관)
+#   M1 한 DecisionScenario 의 hasWeightValue 합 = 1 (허용오차 1e-4)       위반
+#   M2 한 (문제, 시나리오, 기법) 안의 hasRank 는 1..n 순열                 위반
+#   M3 CriterionContribution 은 가산 분해 가능 기법의 결과에만               위반
+#   M4 (CriterionValue, NormalizationMethod) 쌍당 NormalizedValue 1개        위반
+#   M5 문제의 (대안, 리프 기준) 쌍에 CriterionValue 존재 (결측 탐지)        경고
+#   M6 정규화값이 그 정규화방법의 허용 하한·상한 안 (선언된 경계만 검사)  위반
+#  M7 추가 2026-10-23 (mcdm-core v0.3.4: hasContributionValue)
+#   M7 한 결과의 기준별 기여값 합 = 그 결과의 점수 (허용오차 1e-4)         위반
+#  sh:sum 은 SHACL Core 에 없고 나머지도 다른 개체의 값을 참조하므로 M1~M7 은 모두 SHACL-SPARQL 로 작성한다.
+#################################################################
+
+mcdm:sh_prefixes a owl:Ontology ;
+    sh:declare [ sh:prefix "mcdm" ; sh:namespace "https://w3id.org/nrdp/mcdm#"^^xsd:anyURI ] .
+
+# M1 가중치 합
+mcdm:ScenarioWeightSumShape a sh:NodeShape ;
+    sh:targetClass mcdm:DecisionScenario ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M1: 시나리오 {$this} 의 가중치 합이 {?sum} (1이어야 함)" ;
+        sh:select """
+          SELECT $this (SUM(?v) AS ?sum) WHERE {
+            $this mcdm:hasWeight ?w .
+            OPTIONAL { ?w mcdm:hasWeightValue ?wv }
+            BIND (COALESCE(?wv, 0) AS ?v)
+          } GROUP BY $this
+            HAVING (ABS(SUM(?v) - 1.0) > 0.0001)
+          """ ] ,
+      [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M1: 시나리오 {$this} 에서 기준 {?c} 에 가중치가 둘 이상 부여됨" ;
+        sh:select """
+          SELECT $this ?c WHERE {
+            $this mcdm:hasWeight ?w1 , ?w2 .
+            ?w1 mcdm:assignedToCriterion ?c . ?w2 mcdm:assignedToCriterion ?c .
+            FILTER (?w1 != ?w2)
+          } GROUP BY $this ?c
+          """ ] .
+
+# M2 순위 순열: 같은 (문제, 시나리오, 기법) 안에서 순위 중복 또는 범위 밖 순위
+mcdm:RankPermutationShape a sh:NodeShape ;
+    sh:targetClass mcdm:DecisionResult ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 다른 결과 {?y} 와 중복" ;
+        sh:select """
+          SELECT $this ?r ?y WHERE {
+            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            ?y mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            FILTER (?y != $this)
+          }
+          """ ] ,
+      [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 결과 수 {?n} 를 넘음" ;
+        sh:select """
+          SELECT $this ?r (COUNT(DISTINCT ?x) AS ?n) WHERE {
+            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            ?x mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m .
+          } GROUP BY $this ?r
+            HAVING (?r > COUNT(DISTINCT ?x))
+          """ ] .
+
+# M3 기여 분해는 가산 분해 가능 기법의 결과에만
+mcdm:ContributionMethodShape a sh:NodeShape ;
+    sh:targetClass mcdm:CriterionContribution ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M3: 기여 분해 {$this} 의 대상 결과가 가산 분해를 지원하지 않는 기법 {?m} 의 산출임" ;
+        sh:select """
+          SELECT $this ?m WHERE {
+            $this mcdm:explains ?dr . ?dr mcdm:byMethod ?m .
+            FILTER NOT EXISTS { ?m mcdm:supportsAdditiveDecomposition true }
+          }
+          """ ] .
+
+# M4 정규화값 복합 키
+mcdm:NormalizedValueKeyShape a sh:NodeShape ;
+    sh:targetClass mcdm:NormalizedValue ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M4: 평가값 {?cv} 와 정규화방법 {?nm} 쌍에 정규화값이 둘 이상" ;
+        sh:select """
+          SELECT $this ?cv ?nm WHERE {
+            $this mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .
+            ?o mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .
+            FILTER (?o != $this)
+          }
+          """ ] .
+
+# M5 (경고) 결측 평가값. 리프 기준 = 문제의 기준 가운데 하위기준이 없는 것
+mcdm:MissingCriterionValueShape a sh:NodeShape ;
+    sh:targetClass mcdm:Alternative ;
+    sh:severity sh:Warning ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M5: 대안 {$this} 의 리프 기준 {?c} 평가값 없음" ;
+        sh:select """
+          SELECT $this ?c WHERE {
+            { $this mcdm:inProblem ?p } UNION { ?p mcdm:hasAlternative $this }
+            ?p mcdm:hasCriterion ?c .
+            FILTER NOT EXISTS { ?c mcdm:hasSubCriterion ?sub }
+            FILTER NOT EXISTS { ?cv mcdm:ofAlternative $this ; mcdm:onCriterion ?c }
+          }
+          """ ] .
+
+# M6 정규화값 허용 범위 (v0.3.2). 경계는 정규화방법 개체에 기록하며, 기록되지 않은 경계는 검사하지 않는다.
+mcdm:NormalizedValueRangeShape a sh:NodeShape ;
+    sh:targetClass mcdm:NormalizedValue ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M6: 정규화값 {?v} 가 정규화방법 {?nm} 의 허용 범위 밖" ;
+        sh:select """
+          SELECT $this ?v ?nm WHERE {
+            $this mcdm:hasValue ?v ; mcdm:normalizedBy ?nm .
+            OPTIONAL { ?nm mcdm:normalizedLowerBound ?lo }
+            OPTIONAL { ?nm mcdm:normalizedUpperBound ?hi }
+            FILTER ( (BOUND(?lo) && ?v < ?lo) || (BOUND(?hi) && ?v > ?hi) )
+          }
+          """ ] .
+
+# M7 기여값 합 = 점수 (v0.3.4). 기여값이 하나라도 기록된 결과만 검사한다.
+mcdm:ContributionSumShape a sh:NodeShape ;
+    sh:targetClass mcdm:DecisionResult ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:prefixes mcdm:sh_prefixes ;
+        sh:message "M7: 결과 {$this} 의 기준별 기여값 합 {?sum} 이 점수 {?s} 와 다름" ;
+        sh:select """
+          SELECT $this ?s (SUM(?v) AS ?sum) WHERE {
+            $this mcdm:hasScore ?s .
+            ?cc mcdm:explains $this ; mcdm:hasContributionValue ?v .
+          } GROUP BY $this ?s
+            HAVING (ABS(SUM(?v) - ?s) > 0.0001)
+          """ ] .

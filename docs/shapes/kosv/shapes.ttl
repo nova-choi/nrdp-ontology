@@ -1,0 +1,123 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix kosv: <https://w3id.org/nrdp/kosv#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xkos: <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kosv:AllocationShareShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:path kosv:shareValue ] ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "K4: 연관 {?a} 의 원천 {?f} 에 대한 배분 비중 합이 {?sum} (1이어야 함)" ;
+            sh:prefixes kosv:sh_prefixes ;
+            sh:select """
+          SELECT $this ?a ?f (SUM(?v) AS ?sum) WHERE {
+            $this kosv:shareOf ?a ; kosv:fromConcept ?f .
+            ?x kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:shareValue ?v .
+          } GROUP BY $this ?a ?f
+            HAVING (ABS(SUM(?v) - 1.0) > 0.0001)
+          """ ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "K4: 배분 쌍({?f}→{?t})이 연관의 원천·대상이 아님" ;
+            sh:prefixes kosv:sh_prefixes ;
+            sh:select """
+          SELECT $this ?f ?t WHERE {
+            $this kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:toConcept ?t .
+            FILTER ( NOT EXISTS { ?a xkos:sourceConcept ?f } || NOT EXISTS { ?a xkos:targetConcept ?t } )
+          }""" ] ;
+    sh:targetClass kosv:AllocationShare .
+
+kosv:AssociationCardinalityShape a sh:NodeShape ;
+    sh:property [ sh:message "K2: 대상 개념 없음(종료는 연관이 아니라 kosv:discontinuedIn 으로 기록)" ;
+            sh:minCount 1 ;
+            sh:path xkos:targetConcept ],
+        [ sh:maxCount 1 ;
+            sh:message "K2: 변경 유형이 정확히 1개여야 함" ;
+            sh:minCount 1 ;
+            sh:path kosv:changeType ],
+        [ sh:message "K2: 원천 개념 없음(신설은 연관이 아니라 kosv:introducedIn 으로 기록)" ;
+            sh:minCount 1 ;
+            sh:path xkos:sourceConcept ] ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "K2: 변경 유형 {?ct} 와 원천 {?ns}개·대상 {?nt}개가 맞지 않음" ;
+            sh:prefixes kosv:sh_prefixes ;
+            sh:select """
+          SELECT $this ?ct ?ns ?nt WHERE {
+            $this kosv:changeType ?ct .
+            { SELECT $this (COUNT(DISTINCT ?s) AS ?ns) WHERE { $this xkos:sourceConcept ?s } GROUP BY $this }
+            { SELECT $this (COUNT(DISTINCT ?t) AS ?nt) WHERE { $this xkos:targetConcept ?t } GROUP BY $this }
+            FILTER (
+              ( ?ct IN (kosv:Identity, kosv:Rename, kosv:Relocation) && (?ns != 1 || ?nt != 1) ) ||
+              ( ?ct = kosv:Merge        && (?ns < 2  || ?nt != 1) ) ||
+              ( ?ct = kosv:Split        && (?ns != 1 || ?nt < 2) ) ||
+              ( ?ct = kosv:MergeResplit && (?ns < 2  || ?nt < 2) )
+            )
+          }""" ] ;
+    sh:targetClass xkos:ConceptAssociation .
+
+kosv:AssociationEditionShape a sh:NodeShape ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "K3: 개념 {?c} 가 대응표의 해당 판({?ed})에 속하지 않음" ;
+            sh:prefixes kosv:sh_prefixes ;
+            sh:select """
+          SELECT $this ?c ?ed WHERE {
+            ?corr xkos:madeOf $this .
+            { ?corr kosv:sourceEdition ?ed . $this xkos:sourceConcept ?c . }
+            UNION
+            { ?corr kosv:targetEdition ?ed . $this xkos:targetConcept ?c . }
+            FILTER NOT EXISTS { ?c skos:inScheme ?ed }
+          }""" ] ;
+    sh:targetClass xkos:ConceptAssociation .
+
+kosv:CorrespondenceShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:message "K1: 대응표의 이전 판이 정확히 1개여야 함" ;
+            sh:minCount 1 ;
+            sh:path kosv:sourceEdition ],
+        [ sh:maxCount 1 ;
+            sh:message "K1: 대응표의 이후 판이 정확히 1개여야 함" ;
+            sh:minCount 1 ;
+            sh:path kosv:targetEdition ],
+        [ sh:disjoint kosv:targetEdition ;
+            sh:message "K1: 이전 판과 이후 판이 같음" ;
+            sh:path kosv:sourceEdition ],
+        [ sh:maxCount 1 ;
+            sh:message "K1: 대응 근거 누락" ;
+            sh:minCount 1 ;
+            sh:path kosv:correspondenceBasis ] ;
+    sh:targetClass xkos:Correspondence .
+
+kosv:SplitAllocationWarningShape a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "K5: 분할·N:M 연관에 배분 비중이 없음 — 집계 시 기본 배분 규칙(균등 배분 등)이 적용됨을 기록할 것" ;
+            sh:prefixes kosv:sh_prefixes ;
+            sh:select """
+          SELECT $this WHERE {
+            $this kosv:changeType ?ct . FILTER (?ct IN (kosv:Split, kosv:MergeResplit))
+            FILTER NOT EXISTS { ?x kosv:shareOf $this }
+          }""" ] ;
+    sh:targetClass xkos:ConceptAssociation .
+
+<https://w3id.org/nrdp/shapes/kosv> a owl:Ontology ;
+    dcterms:creator "최혜석" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-31"^^xsd:date ;
+    dcterms:requires <https://w3id.org/nrdp/kosv/0.1.2> ;
+    dcterms:title "SHACL shapes for the classification-edition module (K1-K5)"@en,
+        "분류 판 관리 SHACL shape (K1~K5)"@ko ;
+    owl:versionIRI <https://w3id.org/nrdp/shapes/kosv/0.1.2> ;
+    owl:versionInfo "0.1.2" .
+
+kosv:sh_prefixes sh:declare [ sh:namespace "https://w3id.org/nrdp/kosv#"^^xsd:anyURI ;
+            sh:prefix "kosv" ],
+        [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
+            sh:prefix "xkos" ],
+        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ] .
+

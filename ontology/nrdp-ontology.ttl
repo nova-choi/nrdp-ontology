@@ -1,0 +1,513 @@
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix nrdp:    <https://w3id.org/nrdp/ontology#> .
+@prefix mcdm:    <https://w3id.org/nrdp/mcdm#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix kosv:    <https://w3id.org/nrdp/kosv#> .
+
+#################################################################
+#  국가 R&D 포트폴리오 도메인 계층 (Layer 1) + 출처 계층 도메인부 (Layer 3)
+#  v0.3.0 — 2026-10-10 / v0.3.1 — 2026-10-19 (strategicTechnology 추가, 실데이터 구축)
+#  v0.3.2 — 2026-10-19 (이 파일의 공리 변경 없음. mcdm-core 0.3.2 개정에 맞춘 판 표기)
+#  v0.3.3 — 2026-10-20 (OOPS! 진단 반영: partOfProgram 추이성 → 비반사·비대칭(P29), inFiscalYear·recordedProgramName
+#           도메인 선언과 수행기관 하위 속성의 도메인·레인지 명시(P11), 레이블 보완(P08))
+#
+#  변경 근거: 부록A_법정근거_추적표_v0.1 (P1 항목, T1~T9),
+#            NTIS OpenAPI 과제검색(2025.12)·성과검색(2024) 매뉴얼,
+#            열린재정 예산 코드 체계 대조(A11), 조사·분석 실시계획 2022(A12)
+#  의존: mcdm-core.ttl 을 imports. 역방향 의존 없음.
+#################################################################
+
+<https://w3id.org/nrdp/ontology> a owl:Ontology ;
+    dcterms:title "National R&D portfolio domain ontology"@en ,
+                  "국가 R&D 포트폴리오 도메인 온톨로지"@ko ;
+    dcterms:creator "최혜석" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <https://w3id.org/nrdp/mcdm> , <https://w3id.org/nrdp/kosv> ;
+    owl:versionIRI <https://w3id.org/nrdp/ontology/0.3.5> ;
+    dcterms:description "국가연구개발혁신법 시행규칙 서식과 국가과학기술표준분류 등 국내 법정·고시 기준에서 도출한 국가 R&D 포트폴리오 도메인 계층(사업·과제·부처·전문기관·수행기관·기술분야·예산·성과). CERIF 1.6.1과 정렬하였다."@ko ,
+                        "Domain layer for the Korean national R&D portfolio (programmes, projects, ministries, funding agencies, performers, technology fields, budgets, outputs), derived from Korean statutory forms and classification notices and aligned with CERIF 1.6.1."@en ;
+    dcterms:modified "2026-10-31"^^xsd:date ;
+    vann:preferredNamespacePrefix "nrdp" ;
+    vann:preferredNamespaceUri "https://w3id.org/nrdp/ontology#" ;
+    owl:versionInfo "0.3.5" ;
+    owl:priorVersion <https://w3id.org/nrdp/ontology/0.3.4> ;
+    rdfs:comment "v0.3.5: 공개용 메타데이터(설명, 수정일, 선호 접두어·네임스페이스) 추가. 논리 공리는 v0.3.4와 동일."@ko .
+
+#################################################################
+#  1. 사업 계층 — 세부사업 / 내역사업 / 과제 / 과제연도기록
+#################################################################
+
+nrdp:RnDProgram a owl:Class ;
+    rdfs:label "국가연구개발사업(세부사업)"@ko , "R&D program (budget activity)"@en ;
+    rdfs:comment "재정 예산체계의 세부사업(dBrain 최하위 사업 단위)에 대응한다. NTIS 과제검색의 BudgetProject(사업명)와 예산사업 코드 23~24자리의 말단 3자리(세부사업 코드)가 이 층위임을 근거로 한다(A11). 연도에 따라 예산 코드가 바뀌어도 동일 개체로 유지되며, 연도별 코드는 BudgetAllocation 에 기록한다."@ko .
+
+nrdp:RnDSubProgram a owl:Class ;
+    rdfs:label "내역사업"@ko , "Sub-activity"@en ;
+    rdfs:comment "세부사업 아래의 내역사업(NTIS BigprojectTitle). dBrain에 탑재되지 않는 하위 분류이며 CERIF에 직접 대응물이 없다. v0.2 레이블 '세부사업'을 정정."@ko .
+
+nrdp:RnDProject a owl:Class ;
+    rdfs:label "연구개발과제"@ko , "R&D project"@en ;
+    rdfs:comment "협약 단위의 다년 과제. NTIS는 과제를 연도별 레코드(과제고유번호)로 분할하므로, 연도별 정보는 ProjectYearRecord 가 보유한다."@ko .
+
+nrdp:ProjectYearRecord a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "과제연도기록"@ko , "Project-year record"@en ;
+    rdfs:comment "과제×회계연도 재화(n-ary). NTIS 과제고유번호 1건에 대응. 연구비·분류·수행기관·소속 사업이 연도별로 달라질 수 있어 과제가 아닌 이 단위에 귀속한다."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:ofProject ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:RnDProject ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:inFiscalYear ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:FiscalYear ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:ntisProjectId ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ] .
+
+nrdp:ofProject a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "소속 과제"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:RnDProject .
+
+nrdp:precededBy a owl:ObjectProperty , owl:FunctionalProperty , owl:IrreflexiveProperty ;
+    rdfs:label "이전 연도 기록"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:ProjectYearRecord ;
+    rdfs:comment "NTIS PrePjtId·SeriesProject 기반. 연속과제의 동일성 판정 근거."@ko .
+
+nrdp:partOfProgram a owl:ObjectProperty , owl:IrreflexiveProperty , owl:AsymmetricProperty ;
+    rdfs:label "상위사업"@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:ProjectYearRecord nrdp:RnDSubProgram ) ] ;
+    rdfs:range  [ a owl:Class ; owl:unionOf ( nrdp:RnDSubProgram nrdp:RnDProgram ) ] ;
+    rdfs:comment "과제연도기록→내역사업→세부사업의 직접 소속. 과제의 소속 사업은 연도별로 달라질 수 있어 과제가 아닌 과제연도기록에서 출발한다. v0.3.3에서 추이적 선언 대신 비반사·비대칭으로 선언하고 전이 폐쇄는 질의로 처리한다(OOPS! P29, T1과 같은 원칙)."@ko .
+
+#################################################################
+#  2. 식별자 (A1 계열)
+#################################################################
+
+nrdp:ntisProjectId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "과제고유번호(NTIS)"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:string .
+
+nrdp:agencyProjectNumber a owl:DatatypeProperty ;
+    rdfs:label "세부과제번호(전문기관)"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:string .
+
+nrdp:budgetCode a owl:DatatypeProperty ;
+    rdfs:label "예산사업 코드"@ko ;
+    rdfs:domain nrdp:BudgetAllocation ; rdfs:range xsd:string ;
+    rdfs:comment "연도별 예산 코드. 구조: 소관(2|3) + 회계구분(1) + 회계(3) + 분야(3) + 부문(3) + 프로그램(4) + 단위사업(4) + 세부사업(3). 소관 코드 체계 전환(2→3자리)과 부문 재편(2020년 과학기술 분야 155 신설 등)으로 같은 세부사업의 코드가 연도에 따라 달라지므로, 사업 식별자로 쓰지 않는다. v0.3.4: 함수적 속성 선언을 해제하였다. 다부처 사업은 같은 연도에 부처별 예산 코드를 둘 이상 가진다(2023년 실데이터: 범부처재생의료기술개발사업, 스마트제조혁신기술개발). 코드별 금액이 필요하면 예산배분을 코드 단위로 나눈다."@ko .
+
+nrdp:recordedProgramName a owl:DatatypeProperty ;
+    rdfs:label "원천 표기 사업명"@ko ;
+    rdfs:comment "원천 레코드에 기재된 사업명 문자열(감사 추적용). 정규화된 사업 개체는 partOfProgram/ofProgram 으로 연결."@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ;
+    rdfs:range xsd:string .
+
+nrdp:orgCode a owl:DatatypeProperty ;
+    rdfs:label "기관 코드"@ko ;
+    rdfs:domain nrdp:Organization ; rdfs:range xsd:string ;
+    rdfs:comment "NTIS 기관 코드(예: B350021) 또는 재정 소관 코드. 코드 체계는 codeScheme 주석으로 구분."@ko .
+
+#################################################################
+#  3. 기관 — 역할 구분과 개편 이력
+#################################################################
+
+nrdp:Organization a owl:Class ;
+    rdfs:subClassOf org:Organization ;
+    rdfs:label "기관"@ko , "Organization"@en .
+
+nrdp:Ministry a owl:Class ;
+    rdfs:subClassOf nrdp:Organization ;
+    rdfs:label "중앙행정기관"@ko , "Ministry"@en .
+
+nrdp:FundingAgency a owl:Class ;
+    rdfs:subClassOf nrdp:Organization ;
+    rdfs:label "전문기관"@ko , "Funding agency"@en ;
+    rdfs:comment "부처와 수행기관 사이의 국내 특유 중간 역할. CERIF 대응물 불완전."@ko .
+
+nrdp:PerformingOrganization a owl:Class ;
+    rdfs:subClassOf nrdp:Organization ;
+    rdfs:label "연구수행기관"@ko , "Performing organization"@en .
+
+nrdp:MinistryReorganization a owl:Class ;
+    rdfs:subClassOf org:ChangeEvent ;
+    rdfs:label "부처 개편"@ko , "Ministry reorganization"@en ;
+    rdfs:comment "org:originalOrganization / org:resultingOrganization 으로 개편 전후 부처를 잇는다. 예: 미래창조과학부 → 과학기술정보통신부(2017)."@ko .
+
+nrdp:fundedBy a owl:ObjectProperty ;
+    rdfs:label "소관부처"@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:RnDProgram nrdp:ProjectYearRecord ) ] ;
+    rdfs:range nrdp:Ministry ;
+    rdfs:comment "사업 수준은 다년에 걸친 소관, 과제연도기록 수준은 해당 연도 소관(개편 전 명칭 포함)."@ko .
+
+nrdp:managedBy a owl:ObjectProperty ;
+    rdfs:label "전담(전문)기관"@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:RnDProgram nrdp:ProjectYearRecord ) ] ;
+    rdfs:range nrdp:FundingAgency .
+
+nrdp:performedBy a owl:ObjectProperty ;
+    rdfs:label "수행기관"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:PerformingOrganization .
+
+nrdp:leadPerformer a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:subPropertyOf nrdp:performedBy ;
+    rdfs:label "주관연구개발기관"@ko ;
+    rdfs:comment "NTIS 과제검색 ResearchAgency. 공개 API가 제공하는 유일한 수행기관 역할."@ko .
+nrdp:jointPerformer a owl:ObjectProperty ;
+    rdfs:subPropertyOf nrdp:performedBy ;
+    rdfs:label "공동연구개발기관"@ko ;
+    rdfs:comment "법정 서식 항목. 공개 API 미제공 — 원자료 확보 시에만 인스턴스화."@ko .
+nrdp:commissionedPerformer a owl:ObjectProperty ;
+    rdfs:subPropertyOf nrdp:performedBy ;
+    rdfs:label "위탁연구개발기관"@ko ;
+    rdfs:comment "법정 서식 항목. 공개 API 미제공."@ko .
+
+nrdp:performerCategory a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "연구수행주체"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept ;
+    rdfs:comment "NTIS PerformAgent 코드. 값은 연구수행주체 ConceptScheme(nrdp-schemes.ttl)."@ko .
+
+#################################################################
+#  4. 분류 — 순위·비중을 보존하는 분야 배정, 판(edition) 구분
+#################################################################
+
+nrdp:TechnologyField a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:subClassOf [ a owl:Restriction ; owl:onProperty skos:inScheme ;
+        owl:someValuesFrom kosv:ClassificationEdition ] ;
+    rdfs:label "기술분야(국가과학기술표준분류)"@ko , "Technology field"@en ;
+    rdfs:comment "개념은 판별(kosv:ClassificationEdition) 개념으로 둔다. 코드가 같아도 판이 다르면 별개 IRI이며, 판 간 연결은 대응표(xkos:Correspondence)로만 표현한다. 판 내부의 계층은 코드 접두(대·중분류)로 skos:broader 를 부여한다. 2023판 고시본의 세부영역 코드도 중분류 접두를 유지하므로 계층 부여에 문제가 없다."@ko .
+
+nrdp:FieldAssignment a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "분야 배정"@ko , "Field assignment"@en ;
+    rdfs:comment "과제연도기록×기술분야×순위(×비중)의 재화. 법정 서식은 1~3순위와 비중을 기재하나 공개 API는 순위만 제공하므로 비중은 선택 항목이다."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:assignmentOf ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:ProjectYearRecord ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:assignedField ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:TechnologyField ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:assignmentRank ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ] .
+
+nrdp:assignmentOf a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:FieldAssignment ; rdfs:range nrdp:ProjectYearRecord .
+nrdp:assignedField a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:FieldAssignment ; rdfs:range nrdp:TechnologyField .
+nrdp:assignmentRank a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "순위"@ko ;
+    rdfs:domain nrdp:FieldAssignment ;
+    rdfs:range [ a rdfs:Datatype ; owl:onDatatype xsd:integer ;
+        owl:withRestrictions ( [ xsd:minInclusive "1"^^xsd:integer ] [ xsd:maxInclusive "3"^^xsd:integer ] ) ] .
+nrdp:assignmentShare a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "비중(%)"@ko ;
+    rdfs:domain nrdp:FieldAssignment ;
+    rdfs:range [ a rdfs:Datatype ; owl:onDatatype xsd:decimal ;
+        owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:decimal ] [ xsd:maxInclusive "100"^^xsd:decimal ] ) ] .
+
+nrdp:HarmonizedFieldAssignment a owl:Class ;
+    rdfs:label "판 맞춤 분야 배정"@ko , "Harmonized field assignment"@en ;
+    rdfs:comment "원래 판의 FieldAssignment 를 대응표로 다른 판에 맞춘 파생 배정(정의 클래스). 원래 배정은 그대로 남고 prov:wasDerivedFrom 으로 연결된다. 분할·N:M 대응에서는 harmonizationWeight 로 배분 비중을 기록한다."@ko ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( nrdp:FieldAssignment
+        [ a owl:Restriction ; owl:onProperty prov:wasGeneratedBy ;
+          owl:someValuesFrom kosv:HarmonizationActivity ] ) ] .
+nrdp:harmonizationWeight a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "판 맞춤 배분 비중"@ko ;
+    rdfs:domain nrdp:FieldAssignment ;
+    rdfs:range [ a rdfs:Datatype ; owl:onDatatype xsd:decimal ;
+        owl:withRestrictions ( [ xsd:minExclusive "0"^^xsd:decimal ] [ xsd:maxInclusive "1"^^xsd:decimal ] ) ] .
+
+nrdp:belongsToField a owl:ObjectProperty ;
+    rdfs:label "기술분야(사업 수준)"@ko ;
+    rdfs:domain nrdp:RnDProgram ; rdfs:range nrdp:TechnologyField ;
+    rdfs:comment "사업 수준 분야는 과제연도기록의 FieldAssignment 를 RollupActivity 로 집계한 파생값이다. 집계 규칙은 rollupRule 로 기록."@ko .
+
+nrdp:applicationArea a owl:ObjectProperty ;
+    rdfs:label "적용분야"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept .
+
+nrdp:policyTechnologyClass a owl:ObjectProperty ;
+    rdfs:label "정책기술분류"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept ;
+    rdfs:comment "조사·분석 과제정보의 정책기술 항목. 2022년 입력분까지는 중점과학기술(11대·43중·120개), 2023년 입력분부터는 국가전략기술(12대·50개 세부)로 대체되었다(2022년도 조사분석 실시계획). 두 체계는 별개 분류(kosv:Classification)의 판이며, 원천 값은 각 판의 개념으로 보존한다. 공식 대응표가 없으므로 두 체계 사이의 대응은 두지 않는다(D1 (c): 분석 대상 사업은 2023년 국가전략기술 태그로 선정하고, 이전 연도 이력은 ProgramIdentityResolution 으로 추적)."@ko .
+
+nrdp:strategicTechnology a owl:ObjectProperty ;
+    rdfs:label "국가전략기술(사업 수준)"@ko , "National strategic technology (program level)"@en ;
+    rdfs:domain nrdp:RnDProgram ; rdfs:range skos:Concept ;
+    rdfs:comment "v0.3.1 (2026-10-19) 추가. D1 (c)에 따라 분석 대상 세부사업을 선정한 축. 값은 국가전략기술 12대 분야 판(kosv:ClassificationEdition, 2023년 입력분 적용)의 개념이며, 2023년 과제정보의 국가전략기술 패싯에서 가장 큰 비중을 차지한 분야를 사업에 부여한 파생값이다(ntis_collect.py candidates 단계). 과제 수준의 원천 값은 policyTechnologyClass 로 보존한다."@ko .
+
+nrdp:developmentPhase a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "연구개발단계"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept .
+
+nrdp:ministryTechClass a owl:ObjectProperty ;
+    rdfs:label "부처기술분류"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept ;
+    rdfs:comment "P2. NTIS 예시에서 일부 부처는 이 항목에 사업 계층명을 기재 — 사업 동일성 판정의 보조 근거로만 사용."@ko .
+
+#################################################################
+#  5. 기간·연구비
+#################################################################
+
+nrdp:FiscalYear a owl:Class ;
+    rdfs:label "회계연도"@ko , "Fiscal year"@en .
+nrdp:yearValue a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:FiscalYear ; rdfs:range xsd:integer ;
+    rdfs:comment "xsd:gYear 는 OWL 2 datatype map 밖이라 xsd:integer 사용."@ko .
+nrdp:inFiscalYear a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "회계연도"@ko ;
+    rdfs:comment "연도 의존 개체가 속한 회계연도. v0.3.3에서 도메인을 명시(OOPS! P11)."@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:ProjectYearRecord nrdp:BudgetAllocation nrdp:IndicatorObservation nrdp:MinistryReorganization ) ] ;
+    rdfs:range nrdp:FiscalYear .
+
+nrdp:totalPeriodStart a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "총 연구기간 시작"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:dateTime ;
+    rdfs:comment "xsd:date 는 OWL 2 datatype map 밖이므로 xsd:dateTime 사용."@ko .
+nrdp:totalPeriodEnd a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "총 연구기간 종료"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:dateTime .
+nrdp:annualPeriodStart a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "당해연도 연구기간 시작"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:dateTime .
+nrdp:annualPeriodEnd a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "당해연도 연구기간 종료"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:dateTime .
+nrdp:continuationStatus a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "신규·계속 구분"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range skos:Concept ;
+    rdfs:comment "NTIS ContinuousFlag. 코드값 의미는 API 승인 후 확인(B1)."@ko .
+
+nrdp:governmentFunds a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "정부투자연구비(원)"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:decimal .
+nrdp:nonGovernmentFunds a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "정부외 연구비(원)"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:decimal ;
+    rdfs:comment "NTIS SbusinessFunds 매핑 후보. 필드 의미(민간부담금 여부) 미확인 — B1에서 확정."@ko .
+nrdp:totalFunds a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "총연구비(원)"@ko ;
+    rdfs:domain nrdp:ProjectYearRecord ; rdfs:range xsd:decimal .
+
+nrdp:BudgetAllocation a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "예산배분"@ko , "Budget allocation"@en ;
+    rdfs:comment "세부사업×연도×금액(×재원×산정기준)의 재화. 같은 사업·연도에 산정기준이 다른 금액(예산서 확정액, 과제 협약액 합산)이 공존할 수 있다."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:ofProgram ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:RnDProgram ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:inFiscalYear ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:FiscalYear ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:amountBasis ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass skos:Concept ] .
+
+nrdp:ofProgram a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "대상 사업"@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:BudgetAllocation nrdp:IndicatorObservation nrdp:GoalAlignment ) ] ;
+    rdfs:range nrdp:RnDProgram ;
+    rdfs:comment "n-ary 재화 개체에서 사업으로 향하는 정방향 속성. v0.2의 hasAllocation·hasObservation 은 폐기(T8): 역방향 탐색은 그래프 계층에서 수행."@ko .
+
+nrdp:hasAmount a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "금액(백만원)"@ko ;
+    rdfs:domain nrdp:BudgetAllocation ; rdfs:range xsd:decimal .
+nrdp:amountBasis a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "금액 산정기준"@ko ;
+    rdfs:domain nrdp:BudgetAllocation ; rdfs:range skos:Concept ;
+    rdfs:comment "예: 정부안 / 국회확정 / 과제 협약 연구비 합산. 조사·분석 통계의 기준(Q3)은 별도 확인."@ko .
+nrdp:fundingSource a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "재원"@ko ;
+    rdfs:domain nrdp:BudgetAllocation ; rdfs:range skos:Concept .
+
+nrdp:hasAllocation a owl:ObjectProperty ;
+    owl:deprecated "true"^^xsd:boolean ;
+    rdfs:label "예산배분(v0.2, 폐기)"@ko .
+nrdp:hasObservation a owl:ObjectProperty ;
+    owl:deprecated "true"^^xsd:boolean ;
+    rdfs:label "성과관측치(v0.2, 폐기)"@ko .
+
+#################################################################
+#  6. 성과 — 성과물, 귀속, 지표, 관측치
+#################################################################
+
+nrdp:ResearchOutput a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "연구개발성과물"@ko , "Research output"@en ;
+    rdfs:comment "논문·특허·연구시설장비 등 개별 성과물. 유형은 outputType(성과유형 ConceptScheme: 5대 범주 > 시행령 별표4 등록·기탁 11종)."@ko .
+
+nrdp:outputType a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "성과유형"@ko ;
+    rdfs:domain nrdp:ResearchOutput ; rdfs:range skos:Concept .
+nrdp:outputId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "성과 ID(NTIS)"@ko ;
+    rdfs:domain nrdp:ResearchOutput ; rdfs:range xsd:string .
+nrdp:outputYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "성과연도"@ko ;
+    rdfs:domain nrdp:ResearchOutput ; rdfs:range xsd:integer .
+nrdp:isSCI a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "SCI 여부"@ko ;
+    rdfs:domain nrdp:ResearchOutput ; rdfs:range xsd:boolean .
+
+nrdp:OutputAttribution a owl:Class ;
+    rdfs:label "성과 귀속"@ko , "Output attribution"@en ;
+    rdfs:comment "성과물×과제연도기록(×기여율)의 재화. 한 성과물이 복수 과제에 귀속될 수 있어, 사업 단위 집계 시 성과 ID 기준 중복 제거 규칙의 근거가 된다. 기여율은 법정 서식 항목이나 공개 API 미제공 — 선택 항목."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:attributedOutput ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:ResearchOutput ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:attributedTo ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:ProjectYearRecord ] .
+nrdp:attributedOutput a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:OutputAttribution ; rdfs:range nrdp:ResearchOutput .
+nrdp:attributedTo a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:OutputAttribution ; rdfs:range nrdp:ProjectYearRecord .
+nrdp:contributionShare a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "기여율(%)"@ko ;
+    rdfs:domain nrdp:OutputAttribution ;
+    rdfs:range [ a rdfs:Datatype ; owl:onDatatype xsd:decimal ;
+        owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:decimal ] [ xsd:maxInclusive "100"^^xsd:decimal ] ) ] .
+
+nrdp:PerformanceIndicator a owl:Class ;
+    rdfs:subClassOf mcdm:Indicator ;
+    rdfs:label "성과지표"@ko , "Performance indicator"@en ;
+    rdfs:comment "도메인 지표. mcdm:Indicator 의 하위클래스로 선언하여 MCDM 계층이 도메인 계층을 참조하지 않게 한다(T10)."@ko .
+
+nrdp:measuresOutputType a owl:ObjectProperty ;
+    rdfs:label "측정 성과유형"@ko ;
+    rdfs:domain nrdp:PerformanceIndicator ; rdfs:range skos:Concept .
+nrdp:indicatorUnit a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:PerformanceIndicator ; rdfs:range xsd:string .
+nrdp:hasLag a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "투입–성과 시차(년)"@ko ;
+    rdfs:domain nrdp:PerformanceIndicator ; rdfs:range xsd:nonNegativeInteger ;
+    rdfs:comment "투입 연도 t의 성과를 t+lag 연도까지의 성과로 측정한다는 분석 규칙. 법정 항목이 아닌 설계 판단."@ko .
+
+nrdp:IndicatorObservation a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "성과관측치"@ko , "Indicator observation"@en ;
+    rdfs:comment "세부사업×연도×지표×값의 재화. 과제 단위 원천을 RollupActivity 로 집계한 파생값이다."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:ofProgram ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:RnDProgram ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:inFiscalYear ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:FiscalYear ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:forIndicator ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:PerformanceIndicator ] .
+nrdp:forIndicator a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:IndicatorObservation ; rdfs:range nrdp:PerformanceIndicator .
+nrdp:hasObservedValue a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:IndicatorObservation ; rdfs:range xsd:decimal .
+
+#################################################################
+#  7. 정책목표 — 기본계획 차수별, 연결 근거 재화
+#################################################################
+
+nrdp:PolicyGoal a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "정책목표"@ko , "Policy goal"@en ;
+    rdfs:comment "과학기술기본계획 목표. 차수(3차 2013–17, 4차 2018–22, 5차 2023–27)별 ConceptScheme에 속한다."@ko .
+
+nrdp:GoalAlignment a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "정책목표 연결"@ko , "Goal alignment"@en ;
+    rdfs:comment "사업→정책목표 연결은 법정 원천이 없는 연구자 부여 매핑이므로 근거(evidence)와 주체(prov:wasAttributedTo)를 갖는 개체로 재화한다(추적표 F2)."@ko ;
+    rdfs:subClassOf
+      [ a owl:Restriction ; owl:onProperty nrdp:ofProgram ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:RnDProgram ] ,
+      [ a owl:Restriction ; owl:onProperty nrdp:toGoal ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass nrdp:PolicyGoal ] .
+nrdp:toGoal a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain nrdp:GoalAlignment ; rdfs:range nrdp:PolicyGoal .
+nrdp:alignmentEvidence a owl:DatatypeProperty ;
+    rdfs:label "연결 근거"@ko ;
+    rdfs:domain nrdp:GoalAlignment ; rdfs:range xsd:string .
+
+nrdp:contributesTo a owl:ObjectProperty ;
+    rdfs:label "기여정책목표"@ko ;
+    rdfs:domain nrdp:RnDProgram ; rdfs:range nrdp:PolicyGoal ;
+    owl:propertyChainAxiom ( [ owl:inverseOf nrdp:ofProgram ] nrdp:toGoal ) ;
+    rdfs:comment "GoalAlignment 를 거치는 속성 사슬로 정의되는 단축 속성. 추론 시 GoalAlignment 로부터 도출된다."@ko .
+
+#################################################################
+#  8. MCDM 계층과의 접속 (도메인 → MCDM 단방향)
+#################################################################
+
+nrdp:playsRoleOf a owl:ObjectProperty ;
+    rdfs:label "대안 역할 수행"@ko ;
+    rdfs:domain nrdp:RnDProgram ; rdfs:range mcdm:Alternative ;
+    owl:inverseOf mcdm:representsEntity .
+
+nrdp:assessmentStartYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "평가기간 시작연도"@ko ;
+    rdfs:domain mcdm:DecisionProblem ; rdfs:range xsd:integer .
+nrdp:assessmentEndYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "평가기간 종료연도"@ko ;
+    rdfs:domain mcdm:DecisionProblem ; rdfs:range xsd:integer .
+
+#################################################################
+#  9. 출처 계층(도메인부) — 수집·식별·집계 활동
+#################################################################
+
+nrdp:DataSnapshot a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "수집 스냅샷"@ko , "Collection snapshot"@en ;
+    rdfs:comment "한 번의 수집 실행으로 저장된 원본 응답 묶음. 수집 시각·질의 조건은 CollectionActivity 에 기록."@ko .
+nrdp:SourceRecord a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "원천 레코드"@ko , "Source record"@en ;
+    rdfs:comment "스냅샷 안의 개별 원본 레코드(API 응답 HIT 1건 등). prov:hadPrimarySource 로 스냅샷에 연결."@ko .
+nrdp:CollectionActivity a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "수집 실행"@ko , "Collection run"@en .
+nrdp:ProgramIdentityResolution a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "사업 동일성 판정"@ko , "Program identity resolution"@en ;
+    rdfs:comment "연도별 예산 코드·사업명 표기를 하나의 RnDProgram 개체로 묶는 판정. 판정 규칙과 수작업 검수 여부를 기록한다."@ko .
+nrdp:RollupActivity a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "사업 단위 집계"@ko , "Program-level rollup"@en ;
+    rdfs:comment "과제연도기록을 세부사업×연도 값으로 집계하는 활동. MCDM 집계기법(mcdm:AggregationMethod)과 구별하기 위해 '롤업'으로 명명."@ko .
+nrdp:rollupRule a owl:ObjectProperty ;
+    rdfs:label "집계 규칙"@ko ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( nrdp:RollupActivity nrdp:ProgramIdentityResolution ) ] ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "예: 연구비 합산, 성과 ID 기준 중복 제거, 1순위 분야 귀속, 순위가중 귀속, 시차 적용, 최근연도 절단."@ko .
+nrdp:queryCondition a owl:DatatypeProperty ;
+    rdfs:label "질의 조건"@ko ;
+    rdfs:domain nrdp:CollectionActivity ; rdfs:range xsd:string .
+
+#################################################################
+#  외부 어휘 선언 (DL 프로파일 검사·추론기 입력용 punning 방지)
+#################################################################
+prov:Entity a owl:Class . prov:Activity a owl:Class . skos:Concept a owl:Class .
+prov:wasDerivedFrom a owl:ObjectProperty .
+org:Organization a owl:Class . org:ChangeEvent a owl:Class .
+org:originalOrganization a owl:ObjectProperty . org:resultingOrganization a owl:ObjectProperty .
+prov:hadPrimarySource a owl:ObjectProperty . prov:wasGeneratedBy a owl:ObjectProperty . prov:used a owl:ObjectProperty .
+prov:wasAttributedTo a owl:ObjectProperty .
+kosv:ClassificationEdition a owl:Class . kosv:HarmonizationActivity a owl:Class .
+skos:inScheme a owl:ObjectProperty . skos:closeMatch a owl:ObjectProperty .
+dcterms:title a owl:AnnotationProperty . dcterms:creator a owl:AnnotationProperty . dcterms:license a owl:AnnotationProperty .
+
+#################################################################
+#  v0.3.3 (2026-10-20) OOPS! 진단 반영
+#################################################################
+#  P29: partOfProgram 의 추이적 선언을 제거하고 비반사·비대칭(단순 역할)으로 선언.
+#       mcdm:hasSubCriterion(T1)과 같은 원칙: OWL 2 DL은 비단순 역할에 비반사·비대칭을 허용하지 않으므로
+#       추이성과 순환 방지 중 하나를 택해야 하며, 순환 계층 방지를 택한다. 계층 전체 탐색은
+#       SPARQL 속성경로(partOfProgram+)와 Cypher 가변길이 경로로 처리한다(본문 제3장 제8절).
+#  P11: 수행기관 하위 속성은 상위 속성 performedBy 의 도메인·레인지를 상속하나 명시한다(의미 변화 없음).
+nrdp:leadPerformer rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:PerformingOrganization .
+nrdp:jointPerformer rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:PerformingOrganization .
+nrdp:commissionedPerformer rdfs:domain nrdp:ProjectYearRecord ; rdfs:range nrdp:PerformingOrganization .
+#  P08: 레이블 보완
+nrdp:assignmentOf rdfs:label "배정 대상 과제연도기록"@ko .
+nrdp:assignedField rdfs:label "배정 기술분야"@ko .
+nrdp:forIndicator rdfs:label "관측 대상 지표"@ko .
+nrdp:hasObservedValue rdfs:label "관측값"@ko .
+nrdp:indicatorUnit rdfs:label "지표 단위"@ko .
+nrdp:toGoal rdfs:label "연결 정책목표"@ko .
+nrdp:attributedOutput rdfs:label "귀속 성과물"@ko .
+nrdp:attributedTo rdfs:label "귀속 과제연도기록"@ko .
+nrdp:yearValue rdfs:label "연도 값"@ko .

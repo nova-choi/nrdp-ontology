@@ -1,0 +1,339 @@
+[
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#ScenarioWeightSumShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab2"
+      },
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab3"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab2",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M1: 시나리오 {$this} 의 가중치 합이 {?sum} (1이어야 함)"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this (SUM(?v) AS ?sum) WHERE {\n            $this mcdm:hasWeight ?w .\n            OPTIONAL { ?w mcdm:hasWeightValue ?wv }\n            BIND (COALESCE(?wv, 0) AS ?v)\n          } GROUP BY $this\n            HAVING (ABS(SUM(?v) - 1.0) > 0.0001)\n          "
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab3",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M1: 시나리오 {$this} 에서 기준 {?c} 에 가중치가 둘 이상 부여됨"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?c WHERE {\n            $this mcdm:hasWeight ?w1 , ?w2 .\n            ?w1 mcdm:assignedToCriterion ?c . ?w2 mcdm:assignedToCriterion ?c .\n            FILTER (?w1 != ?w2)\n          } GROUP BY $this ?c\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://www.w3.org/ns/shacl#declare": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab1",
+    "http://www.w3.org/ns/shacl#namespace": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3id.org/nrdp/mcdm#"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefix": [
+      {
+        "@value": "mcdm"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#ContributionMethodShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab6"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionContribution"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab6",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M3: 기여 분해 {$this} 의 대상 결과가 가산 분해를 지원하지 않는 기법 {?m} 의 산출임"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?m WHERE {\n            $this mcdm:explains ?dr . ?dr mcdm:byMethod ?m .\n            FILTER NOT EXISTS { ?m mcdm:supportsAdditiveDecomposition true }\n          }\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#RankPermutationShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab4"
+      },
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab5"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab4",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 다른 결과 {?y} 와 중복"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?r ?y WHERE {\n            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .\n            ?y mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .\n            FILTER (?y != $this)\n          }\n          "
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab5",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 결과 수 {?n} 를 넘음"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?r (COUNT(DISTINCT ?x) AS ?n) WHERE {\n            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .\n            ?x mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m .\n          } GROUP BY $this ?r\n            HAVING (?r > COUNT(DISTINCT ?x))\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#MissingCriterionValueShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#severity": [
+      {
+        "@id": "http://www.w3.org/ns/shacl#Warning"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab8"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab8",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M5: 대안 {$this} 의 리프 기준 {?c} 평가값 없음"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?c WHERE {\n            { $this mcdm:inProblem ?p } UNION { ?p mcdm:hasAlternative $this }\n            ?p mcdm:hasCriterion ?c .\n            FILTER NOT EXISTS { ?c mcdm:hasSubCriterion ?sub }\n            FILTER NOT EXISTS { ?cv mcdm:ofAlternative $this ; mcdm:onCriterion ?c }\n          }\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#NormalizedValueRangeShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab9"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab9",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M6: 정규화값 {?v} 가 정규화방법 {?nm} 의 허용 범위 밖"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?v ?nm WHERE {\n            $this mcdm:hasValue ?v ; mcdm:normalizedBy ?nm .\n            OPTIONAL { ?nm mcdm:normalizedLowerBound ?lo }\n            OPTIONAL { ?nm mcdm:normalizedUpperBound ?hi }\n            FILTER ( (BOUND(?lo) && ?v < ?lo) || (BOUND(?hi) && ?v > ?hi) )\n          }\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#ContributionSumShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab10"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab10",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M7: 결과 {$this} 의 기준별 기여값 합 {?sum} 이 점수 {?s} 와 다름"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?s (SUM(?v) AS ?sum) WHERE {\n            $this mcdm:hasScore ?s .\n            ?cc mcdm:explains $this ; mcdm:hasContributionValue ?v .\n          } GROUP BY $this ?s\n            HAVING (ABS(SUM(?v) - ?s) > 0.0001)\n          "
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#NormalizedValueKeyShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5e3caa9914e5462da8a44ad97498dacab7"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e3caa9914e5462da8a44ad97498dacab7",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "M4: 평가값 {?cv} 와 정규화방법 {?nm} 쌍에 정규화값이 둘 이상"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?cv ?nm WHERE {\n            $this mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .\n            ?o mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .\n            FILTER (?o != $this)\n          }\n          "
+      }
+    ]
+  }
+]

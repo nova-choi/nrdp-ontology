@@ -1,0 +1,1854 @@
+[
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#OutrankingMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "열위관계형 기법"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#reflectsPolicyGoal",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PolicyGoal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#representsEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대안이 표상하는 도메인 개체"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#CriterionValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "대안×기준의 원시 평가값. n-ary 재화. v0.2부터 정규화값은 별도 보유하지 않고 hasNormalization으로 NormalizedValue를 참조."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "평가값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b6"
+      },
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b7"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b6",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#ofAlternative"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#onCriterion"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#playsRoleOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대안 역할 수행"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#representsEntity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#Ministry",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "중앙행정기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#NormalizationMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정규화방법"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#RatioScale",
+    "@type": [
+      "https://w3id.org/nrdp/mcdm#MeasurementScale"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비율척도"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#usesNormalization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizationMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#OrdinalScale",
+    "@type": [
+      "https://w3id.org/nrdp/mcdm#MeasurementScale"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "순서척도"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "집계기법"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Cost",
+    "@type": [
+      "https://w3id.org/nrdp/mcdm#OptimizationDirection"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비용(최소화)"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#preferenceThresholdP",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#PreferenceFunction"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#MeasurementScale",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "측정척도"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#contributionOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionContribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Benefit",
+    "@type": [
+      "https://w3id.org/nrdp/mcdm#OptimizationDirection"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "편익(최대화)"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#BenefitCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "편익형 기준"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CostCriterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#CounterfactualCondition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "반사실조건"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Explanation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#forScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Alternative",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "평가 대상이 특정 의사결정 문제 안에서 맡는 역할(role). 도메인 개체와 동일시하지 않음 (Agent-Role ODP)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대안"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasScore",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#preferenceThresholdQ",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#PreferenceFunction"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#forProblem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#DecisionResult",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "(문제, 시나리오, 기법, 대안) 조합의 산출."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "평가결과"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#requiresNormalization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#contributesTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기여정책목표"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PolicyGoal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#measuredBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "MCDM 계층과 도메인 계층의 연결점."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#CriterionContribution",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기준별 기여도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Explanation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasRawValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#concernsCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CounterfactualCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "개선 대상 기준"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#FiscalYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "회계연도"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasWeightValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Weight"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "하나의 정책 선호 = 하나의 가중치 집합."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "의사결정 시나리오"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#belongsToField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기술분야"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#TechnologyField"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasObservedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#ofCriterionValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "원평가값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#hasNormalization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#normalizedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정규화방법"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizationMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#fundedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "소관부처"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Ministry"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "의사결정문제"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#CostCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비용형 기준"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#derivedFrom",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Weight"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasDirection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#OptimizationDirection"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasContributionRatio",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionContribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#onCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#performedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "수행기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#usesPreferenceFunction",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#PreferenceFunction"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasAmount",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "예산액(백만원)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#forIndicator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#indicatorUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#TechnologyField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "국가과학기술표준분류체계(과기정통부 고시) 기반."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기술분야"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@value": "최혜석"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "ko",
+        "@value": "국가 R&D 포트폴리오 MCDM 온톨로지"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "국가 R&D 포트폴리오 평가를 위한 방법 중립적 MCDM 온톨로지. v0.2: 정규화값을 (평가값×정규화방법) 3항 관계로 재화."
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.2.1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정규화값(수치)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#partOfProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#TransitiveProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과제→세부사업→사업의 3계층을 추이적으로 연결."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "상위사업"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDProject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구개발과제"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#inFiscalYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#programCode",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#byMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#assignedToCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Weight"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasScale",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#MeasurementScale"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasPreferenceModel",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#scenarioLabel",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#PreferenceFunction",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "선호함수"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#FundingAgency",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "부처와 수행기관 사이의 국내 특유 중간 역할. CERIF 대응물 불완전."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "전문기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Weight",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "기준의 고유 속성이 아니라 시나리오에 종속되는 개체."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "가중치"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#requiredNormalizedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "목표 순위 진입에 필요한 해당 기준의 정규화값. 1.0을 넘으면 관측 범위 밖이므로 isFeasible=false."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CounterfactualCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "필요 정규화값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasRank",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/org#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#isFeasible",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "요구 개선량이 관측 범위 내인지. 정규화값 1.0 초과 시 false."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CounterfactualCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "실현가능성"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구수행기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#CompensatoryMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "보상형 기법"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#AggregationMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#yearValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "xsd:gYear 는 OWL 2 datatype map 밖이라 HermiT 가 거부 → xsd:integer 사용"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#EvidencePath",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "근거경로"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Explanation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDSubProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "CERIF에 직접 대응물이 없는 국내 특유의 중간 계층."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "세부사업"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과지표"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#explains",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Explanation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionResult"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#OptimizationDirection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "최적화방향"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Explanation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "설명"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "사업×연도×금액의 3항 관계를 재화한 클래스."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "예산배분"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b1"
+      },
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b2"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#inFiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ofProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasNormalizedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "v0.1 전용. 정규화값이 (평가값×정규화방법) 3항 관계여서 기법마다 값이 달라지므로 v0.2부터 CriterionValue -[hasNormalization]-> NormalizedValue -[hasValue]-> decimal 패턴으로 대체됨. 하위호환 문서화 목적으로만 남김."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasWeight",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionScenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Weight"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#Criterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "평가기준"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/mcdm#BenefitCriterion"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/mcdm#CostCriterion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "혁신법 별지 서식의 '사업' 단위. CERIF cfProj에 대응하나 3계층 중 최상위."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "국가연구개발사업"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasAlternative",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#managedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "전담전문기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FundingAgency"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasObservation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PolicyGoal",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과학기술기본계획의 목표 체계."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정책목표"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "CriterionValue가 특정 NormalizationMethod로 변환된 값. (평가값×정규화방법)의 이항 관계를 재화한 n-ary 클래스. WSM·PROMETHEE II는 min-max, TOPSIS는 벡터 정규화를 쓰므로 동일 CriterionValue가 방법별로 서로 다른 NormalizedValue를 가질 수 있다 (v0.2, RQ2 대응)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정규화값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b8"
+      },
+      {
+        "@id": "_:n34603c80aa6f46d98abd8918571e9216b9"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#ofCriterionValue"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n34603c80aa6f46d98abd8918571e9216b9",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizationMethod"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#normalizedBy"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasAllocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasNormalization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "v0.2 신설. 하나의 CriterionValue는 정규화방법 수만큼(1..*) NormalizedValue를 가질 수 있다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CriterionValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정규화값 보유"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#NormalizedValue"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "사업×연도×지표×값의 4항 관계를 재화한 클래스."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과관측치"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#requiredRawValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#CounterfactualCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "필요 원시값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#IntervalScale",
+    "@type": [
+      "https://w3id.org/nrdp/mcdm#MeasurementScale"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "등간척도"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#hasSubCriterion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#TransitiveProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Criterion"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/mcdm#ofAlternative",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ]
+  }
+]

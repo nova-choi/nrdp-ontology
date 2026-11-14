@@ -1,0 +1,3147 @@
+[
+  {
+    "@id": "https://w3id.org/nrdp/ontology#continuationStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS ContinuousFlag. 코드값 의미는 API 승인 후 확인(B1)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "신규·계속 구분"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ofProject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "소속 과제"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProject"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#playsRoleOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대안 역할 수행"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Alternative"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#representsEntity"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#ChangeEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#Ministry",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "중앙행정기관"
+      },
+      {
+        "@language": "en",
+        "@value": "Ministry"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#outputType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과유형"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#used",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#toGoal",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#GoalAlignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연결 정책목표"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PolicyGoal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과제×회계연도 재화(n-ary). NTIS 과제고유번호 1건에 대응. 연구비·분류·수행기관·소속 사업이 연도별로 달라질 수 있어 과제가 아닌 이 단위에 귀속한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "과제연도기록"
+      },
+      {
+        "@language": "en",
+        "@value": "Project-year record"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb1"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb2"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb3"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#inFiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ntisProjectId"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#precededBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty",
+      "http://www.w3.org/2002/07/owl#IrreflexiveProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS PrePjtId·SeriesProject 기반. 연속과제의 동일성 판정 근거."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "이전 연도 기록"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#budgetCode",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "연도별 예산 코드. 구조: 소관(2|3) + 회계구분(1) + 회계(3) + 분야(3) + 부문(3) + 프로그램(4) + 단위사업(4) + 세부사업(3). 소관 코드 체계 전환(2→3자리)과 부문 재편(2020년 과학기술 분야 155 신설 등)으로 같은 세부사업의 코드가 연도에 따라 달라지므로, 사업 식별자로 쓰지 않는다. v0.3.4: 함수적 속성 선언을 해제하였다. 다부처 사업은 같은 연도에 부처별 예산 코드를 둘 이상 가진다(2023년 실데이터: 범부처재생의료기술개발사업, 스마트제조혁신기술개발). 코드별 금액이 필요하면 예산배분을 코드 단위로 나눈다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "예산사업 코드"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#isSCI",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "SCI 여부"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#FieldAssignment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과제연도기록×기술분야×순위(×비중)의 재화. 법정 서식은 1~3순위와 비중을 기재하나 공개 API는 순위만 제공하므로 비중은 선택 항목이다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "분야 배정"
+      },
+      {
+        "@language": "en",
+        "@value": "Field assignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb17"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb18"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb19"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb17",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#assignmentOf"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb18",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#TechnologyField"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#assignedField"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb19",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#assignmentRank"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#agencyProjectNumber",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "세부과제번호(전문기관)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assignmentOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배정 대상 과제연도기록"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ntisProjectId",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "과제고유번호(NTIS)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#originalOrganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assignedField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "배정 기술분야"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#TechnologyField"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#governmentFunds",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정부투자연구비(원)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasLag",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "투입 연도 t의 성과를 t+lag 연도까지의 성과로 측정한다는 분석 규칙. 법정 항목이 아닌 설계 판단."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "투입–성과 시차(년)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#resultingOrganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#strategicTechnology",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "v0.3.1 (2026-10-19) 추가. D1 (c)에 따라 분석 대상 세부사업을 선정한 축. 값은 국가전략기술 12대 분야 판(kosv:ClassificationEdition, 2023년 입력분 적용)의 개념이며, 2023년 과제정보의 국가전략기술 패싯에서 가장 큰 비중을 차지한 분야를 사업에 부여한 파생값이다(ntis_collect.py candidates 단계). 과제 수준의 원천 값은 policyTechnologyClass 로 보존한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "국가전략기술(사업 수준)"
+      },
+      {
+        "@language": "en",
+        "@value": "National strategic technology (program level)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#outputYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#SourceRecord",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "스냅샷 안의 개별 원본 레코드(API 응답 HIT 1건 등). prov:hadPrimarySource 로 스냅샷에 연결."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "원천 레코드"
+      },
+      {
+        "@language": "en",
+        "@value": "Source record"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#attributedOutput",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#OutputAttribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "귀속 성과물"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#totalPeriodStart",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "xsd:date 는 OWL 2 datatype map 밖이므로 xsd:dateTime 사용."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "총 연구기간 시작"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#alignmentEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#GoalAlignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연결 근거"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#HarmonizationActivity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#contributesTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "GoalAlignment 를 거치는 속성 사슬로 정의되는 단축 속성. 추론 시 GoalAlignment 로부터 도출된다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기여정책목표"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PolicyGoal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#propertyChainAxiom": [
+      {
+        "@list": [
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb63"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#toGoal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb63",
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProgram"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#developmentPhase",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구개발단계"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#FiscalYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "회계연도"
+      },
+      {
+        "@language": "en",
+        "@value": "Fiscal year"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#annualPeriodEnd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "당해연도 연구기간 종료"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasObservedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "관측값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ProgramIdentityResolution",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "연도별 예산 코드·사업명 표기를 하나의 RnDProgram 개체로 묶는 판정. 판정 규칙과 수작업 검수 여부를 기록한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "사업 동일성 판정"
+      },
+      {
+        "@language": "en",
+        "@value": "Program identity resolution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#belongsToField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "사업 수준 분야는 과제연도기록의 FieldAssignment 를 RollupActivity 로 집계한 파생값이다. 집계 규칙은 rollupRule 로 기록."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기술분야(사업 수준)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#TechnologyField"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#OutputAttribution",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "성과물×과제연도기록(×기여율)의 재화. 한 성과물이 복수 과제에 귀속될 수 있어, 사업 단위 집계 시 성과 ID 기준 중복 제거 규칙의 근거가 된다. 기여율은 법정 서식 항목이나 공개 API 미제공 — 선택 항목."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과 귀속"
+      },
+      {
+        "@language": "en",
+        "@value": "Output attribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb51"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb52"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb51",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#attributedOutput"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb52",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#attributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#inScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#fundedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "사업 수준은 다년에 걸친 소관, 과제연도기록 수준은 해당 연도 소관(개편 전 명칭 포함)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb10"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "소관부처"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Ministry"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb10",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#attributedTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#OutputAttribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "귀속 과제연도기록"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#amountBasis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "예: 정부안 / 국회확정 / 과제 협약 연구비 합산. 조사·분석 통계의 기준(Q3)은 별도 확인."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "금액 산정기준"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#orgCode",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS 기관 코드(예: B350021) 또는 재정 소관 코드. 코드 체계는 codeScheme 주석으로 구분."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기관 코드"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assessmentEndYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "평가기간 종료연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#performedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "수행기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasAmount",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "금액(백만원)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Activity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assessmentStartYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#DecisionProblem"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "평가기간 시작연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#forIndicator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "관측 대상 지표"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#closeMatch",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#indicatorUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "지표 단위"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#fundingSource",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "재원"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#TechnologyField",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "개념은 판별(kosv:ClassificationEdition) 개념으로 둔다. 코드가 같아도 판이 다르면 별개 IRI이며, 판 간 연결은 대응표(xkos:Correspondence)로만 표현한다. 판 내부의 계층은 코드 접두(대·중분류)로 skos:broader 를 부여한다. 2023판 고시본의 세부영역 코드도 중분류 접두를 유지하므로 계층 부여에 문제가 없다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기술분야(국가과학기술표준분류)"
+      },
+      {
+        "@language": "en",
+        "@value": "Technology field"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb16"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb16",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#inScheme"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#ClassificationEdition"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#jointPerformer",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "법정 서식 항목. 공개 API 미제공 — 원자료 확보 시에만 인스턴스화."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "공동연구개발기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#performedBy"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@value": "최혜석"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "ko",
+        "@value": "국가연구개발혁신법 시행규칙 서식과 국가과학기술표준분류 등 국내 법정·고시 기준에서 도출한 국가 R&D 포트폴리오 도메인 계층(사업·과제·부처·전문기관·수행기관·기술분야·예산·성과). CERIF 1.6.1과 정렬하였다."
+      },
+      {
+        "@language": "en",
+        "@value": "Domain layer for the Korean national R&D portfolio (programmes, projects, ministries, funding agencies, performers, technology fields, budgets, outputs), derived from Korean statutory forms and classification notices and aligned with CERIF 1.6.1."
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-10-31"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "National R&D portfolio domain ontology"
+      },
+      {
+        "@language": "ko",
+        "@value": "국가 R&D 포트폴리오 도메인 온톨로지"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
+      {
+        "@value": "nrdp"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespaceUri": [
+      {
+        "@value": "https://w3id.org/nrdp/ontology#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "v0.3.5: 공개용 메타데이터(설명, 수정일, 선호 접두어·네임스페이스) 추가. 논리 공리는 v0.3.4와 동일."
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#imports": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm"
+      },
+      {
+        "@id": "https://w3id.org/nrdp/kosv"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology/0.3.4"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionIRI": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology/0.3.5"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.3.5"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#recordedProgramName",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "원천 레코드에 기재된 사업명 문자열(감사 추적용). 정규화된 사업 개체는 partOfProgram/ofProgram 으로 연결."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "원천 표기 사업명"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RollupActivity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과제연도기록을 세부사업×연도 값으로 집계하는 활동. MCDM 집계기법(mcdm:AggregationMethod)과 구별하기 위해 '롤업'으로 명명."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "사업 단위 집계"
+      },
+      {
+        "@language": "en",
+        "@value": "Program-level rollup"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#partOfProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+      "http://www.w3.org/2002/07/owl#AsymmetricProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과제연도기록→내역사업→세부사업의 직접 소속. 과제의 소속 사업은 연도별로 달라질 수 있어 과제가 아닌 과제연도기록에서 출발한다. v0.3.3에서 추이적 선언 대신 비반사·비대칭으로 선언하고 전이 폐쇄는 질의로 처리한다(OOPS! P29, T1과 같은 원칙)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb4"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "상위사업"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb7"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RnDSubProgram"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RnDSubProgram"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#GoalAlignment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "사업→정책목표 연결은 법정 원천이 없는 연구자 부여 매핑이므로 근거(evidence)와 주체(prov:wasAttributedTo)를 갖는 개체로 재화한다(추적표 F2)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정책목표 연결"
+      },
+      {
+        "@language": "en",
+        "@value": "Goal alignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb61"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb62"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb61",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb62",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PolicyGoal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#toGoal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDProject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "협약 단위의 다년 과제. NTIS는 과제를 연도별 레코드(과제고유번호)로 분할하므로, 연도별 정보는 ProjectYearRecord 가 보유한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구개발과제"
+      },
+      {
+        "@language": "en",
+        "@value": "R&D project"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#outputId",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ResearchOutput"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과 ID(NTIS)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#inFiscalYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "연도 의존 개체가 속한 회계연도. v0.3.3에서 도메인을 명시(OOPS! P11)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb39"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "회계연도"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb39",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#MinistryReorganization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#leadPerformer",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS 과제검색 ResearchAgency. 공개 API가 제공하는 유일한 수행기관 역할."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "주관연구개발기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#performedBy"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#CollectionActivity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "수집 실행"
+      },
+      {
+        "@language": "en",
+        "@value": "Collection run"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#applicationArea",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "적용분야"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#hadPrimarySource",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#FundingAgency",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "부처와 수행기관 사이의 국내 특유 중간 역할. CERIF 대응물 불완전."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "전문기관"
+      },
+      {
+        "@language": "en",
+        "@value": "Funding agency"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ResearchOutput",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "논문·특허·연구시설장비 등 개별 성과물. 유형은 outputType(성과유형 ConceptScheme: 5대 범주 > 시행령 별표4 등록·기탁 11종)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구개발성과물"
+      },
+      {
+        "@language": "en",
+        "@value": "Research output"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ministryTechClass",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "P2. NTIS 예시에서 일부 부처는 이 항목에 사업 계층명을 기재 — 사업 동일성 판정의 보조 근거로만 사용."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "부처기술분류"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#queryCondition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#CollectionActivity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "질의 조건"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구수행기관"
+      },
+      {
+        "@language": "en",
+        "@value": "Performing organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기관"
+      },
+      {
+        "@language": "en",
+        "@value": "Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/org#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#HarmonizedFieldAssignment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "원래 판의 FieldAssignment 를 대응표로 다른 판에 맞춘 파생 배정(정의 클래스). 원래 배정은 그대로 남고 prov:wasDerivedFrom 으로 연결된다. 분할·N:M 대응에서는 harmonizationWeight 로 배분 비중을 기록한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "판 맞춤 분야 배정"
+      },
+      {
+        "@language": "en",
+        "@value": "Harmonized field assignment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb30"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb30",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+          },
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb31"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb31",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#HarmonizationActivity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#measuresOutputType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "측정 성과유형"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#yearValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "xsd:gYear 는 OWL 2 datatype map 밖이라 xsd:integer 사용."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연도 값"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDSubProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "세부사업 아래의 내역사업(NTIS BigprojectTitle). dBrain에 탑재되지 않는 하위 분류이며 CERIF에 직접 대응물이 없다. v0.2 레이블 '세부사업'을 정정."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "내역사업"
+      },
+      {
+        "@language": "en",
+        "@value": "Sub-activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "도메인 지표. mcdm:Indicator 의 하위클래스로 선언하여 MCDM 계층이 도메인 계층을 참조하지 않게 한다(T10)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과지표"
+      },
+      {
+        "@language": "en",
+        "@value": "Performance indicator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/nrdp/mcdm#Indicator"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assignmentShare",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "비중(%)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb25"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb25",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#onDatatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#withRestrictions": [
+      {
+        "@list": [
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb26"
+          },
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb27"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb26",
+    "http://www.w3.org/2001/XMLSchema#minInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb27",
+    "http://www.w3.org/2001/XMLSchema#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "100"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "세부사업×연도×금액(×재원×산정기준)의 재화. 같은 사업·연도에 산정기준이 다른 금액(예산서 확정액, 과제 협약액 합산)이 공존할 수 있다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "예산배분"
+      },
+      {
+        "@language": "en",
+        "@value": "Budget allocation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb44"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb45"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb46"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb44",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb45",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#inFiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb46",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#amountBasis"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#ofProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "n-ary 재화 개체에서 사업으로 향하는 정방향 속성. v0.2의 hasAllocation·hasObservation 은 폐기(T8): 역방향 탐색은 그래프 계층에서 수행."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb47"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "대상 사업"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb47",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#BudgetAllocation"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#GoalAlignment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#totalPeriodEnd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "총 연구기간 종료"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#DataSnapshot",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "한 번의 수집 실행으로 저장된 원본 응답 묶음. 수집 시각·질의 조건은 CollectionActivity 에 기록."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "수집 스냅샷"
+      },
+      {
+        "@language": "en",
+        "@value": "Collection snapshot"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#RnDProgram",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "재정 예산체계의 세부사업(dBrain 최하위 사업 단위)에 대응한다. NTIS 과제검색의 BudgetProject(사업명)와 예산사업 코드 23~24자리의 말단 3자리(세부사업 코드)가 이 층위임을 근거로 한다(A11). 연도에 따라 예산 코드가 바뀌어도 동일 개체로 유지되며, 연도별 코드는 BudgetAllocation 에 기록한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "국가연구개발사업(세부사업)"
+      },
+      {
+        "@language": "en",
+        "@value": "R&D program (budget activity)"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#rollupRule",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "예: 연구비 합산, 성과 ID 기준 중복 제거, 1순위 분야 귀속, 순위가중 귀속, 시차 적용, 최근연도 절단."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb66"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "집계 규칙"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb66",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RollupActivity"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#ProgramIdentityResolution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasObservation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과관측치(v0.2, 폐기)"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#managedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb13"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "전담(전문)기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FundingAgency"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb13",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+          },
+          {
+            "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#performerCategory",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS PerformAgent 코드. 값은 연구수행주체 ConceptScheme(nrdp-schemes.ttl)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "연구수행주체"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#PolicyGoal",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "과학기술기본계획 목표. 차수(3차 2013–17, 4차 2018–22, 5차 2023–27)별 ConceptScheme에 속한다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정책목표"
+      },
+      {
+        "@language": "en",
+        "@value": "Policy goal"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#totalFunds",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "총연구비(원)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#assignmentRank",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "순위"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb20"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb20",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#onDatatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#withRestrictions": [
+      {
+        "@list": [
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb21"
+          },
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb22"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb21",
+    "http://www.w3.org/2001/XMLSchema#minInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb22",
+    "http://www.w3.org/2001/XMLSchema#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#annualPeriodStart",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "당해연도 연구기간 시작"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#hasAllocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "예산배분(v0.2, 폐기)"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#harmonizationWeight",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FieldAssignment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "판 맞춤 배분 비중"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb34"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb34",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#onDatatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#withRestrictions": [
+      {
+        "@list": [
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb35"
+          },
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb36"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb35",
+    "http://www.w3.org/2001/XMLSchema#minExclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb36",
+    "http://www.w3.org/2001/XMLSchema#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#MinistryReorganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "org:originalOrganization / org:resultingOrganization 으로 개편 전후 부처를 잇는다. 예: 미래창조과학부 → 과학기술정보통신부(2017)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "부처 개편"
+      },
+      {
+        "@language": "en",
+        "@value": "Ministry reorganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/org#ChangeEvent"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#policyTechnologyClass",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "조사·분석 과제정보의 정책기술 항목. 2022년 입력분까지는 중점과학기술(11대·43중·120개), 2023년 입력분부터는 국가전략기술(12대·50개 세부)로 대체되었다(2022년도 조사분석 실시계획). 두 체계는 별개 분류(kosv:Classification)의 판이며, 원천 값은 각 판의 개념으로 보존한다. 공식 대응표가 없으므로 두 체계 사이의 대응은 두지 않는다(D1 (c): 분석 대상 사업은 2023년 국가전략기술 태그로 선정하고, 이전 연도 이력은 ProgramIdentityResolution 으로 추적)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정책기술분류"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#IndicatorObservation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "세부사업×연도×지표×값의 재화. 과제 단위 원천을 RollupActivity 로 집계한 파생값이다."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "성과관측치"
+      },
+      {
+        "@language": "en",
+        "@value": "Indicator observation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb58"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb59"
+      },
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb60"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb58",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#RnDProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ofProgram"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb59",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#FiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#inFiscalYear"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb60",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformanceIndicator"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#forIndicator"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#nonGovernmentFunds",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "NTIS SbusinessFunds 매핑 후보. 필드 의미(민간부담금 여부) 미확인 — B1에서 확정."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "정부외 연구비(원)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#commissionedPerformer",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "ko",
+        "@value": "법정 서식 항목. 공개 API 미제공."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#ProjectYearRecord"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "위탁연구개발기관"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#PerformingOrganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#performedBy"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/ontology#contributionShare",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "http://www.w3.org/2002/07/owl#FunctionalProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/nrdp/ontology#OutputAttribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "ko",
+        "@value": "기여율(%)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nbba563a96a4941a689fa30cabe39574eb53"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb53",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#onDatatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#withRestrictions": [
+      {
+        "@list": [
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb54"
+          },
+          {
+            "@id": "_:nbba563a96a4941a689fa30cabe39574eb55"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb54",
+    "http://www.w3.org/2001/XMLSchema#minInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:nbba563a96a4941a689fa30cabe39574eb55",
+    "http://www.w3.org/2001/XMLSchema#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "100"
+      }
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sh="http://www.w3.org/ns/shacl#"
+>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#NormalizedValueKeyShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#NormalizedValue"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b9">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M6: 정규화값 {?v} 가 정규화방법 {?nm} 의 허용 범위 밖</sh:message>
+    <sh:select>
+          SELECT $this ?v ?nm WHERE {
+            $this mcdm:hasValue ?v ; mcdm:normalizedBy ?nm .
+            OPTIONAL { ?nm mcdm:normalizedLowerBound ?lo }
+            OPTIONAL { ?nm mcdm:normalizedUpperBound ?hi }
+            FILTER ( (BOUND(?lo) &amp;&amp; ?v &lt; ?lo) || (BOUND(?hi) &amp;&amp; ?v &gt; ?hi) )
+          }
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b6">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M3: 기여 분해 {$this} 의 대상 결과가 가산 분해를 지원하지 않는 기법 {?m} 의 산출임</sh:message>
+    <sh:select>
+          SELECT $this ?m WHERE {
+            $this mcdm:explains ?dr . ?dr mcdm:byMethod ?m .
+            FILTER NOT EXISTS { ?m mcdm:supportsAdditiveDecomposition true }
+          }
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b10">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M7: 결과 {$this} 의 기준별 기여값 합 {?sum} 이 점수 {?s} 와 다름</sh:message>
+    <sh:select>
+          SELECT $this ?s (SUM(?v) AS ?sum) WHERE {
+            $this mcdm:hasScore ?s .
+            ?cc mcdm:explains $this ; mcdm:hasContributionValue ?v .
+          } GROUP BY $this ?s
+            HAVING (ABS(SUM(?v) - ?s) &gt; 0.0001)
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b2">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M1: 시나리오 {$this} 의 가중치 합이 {?sum} (1이어야 함)</sh:message>
+    <sh:select>
+          SELECT $this (SUM(?v) AS ?sum) WHERE {
+            $this mcdm:hasWeight ?w .
+            OPTIONAL { ?w mcdm:hasWeightValue ?wv }
+            BIND (COALESCE(?wv, 0) AS ?v)
+          } GROUP BY $this
+            HAVING (ABS(SUM(?v) - 1.0) &gt; 0.0001)
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 결과 수 {?n} 를 넘음</sh:message>
+    <sh:select>
+          SELECT $this ?r (COUNT(DISTINCT ?x) AS ?n) WHERE {
+            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            ?x mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m .
+          } GROUP BY $this ?r
+            HAVING (?r &gt; COUNT(DISTINCT ?x))
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#RankPermutationShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#DecisionResult"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b4"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#sh_prefixes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <sh:declare rdf:nodeID="nd48065a5477e40eaad20364556227d19b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M2: 순위 {?r} 가 같은 (문제, 시나리오, 기법) 안의 다른 결과 {?y} 와 중복</sh:message>
+    <sh:select>
+          SELECT $this ?r ?y WHERE {
+            $this mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            ?y mcdm:forProblem ?p ; mcdm:forScenario ?s ; mcdm:byMethod ?m ; mcdm:hasRank ?r .
+            FILTER (?y != $this)
+          }
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#ContributionMethodShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#CriterionContribution"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#MissingCriterionValueShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#Alternative"/>
+    <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Warning"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#ScenarioWeightSumShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#DecisionScenario"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b2"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/shapes/mcdm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="ko">MCDM 표현 계층 SHACL shape (M1~M7)</dcterms:title>
+    <dcterms:title xml:lang="en">SHACL shapes for the MCDM representation layer (M1-M7)</dcterms:title>
+    <dcterms:creator>최혜석</dcterms:creator>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-31</dcterms:modified>
+    <dcterms:requires rdf:resource="https://w3id.org/nrdp/mcdm/0.3.5"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/nrdp/shapes/mcdm/0.3.5"/>
+    <owl:versionInfo>0.3.5</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M1: 시나리오 {$this} 에서 기준 {?c} 에 가중치가 둘 이상 부여됨</sh:message>
+    <sh:select>
+          SELECT $this ?c WHERE {
+            $this mcdm:hasWeight ?w1 , ?w2 .
+            ?w1 mcdm:assignedToCriterion ?c . ?w2 mcdm:assignedToCriterion ?c .
+            FILTER (?w1 != ?w2)
+          } GROUP BY $this ?c
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#NormalizedValueRangeShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#NormalizedValue"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b7">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M4: 평가값 {?cv} 와 정규화방법 {?nm} 쌍에 정규화값이 둘 이상</sh:message>
+    <sh:select>
+          SELECT $this ?cv ?nm WHERE {
+            $this mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .
+            ?o mcdm:ofCriterionValue ?cv ; mcdm:normalizedBy ?nm .
+            FILTER (?o != $this)
+          }
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b8">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#SPARQLConstraint"/>
+    <sh:prefixes rdf:resource="https://w3id.org/nrdp/mcdm#sh_prefixes"/>
+    <sh:message>M5: 대안 {$this} 의 리프 기준 {?c} 평가값 없음</sh:message>
+    <sh:select>
+          SELECT $this ?c WHERE {
+            { $this mcdm:inProblem ?p } UNION { ?p mcdm:hasAlternative $this }
+            ?p mcdm:hasCriterion ?c .
+            FILTER NOT EXISTS { ?c mcdm:hasSubCriterion ?sub }
+            FILTER NOT EXISTS { ?cv mcdm:ofAlternative $this ; mcdm:onCriterion ?c }
+          }
+          </sh:select>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd48065a5477e40eaad20364556227d19b1">
+    <sh:prefix>mcdm</sh:prefix>
+    <sh:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://w3id.org/nrdp/mcdm#</sh:namespace>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/nrdp/mcdm#ContributionSumShape">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <sh:targetClass rdf:resource="https://w3id.org/nrdp/mcdm#DecisionResult"/>
+    <sh:sparql rdf:nodeID="nd48065a5477e40eaad20364556227d19b10"/>
+  </rdf:Description>
+</rdf:RDF>

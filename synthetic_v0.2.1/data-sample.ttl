@@ -1,0 +1,683 @@
+@prefix nrdp: <https://w3id.org/nrdp/ontology#> .
+@prefix mcdm: <https://w3id.org/nrdp/mcdm#> .
+@prefix ex:   <https://w3id.org/nrdp/data#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# 자동 생성된 샘플 데이터 (gen_data.py). 수치는 합성값이며 실제 통계가 아님.
+
+### 회계연도
+ex:FY2021 a nrdp:FiscalYear ; nrdp:yearValue "2021"^^xsd:integer ; rdfs:label "2021년" .
+ex:FY2022 a nrdp:FiscalYear ; nrdp:yearValue "2022"^^xsd:integer ; rdfs:label "2022년" .
+ex:FY2023 a nrdp:FiscalYear ; nrdp:yearValue "2023"^^xsd:integer ; rdfs:label "2023년" .
+
+### 기술분야 (국가과학기술표준분류 예시코드)
+ex:TF_AI a nrdp:TechnologyField ; rdfs:label "인공지능"@ko ; skos:notation "EF01" .
+ex:TF_SEMI a nrdp:TechnologyField ; rdfs:label "반도체·디스플레이"@ko ; skos:notation "EF02" .
+ex:TF_BIO a nrdp:TechnologyField ; rdfs:label "첨단바이오"@ko ; skos:notation "EF03" .
+
+### 기관
+ex:MIN_MSIT a nrdp:Ministry ; rdfs:label "과학기술정보통신부"@ko .
+ex:MIN_MOTIE a nrdp:Ministry ; rdfs:label "산업통상자원부"@ko .
+ex:AG_IITP a nrdp:FundingAgency ; rdfs:label "정보통신기획평가원"@ko .
+ex:AG_KEIT a nrdp:FundingAgency ; rdfs:label "한국산업기술평가관리원"@ko .
+
+### 연구수행기관
+ex:OR_KAIST a nrdp:PerformingOrganization ; rdfs:label "한국과학기술원"@ko .
+ex:OR_ETRI a nrdp:PerformingOrganization ; rdfs:label "한국전자통신연구원"@ko .
+ex:OR_SNU a nrdp:PerformingOrganization ; rdfs:label "서울대학교"@ko .
+ex:OR_KRIBB a nrdp:PerformingOrganization ; rdfs:label "한국생명공학연구원"@ko .
+ex:OR_SKKU a nrdp:PerformingOrganization ; rdfs:label "성균관대학교"@ko .
+
+### 세부사업 / 연구개발과제 (partOfProgram 추이적 연결)
+ex:SP01 a nrdp:RnDSubProgram ; rdfs:label "AI원천기술"@ko ; nrdp:partOfProgram ex:P01 .
+ex:SP02 a nrdp:RnDSubProgram ; rdfs:label "AI응용실증"@ko ; nrdp:partOfProgram ex:P01 .
+ex:SP03 a nrdp:RnDSubProgram ; rdfs:label "합성생물학플랫폼"@ko ; nrdp:partOfProgram ex:P05 .
+ex:PJ01 a nrdp:RnDProject ; rdfs:label "초거대모델경량화"@ko ; nrdp:partOfProgram ex:SP01 ; nrdp:performedBy ex:OR_KAIST, ex:OR_ETRI .
+ex:PJ02 a nrdp:RnDProject ; rdfs:label "멀티모달추론기술"@ko ; nrdp:partOfProgram ex:SP01 ; nrdp:performedBy ex:OR_SNU .
+ex:PJ03 a nrdp:RnDProject ; rdfs:label "제조AI실증"@ko ; nrdp:partOfProgram ex:SP02 ; nrdp:performedBy ex:OR_ETRI, ex:OR_SKKU .
+ex:PJ04 a nrdp:RnDProject ; rdfs:label "유전자회로설계"@ko ; nrdp:partOfProgram ex:SP03 ; nrdp:performedBy ex:OR_KRIBB .
+ex:PJ05 a nrdp:RnDProject ; rdfs:label "바이오파운드리"@ko ; nrdp:partOfProgram ex:SP03 ; nrdp:performedBy ex:OR_KRIBB, ex:OR_SNU .
+
+### 정책목표
+ex:PG_TECH a nrdp:PolicyGoal ; rdfs:label "기술주권 확보"@ko .
+ex:PG_GROWTH a nrdp:PolicyGoal ; rdfs:label "혁신성장 견인"@ko .
+ex:PG_SOCIAL a nrdp:PolicyGoal ; rdfs:label "사회문제 해결"@ko .
+
+### 성과지표
+ex:IND_EFF a nrdp:PerformanceIndicator ; rdfs:label "논문건수당투자효율"@ko ; nrdp:indicatorUnit "건/십억원" .
+ex:IND_PAT a nrdp:PerformanceIndicator ; rdfs:label "특허출원건수"@ko ; nrdp:indicatorUnit "건" .
+ex:IND_TT a nrdp:PerformanceIndicator ; rdfs:label "기술이전성공률"@ko ; nrdp:indicatorUnit "%" .
+ex:IND_SOC a nrdp:PerformanceIndicator ; rdfs:label "사회적파급효과평점"@ko ; nrdp:indicatorUnit "점" .
+ex:IND_BUD a nrdp:PerformanceIndicator ; rdfs:label "당해연도예산액"@ko ; nrdp:indicatorUnit "백만원" .
+ex:IND_RISK a nrdp:PerformanceIndicator ; rdfs:label "수행위험도평점"@ko ; nrdp:indicatorUnit "점" .
+
+### 국가연구개발사업
+ex:P01 a nrdp:RnDProgram ;
+    rdfs:label "차세대AI핵심기술개발"@ko ;
+    nrdp:programCode "P01" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_AI ;
+    nrdp:contributesTo ex:PG_TECH, ex:PG_GROWTH ;
+    nrdp:hasAllocation ex:BA_P01_2021, ex:BA_P01_2022, ex:BA_P01_2023 ;
+    nrdp:hasObservation ex:OB_P01_PAP_2021, ex:OB_P01_PAT_2021, ex:OB_P01_PAP_2022, ex:OB_P01_PAT_2022, ex:OB_P01_PAP_2023, ex:OB_P01_PAT_2023 .
+ex:P02 a nrdp:RnDProgram ;
+    rdfs:label "AI반도체첨단공정실증"@ko ;
+    nrdp:programCode "P02" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_SEMI ;
+    nrdp:contributesTo ex:PG_TECH ;
+    nrdp:hasAllocation ex:BA_P02_2021, ex:BA_P02_2022, ex:BA_P02_2023 ;
+    nrdp:hasObservation ex:OB_P02_PAP_2021, ex:OB_P02_PAT_2021, ex:OB_P02_PAP_2022, ex:OB_P02_PAT_2022, ex:OB_P02_PAP_2023, ex:OB_P02_PAT_2023 .
+ex:P03 a nrdp:RnDProgram ;
+    rdfs:label "산업용AI융합확산"@ko ;
+    nrdp:programCode "P03" ;
+    nrdp:fundedBy ex:MIN_MOTIE ;
+    nrdp:managedBy ex:AG_KEIT ;
+    nrdp:belongsToField ex:TF_AI ;
+    nrdp:contributesTo ex:PG_GROWTH ;
+    nrdp:hasAllocation ex:BA_P03_2021, ex:BA_P03_2022, ex:BA_P03_2023 ;
+    nrdp:hasObservation ex:OB_P03_PAP_2021, ex:OB_P03_PAT_2021, ex:OB_P03_PAP_2022, ex:OB_P03_PAT_2022, ex:OB_P03_PAP_2023, ex:OB_P03_PAT_2023 .
+ex:P04 a nrdp:RnDProgram ;
+    rdfs:label "차세대반도체소재부품"@ko ;
+    nrdp:programCode "P04" ;
+    nrdp:fundedBy ex:MIN_MOTIE ;
+    nrdp:managedBy ex:AG_KEIT ;
+    nrdp:belongsToField ex:TF_SEMI ;
+    nrdp:contributesTo ex:PG_TECH, ex:PG_GROWTH ;
+    nrdp:hasAllocation ex:BA_P04_2021, ex:BA_P04_2022, ex:BA_P04_2023 ;
+    nrdp:hasObservation ex:OB_P04_PAP_2021, ex:OB_P04_PAT_2021, ex:OB_P04_PAP_2022, ex:OB_P04_PAT_2022, ex:OB_P04_PAP_2023, ex:OB_P04_PAT_2023 .
+ex:P05 a nrdp:RnDProgram ;
+    rdfs:label "합성생물학기반구축"@ko ;
+    nrdp:programCode "P05" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_BIO ;
+    nrdp:contributesTo ex:PG_TECH, ex:PG_SOCIAL ;
+    nrdp:hasAllocation ex:BA_P05_2021, ex:BA_P05_2022, ex:BA_P05_2023 ;
+    nrdp:hasObservation ex:OB_P05_PAP_2021, ex:OB_P05_PAT_2021, ex:OB_P05_PAP_2022, ex:OB_P05_PAT_2022, ex:OB_P05_PAP_2023, ex:OB_P05_PAT_2023 .
+ex:P06 a nrdp:RnDProgram ;
+    rdfs:label "디지털치료기기개발"@ko ;
+    nrdp:programCode "P06" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_BIO ;
+    nrdp:contributesTo ex:PG_SOCIAL ;
+    nrdp:hasAllocation ex:BA_P06_2021, ex:BA_P06_2022, ex:BA_P06_2023 ;
+    nrdp:hasObservation ex:OB_P06_PAP_2021, ex:OB_P06_PAT_2021, ex:OB_P06_PAP_2022, ex:OB_P06_PAT_2022, ex:OB_P06_PAP_2023, ex:OB_P06_PAT_2023 .
+ex:P07 a nrdp:RnDProgram ;
+    rdfs:label "첨단바이오제조혁신"@ko ;
+    nrdp:programCode "P07" ;
+    nrdp:fundedBy ex:MIN_MOTIE ;
+    nrdp:managedBy ex:AG_KEIT ;
+    nrdp:belongsToField ex:TF_BIO ;
+    nrdp:contributesTo ex:PG_GROWTH ;
+    nrdp:hasAllocation ex:BA_P07_2021, ex:BA_P07_2022, ex:BA_P07_2023 ;
+    nrdp:hasObservation ex:OB_P07_PAP_2021, ex:OB_P07_PAT_2021, ex:OB_P07_PAP_2022, ex:OB_P07_PAT_2022, ex:OB_P07_PAP_2023, ex:OB_P07_PAT_2023 .
+ex:P08 a nrdp:RnDProgram ;
+    rdfs:label "공공AI서비스고도화"@ko ;
+    nrdp:programCode "P08" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_AI ;
+    nrdp:hasAllocation ex:BA_P08_2021, ex:BA_P08_2022, ex:BA_P08_2023 ;
+    nrdp:hasObservation ex:OB_P08_PAP_2021, ex:OB_P08_PAT_2021, ex:OB_P08_PAP_2022, ex:OB_P08_PAT_2022, ex:OB_P08_PAP_2023, ex:OB_P08_PAT_2023 .
+ex:P09 a nrdp:RnDProgram ;
+    rdfs:label "차세대통신핵심기술"@ko ;
+    nrdp:programCode "P09" ;
+    nrdp:fundedBy ex:MIN_MSIT ;
+    nrdp:managedBy ex:AG_IITP ;
+    nrdp:belongsToField ex:TF_SEMI ;
+    nrdp:contributesTo ex:PG_TECH ;
+    nrdp:hasAllocation ex:BA_P09_2021, ex:BA_P09_2022, ex:BA_P09_2023 ;
+    nrdp:hasObservation ex:OB_P09_PAP_2021, ex:OB_P09_PAT_2021, ex:OB_P09_PAP_2022, ex:OB_P09_PAT_2022, ex:OB_P09_PAP_2023, ex:OB_P09_PAT_2023 .
+
+### 예산배분 (n-ary 재화)
+ex:BA_P01_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "48000"^^xsd:decimal .
+ex:BA_P01_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "61000"^^xsd:decimal .
+ex:BA_P01_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "78000"^^xsd:decimal .
+ex:BA_P02_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "32000"^^xsd:decimal .
+ex:BA_P02_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "41000"^^xsd:decimal .
+ex:BA_P02_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "55000"^^xsd:decimal .
+ex:BA_P03_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "21000"^^xsd:decimal .
+ex:BA_P03_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "24000"^^xsd:decimal .
+ex:BA_P03_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "26000"^^xsd:decimal .
+ex:BA_P04_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "67000"^^xsd:decimal .
+ex:BA_P04_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "72000"^^xsd:decimal .
+ex:BA_P04_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "76000"^^xsd:decimal .
+ex:BA_P05_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "15000"^^xsd:decimal .
+ex:BA_P05_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "23000"^^xsd:decimal .
+ex:BA_P05_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "34000"^^xsd:decimal .
+ex:BA_P06_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "9000"^^xsd:decimal .
+ex:BA_P06_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "12000"^^xsd:decimal .
+ex:BA_P06_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "14000"^^xsd:decimal .
+ex:BA_P07_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "28000"^^xsd:decimal .
+ex:BA_P07_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "31000"^^xsd:decimal .
+ex:BA_P07_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "37000"^^xsd:decimal .
+ex:BA_P08_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "18000"^^xsd:decimal .
+ex:BA_P08_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "22000"^^xsd:decimal .
+ex:BA_P08_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "19000"^^xsd:decimal .
+ex:BA_P09_2021 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:hasAmount "40000"^^xsd:decimal .
+ex:BA_P09_2022 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:hasAmount "52000"^^xsd:decimal .
+ex:BA_P09_2023 a nrdp:BudgetAllocation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:hasAmount "64000"^^xsd:decimal .
+
+### 성과관측치 (n-ary 재화)
+ex:OB_P01_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "120"^^xsd:decimal .
+ex:OB_P01_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "45"^^xsd:decimal .
+ex:OB_P01_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "155"^^xsd:decimal .
+ex:OB_P01_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "62"^^xsd:decimal .
+ex:OB_P01_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "190"^^xsd:decimal .
+ex:OB_P01_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P01 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "81"^^xsd:decimal .
+ex:OB_P02_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "64"^^xsd:decimal .
+ex:OB_P02_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "28"^^xsd:decimal .
+ex:OB_P02_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "78"^^xsd:decimal .
+ex:OB_P02_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "37"^^xsd:decimal .
+ex:OB_P02_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "96"^^xsd:decimal .
+ex:OB_P02_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P02 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "49"^^xsd:decimal .
+ex:OB_P03_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "38"^^xsd:decimal .
+ex:OB_P03_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "12"^^xsd:decimal .
+ex:OB_P03_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "41"^^xsd:decimal .
+ex:OB_P03_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "14"^^xsd:decimal .
+ex:OB_P03_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "45"^^xsd:decimal .
+ex:OB_P03_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P03 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "17"^^xsd:decimal .
+ex:OB_P04_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "210"^^xsd:decimal .
+ex:OB_P04_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "88"^^xsd:decimal .
+ex:OB_P04_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "198"^^xsd:decimal .
+ex:OB_P04_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "81"^^xsd:decimal .
+ex:OB_P04_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "176"^^xsd:decimal .
+ex:OB_P04_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P04 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "70"^^xsd:decimal .
+ex:OB_P05_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "45"^^xsd:decimal .
+ex:OB_P05_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "16"^^xsd:decimal .
+ex:OB_P05_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "71"^^xsd:decimal .
+ex:OB_P05_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "27"^^xsd:decimal .
+ex:OB_P05_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "104"^^xsd:decimal .
+ex:OB_P05_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P05 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "42"^^xsd:decimal .
+ex:OB_P06_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "22"^^xsd:decimal .
+ex:OB_P06_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "7"^^xsd:decimal .
+ex:OB_P06_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "31"^^xsd:decimal .
+ex:OB_P06_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "11"^^xsd:decimal .
+ex:OB_P06_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "40"^^xsd:decimal .
+ex:OB_P06_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P06 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "15"^^xsd:decimal .
+ex:OB_P07_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "80"^^xsd:decimal .
+ex:OB_P07_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "33"^^xsd:decimal .
+ex:OB_P07_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "88"^^xsd:decimal .
+ex:OB_P07_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "38"^^xsd:decimal .
+ex:OB_P07_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "97"^^xsd:decimal .
+ex:OB_P07_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P07 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "44"^^xsd:decimal .
+ex:OB_P08_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "30"^^xsd:decimal .
+ex:OB_P08_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "9"^^xsd:decimal .
+ex:OB_P08_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "34"^^xsd:decimal .
+ex:OB_P08_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "11"^^xsd:decimal .
+ex:OB_P08_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "31"^^xsd:decimal .
+ex:OB_P08_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P08 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "10"^^xsd:decimal .
+ex:OB_P09_PAP_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "95"^^xsd:decimal .
+ex:OB_P09_PAT_2021 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2021 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "40"^^xsd:decimal .
+ex:OB_P09_PAP_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "118"^^xsd:decimal .
+ex:OB_P09_PAT_2022 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2022 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "51"^^xsd:decimal .
+ex:OB_P09_PAP_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_EFF ; nrdp:hasObservedValue "141"^^xsd:decimal .
+ex:OB_P09_PAT_2023 a nrdp:IndicatorObservation ; nrdp:ofProgram ex:P09 ; nrdp:inFiscalYear ex:FY2023 ; nrdp:forIndicator ex:IND_PAT ; nrdp:hasObservedValue "63"^^xsd:decimal .
+
+### 의사결정문제 및 대안 (Agent-Role ODP)
+ex:DP1 a mcdm:DecisionProblem ; rdfs:label "2023년 전략기술 3개 분야 R&D 포트폴리오 평가"@ko ;
+    mcdm:hasAlternative ex:ALT_P01, ex:ALT_P02, ex:ALT_P03, ex:ALT_P04, ex:ALT_P05, ex:ALT_P06, ex:ALT_P07, ex:ALT_P08, ex:ALT_P09 ;
+    mcdm:hasCriterion ex:C1, ex:C2, ex:C2a, ex:C2b, ex:C3, ex:C4, ex:C5 .
+
+ex:ALT_P01 a mcdm:Alternative ; rdfs:label "차세대AI핵심기술개발(대안)"@ko ; mcdm:representsEntity ex:P01 .
+ex:ALT_P02 a mcdm:Alternative ; rdfs:label "AI반도체첨단공정실증(대안)"@ko ; mcdm:representsEntity ex:P02 .
+ex:ALT_P03 a mcdm:Alternative ; rdfs:label "산업용AI융합확산(대안)"@ko ; mcdm:representsEntity ex:P03 .
+ex:ALT_P04 a mcdm:Alternative ; rdfs:label "차세대반도체소재부품(대안)"@ko ; mcdm:representsEntity ex:P04 .
+ex:ALT_P05 a mcdm:Alternative ; rdfs:label "합성생물학기반구축(대안)"@ko ; mcdm:representsEntity ex:P05 .
+ex:ALT_P06 a mcdm:Alternative ; rdfs:label "디지털치료기기개발(대안)"@ko ; mcdm:representsEntity ex:P06 .
+ex:ALT_P07 a mcdm:Alternative ; rdfs:label "첨단바이오제조혁신(대안)"@ko ; mcdm:representsEntity ex:P07 .
+ex:ALT_P08 a mcdm:Alternative ; rdfs:label "공공AI서비스고도화(대안)"@ko ; mcdm:representsEntity ex:P08 .
+ex:ALT_P09 a mcdm:Alternative ; rdfs:label "차세대통신핵심기술(대안)"@ko ; mcdm:representsEntity ex:P09 .
+
+### 평가기준
+ex:C1 a mcdm:BenefitCriterion ;
+    rdfs:label "투자효율성"@ko ;
+    mcdm:hasDirection mcdm:Benefit ;
+    mcdm:hasScale mcdm:RatioScale ;
+    mcdm:measuredBy ex:IND_EFF .
+ex:C2 a mcdm:Criterion ;
+    rdfs:label "혁신역량"@ko .
+ex:C2a a mcdm:BenefitCriterion ;
+    rdfs:label "특허창출규모"@ko ;
+    mcdm:hasDirection mcdm:Benefit ;
+    mcdm:hasScale mcdm:RatioScale ;
+    mcdm:measuredBy ex:IND_PAT .
+ex:C2b a mcdm:BenefitCriterion ;
+    rdfs:label "기술이전율"@ko ;
+    mcdm:hasDirection mcdm:Benefit ;
+    mcdm:hasScale mcdm:RatioScale ;
+    mcdm:measuredBy ex:IND_TT .
+ex:C3 a mcdm:BenefitCriterion ;
+    rdfs:label "사회적파급효과"@ko ;
+    mcdm:hasDirection mcdm:Benefit ;
+    mcdm:hasScale mcdm:IntervalScale ;
+    mcdm:measuredBy ex:IND_SOC .
+ex:C4 a mcdm:CostCriterion ;
+    rdfs:label "예산규모"@ko ;
+    mcdm:hasDirection mcdm:Cost ;
+    mcdm:hasScale mcdm:RatioScale ;
+    mcdm:measuredBy ex:IND_BUD .
+ex:C5 a mcdm:CostCriterion ;
+    rdfs:label "수행위험도"@ko ;
+    mcdm:hasDirection mcdm:Cost ;
+    mcdm:hasScale mcdm:IntervalScale ;
+    mcdm:measuredBy ex:IND_RISK .
+ex:C2 mcdm:hasSubCriterion ex:C2a .
+ex:C2 mcdm:hasSubCriterion ex:C2b .
+
+### 평가값 (2023 기준, 원시값만 — v0.2부터 정규화값은 별도 블록)
+ex:CV_P01_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "2.44"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P01_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "81.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P01_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "18.5"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P01_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "72.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P01_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "78000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P01_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "46.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P02_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "1.75"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P02_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "49.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P02_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "24.1"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P02_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "58.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P02_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "55000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P02_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "62.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P03_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "1.73"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P03_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "17.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P03_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "31.2"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P03_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "61.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P03_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "26000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P03_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "33.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P04_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "2.32"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P04_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "70.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P04_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "15.8"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P04_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "55.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P04_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "76000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P04_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "41.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P05_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "3.06"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P05_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "42.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P05_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "12.4"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P05_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "79.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P05_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "34000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P05_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "71.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P06_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "2.86"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P06_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "15.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P06_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "27.9"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P06_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "88.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P06_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "14000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P06_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "58.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P07_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "2.62"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P07_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "44.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P07_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "22.6"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P07_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "64.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P07_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "37000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P07_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "44.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P08_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "1.63"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P08_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "10.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P08_C2b a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C2b ; mcdm:hasRawValue "8.3"^^xsd:decimal ; mcdm:hasUnit "%" .
+ex:CV_P08_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "83.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P08_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "19000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P08_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "29.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P09_C1 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P09 ; mcdm:onCriterion ex:C1 ; mcdm:hasRawValue "2.2"^^xsd:decimal ; mcdm:hasUnit "건/십억원" .
+ex:CV_P09_C2a a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P09 ; mcdm:onCriterion ex:C2a ; mcdm:hasRawValue "63.0"^^xsd:decimal ; mcdm:hasUnit "건" .
+ex:CV_P09_C3 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P09 ; mcdm:onCriterion ex:C3 ; mcdm:hasRawValue "51.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+ex:CV_P09_C4 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P09 ; mcdm:onCriterion ex:C4 ; mcdm:hasRawValue "64000.0"^^xsd:decimal ; mcdm:hasUnit "백만원" .
+ex:CV_P09_C5 a mcdm:CriterionValue ; mcdm:ofAlternative ex:ALT_P09 ; mcdm:onCriterion ex:C5 ; mcdm:hasRawValue "67.0"^^xsd:decimal ; mcdm:hasUnit "점" .
+
+### 정규화값 (NormalizedValue, v0.2 — (평가값×정규화방법)의 3항 관계)
+# P09는 FULL(완전평가 8개)에 포함되지 않으므로 두 정규화방법 모두 결여됨
+# → CQ12(정규화값 결여 평가값)가 P09의 5건 CriterionValue를 전부 탐지한다.
+ex:NV_P01_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.5664"^^xsd:decimal .
+ex:NV_P01_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.366"^^xsd:decimal .
+ex:CV_P01_C1 mcdm:hasNormalization ex:NV_P01_C1_MinMax, ex:NV_P01_C1_Vector .
+ex:NV_P01_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P01_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.6008"^^xsd:decimal .
+ex:CV_P01_C2a mcdm:hasNormalization ex:NV_P01_C2a_MinMax, ex:NV_P01_C2a_Vector .
+ex:NV_P01_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.4454"^^xsd:decimal .
+ex:NV_P01_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3059"^^xsd:decimal .
+ex:CV_P01_C2b mcdm:hasNormalization ex:NV_P01_C2b_MinMax, ex:NV_P01_C2b_Vector .
+ex:NV_P01_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.5152"^^xsd:decimal .
+ex:NV_P01_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3588"^^xsd:decimal .
+ex:CV_P01_C3 mcdm:hasNormalization ex:NV_P01_C3_MinMax, ex:NV_P01_C3_Vector .
+ex:NV_P01_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P01_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4287"^^xsd:decimal .
+ex:CV_P01_C4 mcdm:hasNormalization ex:NV_P01_C4_MinMax, ex:NV_P01_C4_Vector .
+ex:NV_P01_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.5952"^^xsd:decimal .
+ex:NV_P01_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P01_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.674"^^xsd:decimal .
+ex:CV_P01_C5 mcdm:hasNormalization ex:NV_P01_C5_MinMax, ex:NV_P01_C5_Vector .
+ex:NV_P02_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0839"^^xsd:decimal .
+ex:NV_P02_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.2625"^^xsd:decimal .
+ex:CV_P02_C1 mcdm:hasNormalization ex:NV_P02_C1_MinMax, ex:NV_P02_C1_Vector .
+ex:NV_P02_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.5493"^^xsd:decimal .
+ex:NV_P02_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3635"^^xsd:decimal .
+ex:CV_P02_C2a mcdm:hasNormalization ex:NV_P02_C2a_MinMax, ex:NV_P02_C2a_Vector .
+ex:NV_P02_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.69"^^xsd:decimal .
+ex:NV_P02_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3985"^^xsd:decimal .
+ex:CV_P02_C2b mcdm:hasNormalization ex:NV_P02_C2b_MinMax, ex:NV_P02_C2b_Vector .
+ex:NV_P02_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0909"^^xsd:decimal .
+ex:NV_P02_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.289"^^xsd:decimal .
+ex:CV_P02_C3 mcdm:hasNormalization ex:NV_P02_C3_MinMax, ex:NV_P02_C3_Vector .
+ex:NV_P02_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.3594"^^xsd:decimal .
+ex:NV_P02_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.5972"^^xsd:decimal .
+ex:CV_P02_C4 mcdm:hasNormalization ex:NV_P02_C4_MinMax, ex:NV_P02_C4_Vector .
+ex:NV_P02_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.2143"^^xsd:decimal .
+ex:NV_P02_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P02_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.5606"^^xsd:decimal .
+ex:CV_P02_C5 mcdm:hasNormalization ex:NV_P02_C5_MinMax, ex:NV_P02_C5_Vector .
+ex:NV_P03_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0699"^^xsd:decimal .
+ex:NV_P03_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.2595"^^xsd:decimal .
+ex:CV_P03_C1 mcdm:hasNormalization ex:NV_P03_C1_MinMax, ex:NV_P03_C1_Vector .
+ex:NV_P03_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0986"^^xsd:decimal .
+ex:NV_P03_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.1261"^^xsd:decimal .
+ex:CV_P03_C2a mcdm:hasNormalization ex:NV_P03_C2a_MinMax, ex:NV_P03_C2a_Vector .
+ex:NV_P03_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P03_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.5159"^^xsd:decimal .
+ex:CV_P03_C2b mcdm:hasNormalization ex:NV_P03_C2b_MinMax, ex:NV_P03_C2b_Vector .
+ex:NV_P03_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.1818"^^xsd:decimal .
+ex:NV_P03_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.304"^^xsd:decimal .
+ex:CV_P03_C3 mcdm:hasNormalization ex:NV_P03_C3_MinMax, ex:NV_P03_C3_Vector .
+ex:NV_P03_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.8125"^^xsd:decimal .
+ex:NV_P03_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.8096"^^xsd:decimal .
+ex:CV_P03_C4 mcdm:hasNormalization ex:NV_P03_C4_MinMax, ex:NV_P03_C4_Vector .
+ex:NV_P03_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.9048"^^xsd:decimal .
+ex:NV_P03_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P03_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.7661"^^xsd:decimal .
+ex:CV_P03_C5 mcdm:hasNormalization ex:NV_P03_C5_MinMax, ex:NV_P03_C5_Vector .
+ex:NV_P04_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.4825"^^xsd:decimal .
+ex:NV_P04_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.348"^^xsd:decimal .
+ex:CV_P04_C1 mcdm:hasNormalization ex:NV_P04_C1_MinMax, ex:NV_P04_C1_Vector .
+ex:NV_P04_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.8451"^^xsd:decimal .
+ex:NV_P04_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.5192"^^xsd:decimal .
+ex:CV_P04_C2a mcdm:hasNormalization ex:NV_P04_C2a_MinMax, ex:NV_P04_C2a_Vector .
+ex:NV_P04_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.3275"^^xsd:decimal .
+ex:NV_P04_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.2612"^^xsd:decimal .
+ex:CV_P04_C2b mcdm:hasNormalization ex:NV_P04_C2b_MinMax, ex:NV_P04_C2b_Vector .
+ex:NV_P04_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P04_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.2741"^^xsd:decimal .
+ex:CV_P04_C3 mcdm:hasNormalization ex:NV_P04_C3_MinMax, ex:NV_P04_C3_Vector .
+ex:NV_P04_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0312"^^xsd:decimal .
+ex:NV_P04_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4434"^^xsd:decimal .
+ex:CV_P04_C4 mcdm:hasNormalization ex:NV_P04_C4_MinMax, ex:NV_P04_C4_Vector .
+ex:NV_P04_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.7143"^^xsd:decimal .
+ex:NV_P04_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P04_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.7094"^^xsd:decimal .
+ex:CV_P04_C5 mcdm:hasNormalization ex:NV_P04_C5_MinMax, ex:NV_P04_C5_Vector .
+ex:NV_P05_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P05_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4589"^^xsd:decimal .
+ex:CV_P05_C1 mcdm:hasNormalization ex:NV_P05_C1_MinMax, ex:NV_P05_C1_Vector .
+ex:NV_P05_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.4507"^^xsd:decimal .
+ex:NV_P05_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3115"^^xsd:decimal .
+ex:CV_P05_C2a mcdm:hasNormalization ex:NV_P05_C2a_MinMax, ex:NV_P05_C2a_Vector .
+ex:NV_P05_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.179"^^xsd:decimal .
+ex:NV_P05_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.205"^^xsd:decimal .
+ex:CV_P05_C2b mcdm:hasNormalization ex:NV_P05_C2b_MinMax, ex:NV_P05_C2b_Vector .
+ex:NV_P05_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.7273"^^xsd:decimal .
+ex:NV_P05_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3937"^^xsd:decimal .
+ex:CV_P05_C3 mcdm:hasNormalization ex:NV_P05_C3_MinMax, ex:NV_P05_C3_Vector .
+ex:NV_P05_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.6875"^^xsd:decimal .
+ex:NV_P05_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.751"^^xsd:decimal .
+ex:CV_P05_C4 mcdm:hasNormalization ex:NV_P05_C4_MinMax, ex:NV_P05_C4_Vector .
+ex:NV_P05_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P05_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P05_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4968"^^xsd:decimal .
+ex:CV_P05_C5 mcdm:hasNormalization ex:NV_P05_C5_MinMax, ex:NV_P05_C5_Vector .
+ex:NV_P06_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.8601"^^xsd:decimal .
+ex:NV_P06_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4289"^^xsd:decimal .
+ex:CV_P06_C1 mcdm:hasNormalization ex:NV_P06_C1_MinMax, ex:NV_P06_C1_Vector .
+ex:NV_P06_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0704"^^xsd:decimal .
+ex:NV_P06_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.1113"^^xsd:decimal .
+ex:CV_P06_C2a mcdm:hasNormalization ex:NV_P06_C2a_MinMax, ex:NV_P06_C2a_Vector .
+ex:NV_P06_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.8559"^^xsd:decimal .
+ex:NV_P06_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4613"^^xsd:decimal .
+ex:CV_P06_C2b mcdm:hasNormalization ex:NV_P06_C2b_MinMax, ex:NV_P06_C2b_Vector .
+ex:NV_P06_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P06_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4386"^^xsd:decimal .
+ex:CV_P06_C3 mcdm:hasNormalization ex:NV_P06_C3_MinMax, ex:NV_P06_C3_Vector .
+ex:NV_P06_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P06_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.8975"^^xsd:decimal .
+ex:CV_P06_C4 mcdm:hasNormalization ex:NV_P06_C4_MinMax, ex:NV_P06_C4_Vector .
+ex:NV_P06_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.3095"^^xsd:decimal .
+ex:NV_P06_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P06_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.589"^^xsd:decimal .
+ex:CV_P06_C5 mcdm:hasNormalization ex:NV_P06_C5_MinMax, ex:NV_P06_C5_Vector .
+ex:NV_P07_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.6923"^^xsd:decimal .
+ex:NV_P07_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3929"^^xsd:decimal .
+ex:CV_P07_C1 mcdm:hasNormalization ex:NV_P07_C1_MinMax, ex:NV_P07_C1_Vector .
+ex:NV_P07_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.4789"^^xsd:decimal .
+ex:NV_P07_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3264"^^xsd:decimal .
+ex:CV_P07_C2a mcdm:hasNormalization ex:NV_P07_C2a_MinMax, ex:NV_P07_C2a_Vector .
+ex:NV_P07_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.6245"^^xsd:decimal .
+ex:NV_P07_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3737"^^xsd:decimal .
+ex:CV_P07_C2b mcdm:hasNormalization ex:NV_P07_C2b_MinMax, ex:NV_P07_C2b_Vector .
+ex:NV_P07_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.2727"^^xsd:decimal .
+ex:NV_P07_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.3189"^^xsd:decimal .
+ex:CV_P07_C3 mcdm:hasNormalization ex:NV_P07_C3_MinMax, ex:NV_P07_C3_Vector .
+ex:NV_P07_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.6406"^^xsd:decimal .
+ex:NV_P07_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.729"^^xsd:decimal .
+ex:CV_P07_C4 mcdm:hasNormalization ex:NV_P07_C4_MinMax, ex:NV_P07_C4_Vector .
+ex:NV_P07_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.6429"^^xsd:decimal .
+ex:NV_P07_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P07_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.6882"^^xsd:decimal .
+ex:CV_P07_C5 mcdm:hasNormalization ex:NV_P07_C5_MinMax, ex:NV_P07_C5_Vector .
+ex:NV_P08_C1_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C1 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P08_C1_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C1 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.2445"^^xsd:decimal .
+ex:CV_P08_C1 mcdm:hasNormalization ex:NV_P08_C1_MinMax, ex:NV_P08_C1_Vector .
+ex:NV_P08_C2a_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C2a ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P08_C2a_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C2a ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.0742"^^xsd:decimal .
+ex:CV_P08_C2a mcdm:hasNormalization ex:NV_P08_C2a_MinMax, ex:NV_P08_C2a_Vector .
+ex:NV_P08_C2b_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C2b ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.0"^^xsd:decimal .
+ex:NV_P08_C2b_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C2b ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.1372"^^xsd:decimal .
+ex:CV_P08_C2b mcdm:hasNormalization ex:NV_P08_C2b_MinMax, ex:NV_P08_C2b_Vector .
+ex:NV_P08_C3_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C3 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.8485"^^xsd:decimal .
+ex:NV_P08_C3_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C3 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.4136"^^xsd:decimal .
+ex:CV_P08_C3 mcdm:hasNormalization ex:NV_P08_C3_MinMax, ex:NV_P08_C3_Vector .
+ex:NV_P08_C4_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C4 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "0.9219"^^xsd:decimal .
+ex:NV_P08_C4_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C4 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.8608"^^xsd:decimal .
+ex:CV_P08_C4 mcdm:hasNormalization ex:NV_P08_C4_MinMax, ex:NV_P08_C4_Vector .
+ex:NV_P08_C5_MinMax a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C5 ; mcdm:normalizedBy ex:NM_MinMax ; mcdm:hasValue "1.0"^^xsd:decimal .
+ex:NV_P08_C5_Vector a mcdm:NormalizedValue ; mcdm:ofCriterionValue ex:CV_P08_C5 ; mcdm:normalizedBy ex:NM_Vector ; mcdm:hasValue "0.7945"^^xsd:decimal .
+ex:CV_P08_C5 mcdm:hasNormalization ex:NV_P08_C5_MinMax, ex:NV_P08_C5_Vector .
+
+### 정규화방법 / 선호함수 / 집계기법
+ex:NM_MinMax a mcdm:NormalizationMethod ; rdfs:label "min-max 정규화"@ko .
+ex:NM_Vector a mcdm:NormalizationMethod ; rdfs:label "벡터 정규화"@ko .
+ex:PF_VShape a mcdm:PreferenceFunction ; rdfs:label "V-shape 선호함수"@ko ; mcdm:preferenceThresholdQ "0.0"^^xsd:decimal ; mcdm:preferenceThresholdP "0.5"^^xsd:decimal .
+
+ex:M_WSM a mcdm:CompensatoryMethod ;
+    rdfs:label "가중합법(WSM)"@ko ;
+    mcdm:hasPreferenceModel "compensatory" ;
+    mcdm:requiresNormalization "true"^^xsd:boolean ;
+    mcdm:usesNormalization ex:NM_MinMax .
+ex:M_TOPSIS a mcdm:CompensatoryMethod ;
+    rdfs:label "TOPSIS"@ko ;
+    mcdm:hasPreferenceModel "compensatory" ;
+    mcdm:requiresNormalization "true"^^xsd:boolean ;
+    mcdm:usesNormalization ex:NM_Vector .
+ex:M_PRO2 a mcdm:OutrankingMethod ;
+    rdfs:label "PROMETHEE II"@ko ;
+    mcdm:hasPreferenceModel "non-compensatory" ;
+    mcdm:requiresNormalization "true"^^xsd:boolean ;
+    mcdm:usesNormalization ex:NM_MinMax ;
+    mcdm:usesPreferenceFunction ex:PF_VShape .
+
+### 시나리오 및 가중치
+ex:S1 a mcdm:DecisionScenario ;
+    rdfs:label "균형형"@ko ;
+    mcdm:scenarioLabel "모든 정책목표를 균등 반영" ;
+    mcdm:hasWeight ex:W_S1_C1, ex:W_S1_C2a, ex:W_S1_C2b, ex:W_S1_C3, ex:W_S1_C4, ex:W_S1_C5 ;
+    mcdm:reflectsPolicyGoal ex:PG_TECH, ex:PG_GROWTH, ex:PG_SOCIAL .
+ex:W_S1_C1 a mcdm:Weight ; mcdm:assignedToCriterion ex:C1 ; mcdm:hasWeightValue "0.18"^^xsd:decimal .
+ex:W_S1_C2a a mcdm:Weight ; mcdm:assignedToCriterion ex:C2a ; mcdm:hasWeightValue "0.17"^^xsd:decimal .
+ex:W_S1_C2b a mcdm:Weight ; mcdm:assignedToCriterion ex:C2b ; mcdm:hasWeightValue "0.15"^^xsd:decimal .
+ex:W_S1_C3 a mcdm:Weight ; mcdm:assignedToCriterion ex:C3 ; mcdm:hasWeightValue "0.2"^^xsd:decimal .
+ex:W_S1_C4 a mcdm:Weight ; mcdm:assignedToCriterion ex:C4 ; mcdm:hasWeightValue "0.15"^^xsd:decimal .
+ex:W_S1_C5 a mcdm:Weight ; mcdm:assignedToCriterion ex:C5 ; mcdm:hasWeightValue "0.15"^^xsd:decimal .
+ex:S2 a mcdm:DecisionScenario ;
+    rdfs:label "효율중심"@ko ;
+    mcdm:scenarioLabel "재정효율성과 투자규모 관리를 우선" ;
+    mcdm:hasWeight ex:W_S2_C1, ex:W_S2_C2a, ex:W_S2_C2b, ex:W_S2_C3, ex:W_S2_C4, ex:W_S2_C5 ;
+    mcdm:reflectsPolicyGoal ex:PG_GROWTH .
+ex:W_S2_C1 a mcdm:Weight ; mcdm:assignedToCriterion ex:C1 ; mcdm:hasWeightValue "0.32"^^xsd:decimal .
+ex:W_S2_C2a a mcdm:Weight ; mcdm:assignedToCriterion ex:C2a ; mcdm:hasWeightValue "0.13"^^xsd:decimal .
+ex:W_S2_C2b a mcdm:Weight ; mcdm:assignedToCriterion ex:C2b ; mcdm:hasWeightValue "0.1"^^xsd:decimal .
+ex:W_S2_C3 a mcdm:Weight ; mcdm:assignedToCriterion ex:C3 ; mcdm:hasWeightValue "0.08"^^xsd:decimal .
+ex:W_S2_C4 a mcdm:Weight ; mcdm:assignedToCriterion ex:C4 ; mcdm:hasWeightValue "0.27"^^xsd:decimal .
+ex:W_S2_C5 a mcdm:Weight ; mcdm:assignedToCriterion ex:C5 ; mcdm:hasWeightValue "0.1"^^xsd:decimal .
+ex:S3 a mcdm:DecisionScenario ;
+    rdfs:label "혁신중심"@ko ;
+    mcdm:scenarioLabel "기술주권과 사회적 파급효과를 우선" ;
+    mcdm:hasWeight ex:W_S3_C1, ex:W_S3_C2a, ex:W_S3_C2b, ex:W_S3_C3, ex:W_S3_C4, ex:W_S3_C5 ;
+    mcdm:reflectsPolicyGoal ex:PG_TECH, ex:PG_SOCIAL .
+ex:W_S3_C1 a mcdm:Weight ; mcdm:assignedToCriterion ex:C1 ; mcdm:hasWeightValue "0.1"^^xsd:decimal .
+ex:W_S3_C2a a mcdm:Weight ; mcdm:assignedToCriterion ex:C2a ; mcdm:hasWeightValue "0.26"^^xsd:decimal .
+ex:W_S3_C2b a mcdm:Weight ; mcdm:assignedToCriterion ex:C2b ; mcdm:hasWeightValue "0.22"^^xsd:decimal .
+ex:W_S3_C3 a mcdm:Weight ; mcdm:assignedToCriterion ex:C3 ; mcdm:hasWeightValue "0.3"^^xsd:decimal .
+ex:W_S3_C4 a mcdm:Weight ; mcdm:assignedToCriterion ex:C4 ; mcdm:hasWeightValue "0.05"^^xsd:decimal .
+ex:W_S3_C5 a mcdm:Weight ; mcdm:assignedToCriterion ex:C5 ; mcdm:hasWeightValue "0.07"^^xsd:decimal .
+
+### 평가결과 (시나리오 3 × 기법 3 × 대안 8 = 72건)
+ex:DR_S1_M_WSM_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.531086"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S1_M_WSM_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.31621"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S1_M_WSM_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.473301"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S1_M_WSM_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.391472"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S1_M_WSM_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.532055"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S1_M_WSM_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.69161"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S1_M_WSM_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.54676"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S1_M_WSM_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.457978"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.549681"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.444555"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.492978"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.491943"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.480803"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.524773"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.557805"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S1_M_TOPSIS_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.42479"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S1_M_PRO2_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.080934"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S1_M_PRO2_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "-0.297908"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S1_M_PRO2_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "-0.038864"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S1_M_PRO2_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "-0.150198"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S1_M_PRO2_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.064399"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S1_M_PRO2_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.299061"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S1_M_PRO2_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.098301"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S1_M_PRO2_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S1 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "-0.055724"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S2_M_WSM_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.456536"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S2_M_WSM_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.29299"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S2_M_WSM_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.459591"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S2_M_WSM_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.376882"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S2_M_WSM_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.640302"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S2_M_WSM_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.750942"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S2_M_WSM_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.60531"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S2_M_WSM_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.416785"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.384536"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.369887"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.550044"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.351122"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.62427"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.68045"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.616554"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S2_M_TOPSIS_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.536285"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S2_M_PRO2_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "-0.038255"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S2_M_PRO2_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "-0.35971"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S2_M_PRO2_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "-0.074421"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S2_M_PRO2_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "-0.178764"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S2_M_PRO2_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.215478"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S2_M_PRO2_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.388515"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S2_M_PRO2_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.183004"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S2_M_PRO2_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S2 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "-0.135847"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S3_M_WSM_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.610847"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S3_M_WSM_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.36324"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S3_M_WSM_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.411131"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S3_M_WSM_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.391585"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S3_M_WSM_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.509129"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S3_M_WSM_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.664287"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S3_M_WSM_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.489967"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S3_M_WSM_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_WSM ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.370639"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.713033"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "0.526036"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "0.403691"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "0.595079"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.425554"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.417982"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.504627"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S3_M_TOPSIS_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_TOPSIS ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "0.241386"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+ex:DR_S3_M_PRO2_P01 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P01 ; mcdm:hasScore "0.22396"^^xsd:decimal ; mcdm:hasRank "2"^^xsd:integer .
+ex:DR_S3_M_PRO2_P02 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P02 ; mcdm:hasScore "-0.170698"^^xsd:decimal ; mcdm:hasRank "7"^^xsd:integer .
+ex:DR_S3_M_PRO2_P03 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P03 ; mcdm:hasScore "-0.119589"^^xsd:decimal ; mcdm:hasRank "5"^^xsd:integer .
+ex:DR_S3_M_PRO2_P04 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P04 ; mcdm:hasScore "-0.135666"^^xsd:decimal ; mcdm:hasRank "6"^^xsd:integer .
+ex:DR_S3_M_PRO2_P05 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P05 ; mcdm:hasScore "0.058761"^^xsd:decimal ; mcdm:hasRank "3"^^xsd:integer .
+ex:DR_S3_M_PRO2_P06 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P06 ; mcdm:hasScore "0.285324"^^xsd:decimal ; mcdm:hasRank "1"^^xsd:integer .
+ex:DR_S3_M_PRO2_P07 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P07 ; mcdm:hasScore "0.032322"^^xsd:decimal ; mcdm:hasRank "4"^^xsd:integer .
+ex:DR_S3_M_PRO2_P08 a mcdm:DecisionResult ; mcdm:forProblem ex:DP1 ; mcdm:forScenario ex:S3 ; mcdm:byMethod ex:M_PRO2 ; mcdm:ofAlternative ex:ALT_P08 ; mcdm:hasScore "-0.174414"^^xsd:decimal ; mcdm:hasRank "8"^^xsd:integer .
+
+### 기준별 기여도 (S1/WSM 기준, CQ22)
+ex:CC_S1_WSM_P01_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.192"^^xsd:decimal .
+ex:CC_S1_WSM_P01_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.3201"^^xsd:decimal .
+ex:CC_S1_WSM_P01_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.1258"^^xsd:decimal .
+ex:CC_S1_WSM_P01_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.194"^^xsd:decimal .
+ex:CC_S1_WSM_P01_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P01_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.1681"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.0478"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.2953"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.3273"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.0575"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.1705"^^xsd:decimal .
+ex:CC_S1_WSM_P02_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P02 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.1017"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.0266"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.0354"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.3169"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.0768"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.2575"^^xsd:decimal .
+ex:CC_S1_WSM_P03_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P03 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.2867"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.2219"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.367"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.1255"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.012"^^xsd:decimal .
+ex:CC_S1_WSM_P04_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P04 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.2737"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.3383"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.144"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.0505"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.2734"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.1938"^^xsd:decimal .
+ex:CC_S1_WSM_P05_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P05 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.2239"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.0173"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.1856"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.2892"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.2169"^^xsd:decimal .
+ex:CC_S1_WSM_P06_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P06 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.0671"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.2279"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.1489"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.1713"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.0998"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.1758"^^xsd:decimal .
+ex:CC_S1_WSM_P07_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P07 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.1764"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C1 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C1 ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C2a a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C2a ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C2b a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C2b ; mcdm:hasContributionRatio "0.0"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C3 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C3 ; mcdm:hasContributionRatio "0.3705"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C4 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C4 ; mcdm:hasContributionRatio "0.3019"^^xsd:decimal .
+ex:CC_S1_WSM_P08_C5 a mcdm:CriterionContribution ; mcdm:explains ex:DR_S1_M_WSM_P08 ; mcdm:contributionOf ex:C5 ; mcdm:hasContributionRatio "0.3275"^^xsd:decimal .
+
+### 출처 계층 (PROV-O) — 예시 2건 (CQ23)
+ex:CV_P01_C1 prov:wasGeneratedBy ex:ACT_NORM_P01_C1 .
+ex:ACT_NORM_P01_C1 a prov:Activity ; rdfs:label "min-max 정규화 수행"@ko ; prov:used ex:RAW_P01_C1 .
+ex:RAW_P01_C1 a prov:Entity ; rdfs:label "원시통계값"@ko ; prov:wasDerivedFrom ex:NTIS_P01 .
+ex:CV_P01_C2a prov:wasGeneratedBy ex:ACT_NORM_P01_C2a .
+ex:ACT_NORM_P01_C2a a prov:Activity ; rdfs:label "min-max 정규화 수행"@ko ; prov:used ex:RAW_P01_C2a .
+ex:RAW_P01_C2a a prov:Entity ; rdfs:label "원시통계값"@ko ; prov:wasDerivedFrom ex:NTIS_P01 .
+ex:NTIS_P01 a prov:Entity ; rdfs:label "NTIS 사업 레코드 P01"@ko ; prov:wasDerivedFrom ex:SRC_NTIS2023 .
+ex:CV_P05_C1 prov:wasGeneratedBy ex:ACT_NORM_P05_C1 .
+ex:ACT_NORM_P05_C1 a prov:Activity ; rdfs:label "min-max 정규화 수행"@ko ; prov:used ex:RAW_P05_C1 .
+ex:RAW_P05_C1 a prov:Entity ; rdfs:label "원시통계값"@ko ; prov:wasDerivedFrom ex:NTIS_P05 .
+ex:CV_P05_C2a prov:wasGeneratedBy ex:ACT_NORM_P05_C2a .
+ex:ACT_NORM_P05_C2a a prov:Activity ; rdfs:label "min-max 정규화 수행"@ko ; prov:used ex:RAW_P05_C2a .
+ex:RAW_P05_C2a a prov:Entity ; rdfs:label "원시통계값"@ko ; prov:wasDerivedFrom ex:NTIS_P05 .
+ex:NTIS_P05 a prov:Entity ; rdfs:label "NTIS 사업 레코드 P05"@ko ; prov:wasDerivedFrom ex:SRC_NTIS2023 .
+ex:SRC_NTIS2023 a prov:Entity ; rdfs:label "NTIS 2023년 국가R&D조사분석 데이터셋"@ko .
+
+### 반사실 조건 (CQ24) — S1/WSM 에서 3위 진입 요건
+ex:CF_P01_C1 a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C1 ; rdfs:label "C1 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "0.5718"^^xsd:decimal ; mcdm:requiredRawValue "2.45"^^xsd:decimal ; mcdm:isFeasible "true"^^xsd:boolean .
+ex:CF_P01_C2a a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C2a ; rdfs:label "C2a 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "1.0057"^^xsd:decimal ; mcdm:requiredRawValue "81.0"^^xsd:decimal ; mcdm:isFeasible "false"^^xsd:boolean .
+ex:CF_P01_C2b a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C2b ; rdfs:label "C2b 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "0.4519"^^xsd:decimal ; mcdm:requiredRawValue "18.65"^^xsd:decimal ; mcdm:isFeasible "true"^^xsd:boolean .
+ex:CF_P01_C3 a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C3 ; rdfs:label "C3 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "0.52"^^xsd:decimal ; mcdm:requiredRawValue "72.16"^^xsd:decimal ; mcdm:isFeasible "true"^^xsd:boolean .
+ex:CF_P01_C4 a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C4 ; rdfs:label "C4 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "0.0065"^^xsd:decimal ; mcdm:requiredRawValue "77586.61"^^xsd:decimal ; mcdm:isFeasible "true"^^xsd:boolean .
+ex:CF_P01_C5 a mcdm:CounterfactualCondition ; mcdm:explains ex:DR_S1_M_WSM_P01 ; mcdm:concernsCriterion ex:C5 ; rdfs:label "C5 기준 단독 개선으로 3위 진입"@ko ; mcdm:requiredNormalizedValue "0.6017"^^xsd:decimal ; mcdm:requiredRawValue "45.73"^^xsd:decimal ; mcdm:isFeasible "true"^^xsd:boolean .
+

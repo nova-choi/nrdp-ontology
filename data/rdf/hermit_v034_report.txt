@@ -1,0 +1,8 @@
+HermiT 검사 (v0.3.4 스키마 3모듈 + data/rdf 3파일, owl:imports 제거 병합본 N-Triples)
+실행 2026-10-23, HermiT 1.4 명령행(owlready2 동봉), java -Xmx6800M, 옵션 -k -U
+
+1) 결함 (7)(budgetCode 2개) 반영 + PROMETHEE II 기여 분해 적재 후: 입력 1,069,683 트리플
+   owl:Thing is satisfiable (일관), 만족불가능 클래스: owl:Nothing 뿐, 5분 31초
+2) 최종 (CQ25 순위 역전 조건, 표준분류 판 연도별 배정, 라이선스 포함): 입력 1,073,790 트리플
+   owl:Thing is satisfiable (일관), 만족불가능 클래스: owl:Nothing 뿐, 5분 51초
+대조: v0.3.3 스키마(budgetCode 함수적) + 예산배분 1건에 코드 2개 → 비일관 (owlready2 HermiT, 최소 사례)

@@ -1,0 +1,309 @@
+_:n7e45027791f14122a751d5c4eab1cd06b33 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf-vocabulary.ddialliance.org/xkos#follows> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n7e45027791f14122a751d5c4eab1cd06b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n7e45027791f14122a751d5c4eab1cd06b1 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b34 <http://www.w3.org/2002/07/owl#onDatatype> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/kosv#Identity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b39 .
+_:n7e45027791f14122a751d5c4eab1cd06b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Split> .
+<https://w3id.org/nrdp/kosv#Split> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#changeType> <http://www.w3.org/2000/01/rdf-schema#label> "변경 유형"@ko .
+<https://w3id.org/nrdp/kosv#fromConcept> <http://www.w3.org/2000/01/rdf-schema#label> "배분 원천 개념"@ko .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:n7e45027791f14122a751d5c4eab1cd06b31 <http://www.w3.org/2002/07/owl#onClass> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<http://rdf-vocabulary.ddialliance.org/xkos#follows> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#toConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/2000/01/rdf-schema#comment> "대응표 단위로 부여하되, 같은 대응표 안에서 근거가 다른 연관(공식 대비표 + 규칙 도출)은 연관 단위로 덮어쓴다."@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+<https://w3id.org/nrdp/kosv#Classification> <http://www.w3.org/2000/01/rdf-schema#label> "Classification"@en .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#Relocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#sourceLocator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#RuleDerived> <http://www.w3.org/2000/01/rdf-schema#comment> "명시적 규칙에서 도출(예: 대비표에 수록되지 않은 중분류는 코드 동일 개념끼리 1:1)."@ko .
+<https://w3id.org/nrdp/kosv#CorrespondenceBasis> <http://www.w3.org/2000/01/rdf-schema#label> "대응 근거"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#sourceLocator> <http://www.w3.org/2000/01/rdf-schema#comment> "근거 문서 내 위치(쪽·행). 감사 추적용."@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#RuleDerived> .
+<https://w3id.org/nrdp/kosv#ChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "변경 유형"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/kosv#shareValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/2000/01/rdf-schema#label> "이후 판"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b2 .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv> <http://purl.org/dc/terms/title> "분류체계 판 관리·대응표 모듈"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#RuleDerived> .
+<https://w3id.org/nrdp/kosv#fromConcept> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#AllocationShare> .
+<http://rdf-vocabulary.ddialliance.org/xkos#belongsTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/2000/01/rdf-schema#label> "대응 근거"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> <http://www.w3.org/2000/01/rdf-schema#label> "Concept association"@en .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "판 맞춤"@ko .
+<https://w3id.org/nrdp/kosv#validToYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdf-vocabulary.ddialliance.org/xkos#compares> .
+_:n7e45027791f14122a751d5c4eab1cd06b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#OfficialTable> .
+<https://w3id.org/nrdp/kosv#DataDerived> <http://www.w3.org/2000/01/rdf-schema#label> "데이터 도출"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b10 .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b39 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+_:n7e45027791f14122a751d5c4eab1cd06b11 <http://www.w3.org/2002/07/owl#distinctMembers> _:n7e45027791f14122a751d5c4eab1cd06b12 .
+<https://w3id.org/nrdp/kosv#announcedYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "원래 판의 분류값을 특정 대응표(prov:used)로 다른 판에 맞춘 값을 생성하는 활동. 생성된 값은 prov:wasDerivedFrom 으로 원래 값을 가리킨다. 원래 값은 덮어쓰지 않는다."@ko .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv> <http://purl.org/dc/terms/title> "Classification edition and correspondence module"@en .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/nrdp/kosv#validToYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/kosv#MergeResplit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://rdf-vocabulary.ddialliance.org/xkos#compares> <http://www.w3.org/2000/01/rdf-schema#label> "비교 대상 판"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b4 <http://www.w3.org/2002/07/owl#oneOf> _:n7e45027791f14122a751d5c4eab1cd06b5 .
+_:n7e45027791f14122a751d5c4eab1cd06b32 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/kosv#fromConcept> .
+<https://w3id.org/nrdp/kosv#ChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "Change type"@en .
+<https://w3id.org/nrdp/kosv#ResearcherAuthored> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+<http://rdf-vocabulary.ddialliance.org/xkos#supersedes> <http://www.w3.org/2000/01/rdf-schema#label> "대체(이전 판 폐기)"@ko .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#shareValue> <http://www.w3.org/2000/01/rdf-schema#range> _:n7e45027791f14122a751d5c4eab1cd06b34 .
+_:n7e45027791f14122a751d5c4eab1cd06b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:n7e45027791f14122a751d5c4eab1cd06b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b13 .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/2000/01/rdf-schema#comment> "두 판 사이의 개념 연관 집합."@ko .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#Classification> .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/2000/01/rdf-schema#comment> "이 판이 과제정보 입력에 적용되기 시작한 연도(고시 연도와 다를 수 있음)."@ko .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b31 .
+<https://w3id.org/nrdp/kosv#MergeResplit> <http://www.w3.org/2000/01/rdf-schema#label> "통합 후 재분할"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#ClassificationEdition> <http://www.w3.org/2000/01/rdf-schema#comment> "분류체계의 한 개정판. 유효기간은 연도 정수로 기록(xsd:gYear 는 OWL 2 datatype map 밖). XKOS 권고에 따라 dcterms:valid 를 주석으로 병기할 수 있다."@ko .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/2000/01/rdf-schema#domain> _:n7e45027791f14122a751d5c4eab1cd06b28 .
+<https://w3id.org/nrdp/kosv> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/nrdp/kosv#shareOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#AllocationShare> .
+<https://w3id.org/nrdp/kosv#DataDerived> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+<https://w3id.org/nrdp/kosv#fromConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b1 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/nrdp/kosv#announcedYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#changeType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#Rename> <http://www.w3.org/2000/01/rdf-schema#comment> "코드 유지·명칭 변경. 1:1. 의미 범위 변화 여부는 해설서 대조로 별도 판단."@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#targetConcept> <http://www.w3.org/2000/01/rdf-schema#label> "대상 개념"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/2000/01/rdf-schema#label> "대응표"@ko .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+<https://w3id.org/nrdp/kosv#Rename> <http://www.w3.org/2000/01/rdf-schema#label> "명칭변경"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#supersedes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdf-vocabulary.ddialliance.org/xkos#follows> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#comment> "분할·통합 후 재분할 연관에서 (원천, 대상) 쌍별 배분 비중. 집계값이 이 비중에 의존하므로 근거를 함께 기록한다. 같은 원천의 비중 합 = 1 은 SHACL로 검사."@ko .
+<https://w3id.org/nrdp/kosv#toConcept> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:n7e45027791f14122a751d5c4eab1cd06b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Relocation> .
+_:n7e45027791f14122a751d5c4eab1cd06b34 <http://www.w3.org/2002/07/owl#withRestrictions> _:n7e45027791f14122a751d5c4eab1cd06b37 .
+_:n7e45027791f14122a751d5c4eab1cd06b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#MergeResplit> .
+<https://w3id.org/nrdp/kosv#validToYear> <http://www.w3.org/2000/01/rdf-schema#label> "적용 종료연도"@ko .
+<https://w3id.org/nrdp/kosv#Identity> <http://www.w3.org/2000/01/rdf-schema#label> "동일"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/kosv> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.1" .
+_:n7e45027791f14122a751d5c4eab1cd06b3 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/kosv#changeType> .
+_:n7e45027791f14122a751d5c4eab1cd06b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#fromConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<https://w3id.org/nrdp/kosv#changeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#Relocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#Rename> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#RuleDerived> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+<https://w3id.org/nrdp/kosv#sourceLocator> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:n7e45027791f14122a751d5c4eab1cd06b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Merge> .
+_:n7e45027791f14122a751d5c4eab1cd06b2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/kosv#ResearcherAuthored> <http://www.w3.org/2000/01/rdf-schema#comment> "공식 대응표가 없는 경우. 연관마다 근거 문서·위치(sourceDocument)와 판정 사유를 기록하여, 판정자 합의 대신 기록 대조로 검토한다."@ko .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n7e45027791f14122a751d5c4eab1cd06b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b14 .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/2000/01/rdf-schema#label> "적용 시작연도"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b31 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+_:n7e45027791f14122a751d5c4eab1cd06b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n7e45027791f14122a751d5c4eab1cd06b35 .
+<https://w3id.org/nrdp/kosv#CorrespondenceBasis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/nrdp/kosv/0.1.1> .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://rdf-vocabulary.ddialliance.org/xkos#madeOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b33 .
+<https://w3id.org/nrdp/kosv#shareOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#MergeResplit> .
+_:n7e45027791f14122a751d5c4eab1cd06b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/2000/01/rdf-schema#label> "소속 분류체계"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b3 .
+<https://w3id.org/nrdp/kosv#shareValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#AllocationShare> .
+<https://w3id.org/nrdp/kosv#ClassificationEdition> <http://www.w3.org/2000/01/rdf-schema#label> "Classification edition"@en .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#sourceLocator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> <http://www.w3.org/2000/01/rdf-schema#label> "개념 연관"@ko .
+<https://w3id.org/nrdp/kosv#sourceLocator> <http://www.w3.org/2000/01/rdf-schema#label> "근거 위치"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b39 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/prov#used> .
+<http://rdf-vocabulary.ddialliance.org/xkos#targetConcept> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#changeType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+_:n7e45027791f14122a751d5c4eab1cd06b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b27 .
+_:n7e45027791f14122a751d5c4eab1cd06b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#ClassificationEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n7e45027791f14122a751d5c4eab1cd06b35 <http://www.w3.org/2001/XMLSchema#minInclusive> "0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/kosv#MergeResplit> <http://www.w3.org/2000/01/rdf-schema#comment> "N:M. 집계 시 배분 규칙 필요."@ko .
+<https://w3id.org/nrdp/kosv#ChangeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n7e45027791f14122a751d5c4eab1cd06b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#DataDerived> .
+<https://w3id.org/nrdp/kosv#Merge> <http://www.w3.org/2000/01/rdf-schema#label> "통합"@ko .
+<https://w3id.org/nrdp/kosv#toConcept> <http://www.w3.org/2000/01/rdf-schema#label> "배분 대상 개념"@ko .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b18 <http://www.w3.org/2002/07/owl#oneOf> _:n7e45027791f14122a751d5c4eab1cd06b19 .
+<http://rdf-vocabulary.ddialliance.org/xkos#follows> <http://www.w3.org/2000/01/rdf-schema#label> "계승"@ko .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/2000/01/rdf-schema#comment> "통합·분할이 중분류 이동을 동반하는 경우(대비표 '통합, 이동')."@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Merge> .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Harmonization run"@en .
+_:n7e45027791f14122a751d5c4eab1cd06b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/2000/01/rdf-schema#label> "도입 판"@ko .
+<https://w3id.org/nrdp/kosv#sourceDocument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<http://rdf-vocabulary.ddialliance.org/xkos#supersedes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#sourceDocument> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#Relocation> <http://www.w3.org/2000/01/rdf-schema#comment> "다른 중분류로 이동하며 코드 변경. 1:1 또는 통합과 결합."@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#toConcept> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#AllocationShare> .
+<https://w3id.org/nrdp/kosv#shareValue> <http://www.w3.org/2000/01/rdf-schema#label> "비중"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Identity> .
+<https://w3id.org/nrdp/kosv> <http://purl.org/dc/terms/creator> "최혜석" .
+<https://w3id.org/nrdp/kosv#toConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#shareValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#OfficialTable> <http://www.w3.org/2000/01/rdf-schema#comment> "고시 문서의 신구 대비표에서 추출."@ko .
+<https://w3id.org/nrdp/kosv#correspondenceBasis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf-vocabulary.ddialliance.org/xkos#madeOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<https://w3id.org/nrdp/kosv#ClassificationEdition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n7e45027791f14122a751d5c4eab1cd06b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Split> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b7 .
+_:n7e45027791f14122a751d5c4eab1cd06b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/kosv#validToYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#ResearcherAuthored> .
+_:n7e45027791f14122a751d5c4eab1cd06b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#DataDerived> .
+<https://w3id.org/nrdp/kosv#Split> <http://www.w3.org/2000/01/rdf-schema#label> "분할"@ko .
+<https://w3id.org/nrdp/kosv#fromConcept> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:n7e45027791f14122a751d5c4eab1cd06b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Rename> .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/2000/01/rdf-schema#label> "Correspondence"@en .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdf-vocabulary.ddialliance.org/xkos#compares> .
+_:n7e45027791f14122a751d5c4eab1cd06b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b20 .
+_:n7e45027791f14122a751d5c4eab1cd06b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b16 .
+<http://rdf-vocabulary.ddialliance.org/xkos#follows> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b32 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/nrdp/kosv#ResearcherAuthored> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#OfficialTable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+<http://rdf-vocabulary.ddialliance.org/xkos#compares> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/nrdp/kosv#sourceDocument> <http://www.w3.org/2000/01/rdf-schema#label> "근거 문서"@ko .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "대비표의 '신설' 항목. 이전 판에 원천 개념이 없다."@ko .
+<https://w3id.org/nrdp/kosv#Rename> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#targetEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<http://rdf-vocabulary.ddialliance.org/xkos#compares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/nrdp/kosv#Identity> <http://www.w3.org/2000/01/rdf-schema#comment> "코드·명칭 동일. 1:1."@ko .
+<https://w3id.org/nrdp/kosv#ClassificationEdition> <http://www.w3.org/2000/01/rdf-schema#label> "분류체계 판"@ko .
+<https://w3id.org/nrdp/kosv#announcedYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b2 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/kosv#CorrespondenceBasis> .
+_:n7e45027791f14122a751d5c4eab1cd06b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/kosv#Merge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:n7e45027791f14122a751d5c4eab1cd06b31 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/kosv#shareOf> .
+<https://w3id.org/nrdp/kosv#Identity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "자동 추출 → 수작업 검토 → 근거 재대조(재검토)의 단계. 재검토에서 바뀐 판정은 변경 전후를 함께 기록한다. 값은 ReviewStatus 체계(kosv-schemes, 미작성)."@ko .
+<https://w3id.org/nrdp/kosv#introducedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b6 .
+<https://w3id.org/nrdp/kosv#HarmonizationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+<https://w3id.org/nrdp/kosv#DataDerived> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf-vocabulary.ddialliance.org/xkos#madeOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#sourceDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/kosv#OfficialTable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#announcedYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+_:n7e45027791f14122a751d5c4eab1cd06b33 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:n7e45027791f14122a751d5c4eab1cd06b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:n7e45027791f14122a751d5c4eab1cd06b2 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/kosv#correspondenceBasis> .
+_:n7e45027791f14122a751d5c4eab1cd06b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b9 .
+<https://w3id.org/nrdp/kosv#validToYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+<https://w3id.org/nrdp/kosv#Classification> <http://www.w3.org/2000/01/rdf-schema#comment> "판을 묶는 분류체계 자체(예: 국가과학기술표준분류). XKOS는 이를 skos:Concept 로 모델링하도록 권고하나, 여기서는 판(ConceptScheme)과 구분되는 별도 클래스로 둔다."@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Relocation> .
+<https://w3id.org/nrdp/kosv#Split> <http://www.w3.org/2000/01/rdf-schema#comment> "1:N. 집계 시 배분 규칙 필요."@ko .
+<https://w3id.org/nrdp/kosv#Relocation> <http://www.w3.org/2000/01/rdf-schema#label> "이동"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b3 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/kosv#ChangeType> .
+_:n7e45027791f14122a751d5c4eab1cd06b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b26 .
+_:n7e45027791f14122a751d5c4eab1cd06b36 <http://www.w3.org/2001/XMLSchema#maxInclusive> "1"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/kosv#Merge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#announcedYear> <http://www.w3.org/2000/01/rdf-schema#label> "고시(발표) 연도"@ko .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n7e45027791f14122a751d5c4eab1cd06b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Identity> .
+<https://w3id.org/nrdp/kosv> <http://www.w3.org/2002/07/owl#priorVersion> <https://w3id.org/nrdp/kosv/0.1.0> .
+<http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> <http://www.w3.org/2000/01/rdf-schema#comment> "원천 개념 n개와 대상 개념 m개의 연관(n:m을 한 개체로 표현). 원천·대상 개수와 변경 유형의 정합성은 폐쇄세계 검사이므로 SHACL(kosv-shapes.ttl)로 위임한다."@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b8 .
+<http://rdf-vocabulary.ddialliance.org/xkos#follows> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+_:n7e45027791f14122a751d5c4eab1cd06b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b25 .
+<https://w3id.org/nrdp/kosv#shareOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation> .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "후속 판에서 대상 개념이 없는 개념. 대비표의 '삭제' 표기는 실제로는 다른 중분류로의 이동·통합인 경우가 있으므로(예: 2018판 EE08·EE09 → 2023판 EE1207·EE1208), 검토 후에만 부여한다."@ko .
+<https://w3id.org/nrdp/kosv#ChangeType> <http://www.w3.org/2002/07/owl#equivalentClass> _:n7e45027791f14122a751d5c4eab1cd06b4 .
+<https://w3id.org/nrdp/kosv#Classification> <http://www.w3.org/2000/01/rdf-schema#label> "분류체계"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b3 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf-vocabulary.ddialliance.org/xkos#targetConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#changeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n7e45027791f14122a751d5c4eab1cd06b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b38 .
+<https://w3id.org/nrdp/kosv#RuleDerived> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:n7e45027791f14122a751d5c4eab1cd06b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b21 .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/nrdp/kosv#OfficialTable> <http://www.w3.org/2000/01/rdf-schema#label> "공식 대비표"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#ResearcherAuthored> .
+_:n7e45027791f14122a751d5c4eab1cd06b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n7e45027791f14122a751d5c4eab1cd06b36 .
+_:n7e45027791f14122a751d5c4eab1cd06b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#OfficialTable> .
+<https://w3id.org/nrdp/kosv#shareOf> <http://www.w3.org/2000/01/rdf-schema#label> "배분 대상 연관"@ko .
+<https://w3id.org/nrdp/kosv#discontinuedIn> <http://www.w3.org/2000/01/rdf-schema#label> "종료 판"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b33 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/kosv#toConcept> .
+_:n7e45027791f14122a751d5c4eab1cd06b28 <http://www.w3.org/2002/07/owl#unionOf> _:n7e45027791f14122a751d5c4eab1cd06b29 .
+<http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept> <http://www.w3.org/2000/01/rdf-schema#label> "원천 개념"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b1 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf-vocabulary.ddialliance.org/xkos#compares> .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/kosv#Classification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/nrdp/kosv#shareOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/kosv#editionOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdf-vocabulary.ddialliance.org/xkos#belongsTo> .
+<https://w3id.org/nrdp/kosv#RuleDerived> <http://www.w3.org/2000/01/rdf-schema#label> "규칙 도출"@ko .
+<https://w3id.org/nrdp/kosv#reviewStatus> <http://www.w3.org/2000/01/rdf-schema#label> "검토 상태"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b15 .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#label> "Allocation share"@en .
+<https://w3id.org/nrdp/kosv#DataDerived> <http://www.w3.org/2000/01/rdf-schema#comment> "동일 과제의 이중 코딩(구·신 분류 병기) 빈도에서 추정."@ko .
+<https://w3id.org/nrdp/kosv#MergeResplit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/kosv#ChangeType> .
+<https://w3id.org/nrdp/kosv#Merge> <http://www.w3.org/2000/01/rdf-schema#comment> "N:1."@ko .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b32 .
+_:n7e45027791f14122a751d5c4eab1cd06b32 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n7e45027791f14122a751d5c4eab1cd06b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b17 .
+_:n7e45027791f14122a751d5c4eab1cd06b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/kosv#sourceEdition> <http://www.w3.org/2000/01/rdf-schema#label> "이전 판"@ko .
+<https://w3id.org/nrdp/kosv#AllocationShare> <http://www.w3.org/2000/01/rdf-schema#label> "배분 비중"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#madeOf> <http://www.w3.org/2000/01/rdf-schema#label> "구성 연관"@ko .
+<http://rdf-vocabulary.ddialliance.org/xkos#compares> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> .
+_:n7e45027791f14122a751d5c4eab1cd06b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/kosv#Rename> .
+_:n7e45027791f14122a751d5c4eab1cd06b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b30 .
+<https://w3id.org/nrdp/kosv#CorrespondenceBasis> <http://www.w3.org/2002/07/owl#equivalentClass> _:n7e45027791f14122a751d5c4eab1cd06b18 .
+_:n7e45027791f14122a751d5c4eab1cd06b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://rdf-vocabulary.ddialliance.org/xkos#Correspondence> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n7e45027791f14122a751d5c4eab1cd06b1 .
+_:n7e45027791f14122a751d5c4eab1cd06b23 <http://www.w3.org/2002/07/owl#distinctMembers> _:n7e45027791f14122a751d5c4eab1cd06b24 .
+<https://w3id.org/nrdp/kosv#CorrespondenceBasis> <http://www.w3.org/2000/01/rdf-schema#label> "Correspondence basis"@en .
+<http://rdf-vocabulary.ddialliance.org/xkos#targetConcept> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/nrdp/kosv#Split> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/kosv#alsoRelocated> <http://www.w3.org/2000/01/rdf-schema#label> "이동 동반"@ko .
+_:n7e45027791f14122a751d5c4eab1cd06b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/kosv#validFromYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/kosv#ClassificationEdition> .
+_:n7e45027791f14122a751d5c4eab1cd06b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n7e45027791f14122a751d5c4eab1cd06b22 .
+<https://w3id.org/nrdp/kosv#ResearcherAuthored> <http://www.w3.org/2000/01/rdf-schema#label> "연구자 작성"@ko .

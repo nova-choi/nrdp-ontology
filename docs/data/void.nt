@@ -1,0 +1,50 @@
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/title> "국가 R&D 포트폴리오 실데이터 지식그래프 (NTIS, 국가전략기술 3개 분야)"@ko .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/conformsTo> <https://w3id.org/nrdp/kosv/0.1.1> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/title> "National R&D portfolio knowledge graph from NTIS (three national strategic technology fields)"@en .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <https://w3id.org/nrdp/ontology#> .
+<https://w3id.org/nrdp/data/schemes> <http://purl.org/dc/terms/title> "nrdp-schemes.ttl — 개념체계·기관·회계연도"@ko .
+<https://w3id.org/nrdp/data/domain> <http://www.w3.org/ns/dcat#downloadURL> <https://github.com/nova-choi/nrdp-ontology/raw/v0.3.5/data/rdf/nrdp-domain.ttl.gz> .
+<https://w3id.org/nrdp/data/schemes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset> .
+<https://w3id.org/nrdp/data> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/nrdp/data/domain> .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#subset> <https://w3id.org/nrdp/data/mcdm> .
+<https://w3id.org/nrdp/data/schemes> <http://www.w3.org/ns/dcat#downloadURL> <https://github.com/nova-choi/nrdp-ontology/raw/v0.3.5/data/rdf/nrdp-schemes.ttl> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/nrdp/data/domain> <http://www.w3.org/ns/dcat#compressFormat> "application/gzip" .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#subset> <https://w3id.org/nrdp/data/schemes> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/conformsTo> <https://w3id.org/nrdp/ontology/0.3.4> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/conformsTo> <https://w3id.org/nrdp/mcdm/0.3.4> .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <http://www.w3.org/ns/org#> .
+<https://w3id.org/nrdp/data/domain> <http://purl.org/dc/terms/title> "nrdp-domain.ttl.gz — 사업·과제·성과·예산·분류 인스턴스 (gzip)"@ko .
+<https://w3id.org/nrdp/data/mcdm> <http://rdfs.org/ns/void#triples> "12932"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#subset> <https://w3id.org/nrdp/data/domain> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/rights> "원자료: 한국과학기술정보연구원, 국가과학기술지식정보서비스(NTIS) OpenAPI 과제검색·성과검색(공공누리 제1유형), 2026년 10월 수집. 본 데이터는 원자료를 RDF로 변환·집계한 가공본이다."@ko .
+<https://w3id.org/nrdp/data> <http://www.w3.org/ns/dcat#version> "0.3.4" .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/source> <https://www.ntis.go.kr/> .
+<https://www.ntis.go.kr/> <http://purl.org/dc/terms/title> "국가과학기술지식정보서비스(NTIS) OpenAPI 과제검색·성과검색"@ko .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <https://w3id.org/nrdp/mcdm#> .
+<https://w3id.org/nrdp/data/mcdm> <http://www.w3.org/ns/dcat#mediaType> "text/turtle" .
+<https://w3id.org/nrdp/data> <http://www.w3.org/2000/01/rdf-schema#comment> "공개하지 않은 것: NTIS 원본 API 응답과 과제 단위 중간 산출물(약 380MB). 같은 공공누리 조건이지만 용량이 크고 수집 스크립트(pipeline/ntis_collect.py)와 인증키로 재현할 수 있어 저장소에 두지 않았다. 연구책임자·참여연구원 성명과 사업자등록번호는 수집 단계에서 제외하였다."@ko .
+<https://w3id.org/nrdp/data/mcdm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/temporal> "2015/2024" .
+<https://w3id.org/nrdp/data/domain> <http://rdfs.org/ns/void#triples> "1043896"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/data/domain> <http://www.w3.org/ns/dcat#mediaType> "text/turtle" .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#uriSpace> "https://w3id.org/nrdp/data#" .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/description> "국가전략기술 3개 분야(반도체·디스플레이, 첨단바이오, 인공지능) 세부사업 41개의 2015~2024년 과제·성과·예산·분류 이력과, 이 사업들에 정책 시나리오 3종과 MCDM 기법 3종(WSM, TOPSIS, PROMETHEE II)을 적용한 평가 결과·설명을 nrdp 온톨로지 어휘로 표현한 지식그래프. 평가 기준과 시나리오 가중치는 방법 중립성을 보이기 위한 연구자 설정값이며, 평가 결과는 특정 사업의 우열에 대한 정책적 판단이 아니다."@ko .
+<https://w3id.org/nrdp/data/domain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/nrdp/data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset> .
+<https://w3id.org/nrdp/data/schemes> <http://www.w3.org/ns/dcat#mediaType> "text/turtle" .
+<https://w3id.org/nrdp/data/mcdm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/issued> "2026-10-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/nrdp/data> <http://purl.org/dc/terms/creator> "최혜석" .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <https://w3id.org/nrdp/kosv#> .
+<https://w3id.org/nrdp/data> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/nrdp/data/mcdm> .
+<https://w3id.org/nrdp/data/schemes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <http://www.w3.org/2004/02/skos/core#> .
+<https://w3id.org/nrdp/data/domain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset> .
+<https://w3id.org/nrdp/data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/nrdp/data/mcdm> <http://purl.org/dc/terms/title> "nrdp-mcdm.ttl — 대안·기준·가중치·평가 결과·설명"@ko .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#vocabulary> <http://www.w3.org/ns/prov#> .
+<https://w3id.org/nrdp/data/mcdm> <http://www.w3.org/ns/dcat#downloadURL> <https://github.com/nova-choi/nrdp-ontology/raw/v0.3.5/data/rdf/nrdp-mcdm.ttl> .
+<https://w3id.org/nrdp/data> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/nrdp/data/schemes> .
+<https://w3id.org/nrdp/data/schemes> <http://rdfs.org/ns/void#triples> "15431"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/data> <http://rdfs.org/ns/void#triples> "1072259"^^<http://www.w3.org/2001/XMLSchema#integer> .

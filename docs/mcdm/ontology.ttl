@@ -1,0 +1,613 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mcdm: <https://w3id.org/nrdp/mcdm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+<https://w3id.org/nrdp/mcdm> a owl:Ontology ;
+    dcterms:creator "최혜석" ;
+    dcterms:description "A method-agnostic MCDM representation layer: criteria, weights, policy scenarios, normalisation, aggregation methods, decision results and their explanations, independent of any single MCDM method and of the application domain."@en,
+        "국가 R&D 포트폴리오 평가를 위해 설계한 방법 중립적 MCDM 표현 계층. 기준·가중치·정책 시나리오·정규화·집계기법·평가 결과와 그 설명(기준별 기여, 원천 경로, 반사실적 설명)을 특정 기법에 종속되지 않게 표현하며, 도메인 계층과 독립적으로 재사용할 수 있다."@ko ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-31"^^xsd:date ;
+    dcterms:title "Method-agnostic MCDM representation layer"@en,
+        "방법 중립적 MCDM 표현 계층"@ko ;
+    vann:preferredNamespacePrefix "mcdm" ;
+    vann:preferredNamespaceUri "https://w3id.org/nrdp/mcdm#" ;
+    rdfs:comment "v0.3.5: 공개용 메타데이터(설명, 수정일, 선호 접두어·네임스페이스) 추가. 논리 공리는 v0.3.4와 동일."@ko,
+        "v0.3: 도메인 독립 모듈로 분리. 기준 방향 공리를 리프 기준으로 한정, 집계기법을 집계 논리(가치함수·거리·열위관계)와 보상 수준의 두 축으로 분해, PROV-O 정렬 선언."@ko ;
+    owl:priorVersion <https://w3id.org/nrdp/mcdm/0.3.4> ;
+    owl:versionIRI <https://w3id.org/nrdp/mcdm/0.3.5> ;
+    owl:versionInfo "0.3.5" .
+
+mcdm:CompensatoryMethod a owl:Class ;
+    rdfs:label "Compensation-admitting method"@en,
+        "보상 허용 기법"@ko ;
+    rdfs:comment "정의 클래스. 보상 수준이 완전 또는 부분인 기법으로 추론된다. 집계 논리 3계열과 직교하는 분류 축이다. 보상 수준은 기법 개체(파라미터를 포함한 구성)에 기록하므로, 선형 선호함수를 쓰는 PROMETHEE II처럼 아웃랭킹 논리이면서 부분 보상인 기법도 이 클래스에 속한다. v0.3.2에서 라벨을 '보상형 기법'에서 '보상 허용 기법'으로 변경."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue true ;
+            owl:onProperty mcdm:requiresNormalization ] ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( mcdm:AggregationMethod [ a owl:Restriction ;
+                        owl:onProperty mcdm:hasCompensationLevel ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:oneOf ( mcdm:FullCompensation mcdm:PartialCompensation ) ] ] ) ] .
+
+mcdm:EvaluationActivity a owl:Class ;
+    rdfs:label "Evaluation run"@en,
+        "평가 실행"@ko ;
+    rdfs:comment "한 (시나리오, 기법) 조합의 계산 실행. DecisionResult 는 이 활동으로 생성된다."@ko ;
+    rdfs:subClassOf prov:Activity .
+
+mcdm:NonCompensatoryMethod a owl:Class ;
+    rdfs:label "Non-compensatory method"@en,
+        "비보상형 기법"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( mcdm:AggregationMethod [ a owl:Restriction ;
+                        owl:hasValue mcdm:NonCompensation ;
+                        owl:onProperty mcdm:hasCompensationLevel ] ) ] .
+
+mcdm:NormalizationActivity a owl:Class ;
+    rdfs:label "Normalization run"@en,
+        "정규화 수행"@ko ;
+    rdfs:subClassOf prov:Activity .
+
+mcdm:concernsCriterion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "concerns criterion"@en,
+        "개선 대상 기준"@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:contributionOf a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "기여 기준"@ko ;
+    rdfs:domain mcdm:CriterionContribution ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "가중치 도출 근거"@ko ;
+    rdfs:domain mcdm:Weight ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+mcdm:explains a owl:ObjectProperty ;
+    rdfs:label "설명 대상 결과"@ko ;
+    rdfs:domain mcdm:Explanation ;
+    rdfs:range mcdm:DecisionResult .
+
+mcdm:hasAlternative a owl:ObjectProperty ;
+    rdfs:label "대안 보유"@ko ;
+    rdfs:domain mcdm:DecisionProblem ;
+    rdfs:range mcdm:Alternative ;
+    owl:inverseOf mcdm:inProblem .
+
+mcdm:hasContributionRatio a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "기여비율"@ko ;
+    rdfs:comment "기준의 기여값을 종합점수로 나눈 비율. 종합점수가 양수인 결과에서만 해석할 수 있다(v0.3.4 주석 추가)."@ko ;
+    rdfs:domain mcdm:CriterionContribution ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasContributionValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "contribution value"@en,
+        "기여값"@ko ;
+    rdfs:comment "종합점수 가운데 해당 기준의 몫. 한 결과의 기준별 기여값을 모두 더하면 종합점수와 같다(SHACL M7). WSM은 w_j·r_ij, PROMETHEE II는 w_j·φ_j(a). v0.3.4 추가: 순흐름이 0 이하인 결과에서는 기여비율이 정의되지 않으므로 절대값으로 기록한다."@ko ;
+    rdfs:domain mcdm:CriterionContribution ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasCriterion a owl:ObjectProperty ;
+    rdfs:label "기준 보유"@ko ;
+    rdfs:domain mcdm:DecisionProblem ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:hasNormalizedValue a owl:DatatypeProperty ;
+    rdfs:label "정규화값(v0.1, 폐기)"@ko ;
+    rdfs:comment "v0.1 전용. v0.2부터 NormalizedValue 패턴으로 대체."@ko ;
+    owl:deprecated true .
+
+mcdm:hasPreferenceModel a owl:DatatypeProperty ;
+    rdfs:label "선호 모형"@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range xsd:string .
+
+mcdm:hasRank a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "순위"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:integer ;
+            owl:withRestrictions ( [ xsd:minInclusive 1 ] ) ] .
+
+mcdm:hasRawValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "원시값"@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasScale a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "측정척도"@ko ;
+    rdfs:domain mcdm:LeafCriterion ;
+    rdfs:range mcdm:MeasurementScale .
+
+mcdm:hasScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "점수"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasUnit a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "단위"@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range xsd:string .
+
+mcdm:hasValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "정규화값(수치)"@ko ;
+    rdfs:comment "v0.3.2: v0.3.0의 [0,1] 데이터타입 제한을 해제하였다. 벡터 정규화·z-score 등은 원시값의 부호에 따라 [0,1] 밖의 값을 내므로, 허용 범위는 정규화방법 개체의 normalizedLowerBound·normalizedUpperBound 로 기록하고 SHACL(mcdm-shapes.ttl M6)로 검사한다. 정규화방법을 데이터 계층 개체로 열어 두기 위한 설계 선택이며, 정규화방법을 스키마의 명명 개체로 둔다면 OWL 2 DL의 hasValue 제한과 데이터 범위 제한으로도 표현할 수 있다."@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range xsd:decimal .
+
+mcdm:hasWeight a owl:ObjectProperty ;
+    rdfs:label "가중치 보유"@ko ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range mcdm:Weight .
+
+mcdm:hasWeightValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "가중치 값"@ko ;
+    rdfs:domain mcdm:Weight ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:decimal ;
+            owl:withRestrictions ( [ xsd:minInclusive 0.0 ] [ xsd:maxInclusive 1.0 ] ) ] .
+
+mcdm:isFeasible a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "실현가능성"@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:boolean .
+
+mcdm:measuredBy a owl:ObjectProperty ;
+    rdfs:label "측정지표"@ko ;
+    rdfs:domain mcdm:LeafCriterion ;
+    rdfs:range mcdm:Indicator .
+
+mcdm:normalizedLowerBound a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "normalized value lower bound"@en,
+        "정규화값 허용 하한"@ko ;
+    rdfs:comment "이 방법이 산출하는 정규화값의 허용 하한. 없으면 하한을 검사하지 않는다(SHACL M6)."@ko ;
+    rdfs:domain mcdm:NormalizationMethod ;
+    rdfs:range xsd:decimal .
+
+mcdm:normalizedUpperBound a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "normalized value upper bound"@en,
+        "정규화값 허용 상한"@ko ;
+    rdfs:comment "이 방법이 산출하는 정규화값의 허용 상한. 없으면 상한을 검사하지 않는다(SHACL M6)."@ko ;
+    rdfs:domain mcdm:NormalizationMethod ;
+    rdfs:range xsd:decimal .
+
+mcdm:preferenceThresholdP a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "선호 임계값 p"@ko ;
+    rdfs:domain mcdm:PreferenceFunction ;
+    rdfs:range xsd:decimal .
+
+mcdm:preferenceThresholdQ a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "무차별 임계값 q"@ko ;
+    rdfs:domain mcdm:PreferenceFunction ;
+    rdfs:range xsd:decimal .
+
+mcdm:reflectsPolicyObjective a owl:ObjectProperty ;
+    rdfs:label "반영 정책목표"@ko ;
+    rdfs:comment "v0.2의 mcdm:reflectsPolicyGoal(레인지 nrdp:PolicyGoal)을 대체. 레인지를 skos:Concept로 두어 도메인 의존 제거(T11)."@ko ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range skos:Concept .
+
+mcdm:representsEntity a owl:ObjectProperty ;
+    rdfs:label "표상 개체"@ko ;
+    rdfs:comment "대안이 표상하는 도메인 개체. 레인지를 두지 않는 것이 계층 독립의 조건이다."@ko ;
+    rdfs:domain mcdm:Alternative .
+
+mcdm:requiredNormalizedValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "required normalized value"@en,
+        "필요 정규화값"@ko ;
+    rdfs:comment "목표 순위 진입에 필요한 해당 기준의 정규화값. 1.0을 넘으면 관측 범위 밖이므로 isFeasible=false. 정규화값과 같은 범위 검사(SHACL M6)는 적용하지 않는다."@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:decimal .
+
+mcdm:requiredRawValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "required raw value"@en,
+        "필요 원시값"@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:decimal .
+
+mcdm:requiredWeightValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "required weight value"@en,
+        "필요 가중치"@ko ;
+    rdfs:comment "목표 결과(예: 두 대안의 순위 역전)에 필요한 해당 기준의 조정 후 가중치. 나머지 기준의 가중치는 합이 1이 되도록 비례 재조정한다고 가정한다. 순위 역전 조건은 두 대안의 결과를 모두 mcdm:explains 로 가리킨다. v0.3.4 추가(CQ25)."@ko ;
+    rdfs:domain mcdm:CounterfactualCondition ;
+    rdfs:range xsd:decimal .
+
+mcdm:scenarioLabel a owl:DatatypeProperty ;
+    rdfs:label "시나리오 설명"@ko ;
+    rdfs:domain mcdm:DecisionScenario ;
+    rdfs:range xsd:string .
+
+mcdm:supportsAdditiveDecomposition a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "가법 분해 가능"@ko ;
+    rdfs:comment "종합점수를 기준별 기여의 합으로 분해할 수 있는가. WSM·PROMETHEE II(단일기준 순흐름)는 true, TOPSIS는 false. CriterionContribution 은 이 값이 true인 기법의 결과에만 허용(SHACL)."@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range xsd:boolean .
+
+mcdm:usesNormalization a owl:ObjectProperty ;
+    rdfs:label "사용 정규화방법"@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range mcdm:NormalizationMethod .
+
+mcdm:usesPreferenceFunction a owl:ObjectProperty ;
+    rdfs:label "사용 선호함수"@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range mcdm:PreferenceFunction .
+
+skos:Concept a owl:Class .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+mcdm:BenefitCriterion a owl:Class ;
+    rdfs:label "Benefit criterion"@en,
+        "편익형 기준"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( mcdm:Criterion [ a owl:Restriction ;
+                        owl:hasValue mcdm:Benefit ;
+                        owl:onProperty mcdm:hasDirection ] ) ] .
+
+mcdm:CostCriterion a owl:Class ;
+    rdfs:label "Cost criterion"@en,
+        "비용형 기준"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( mcdm:Criterion [ a owl:Restriction ;
+                        owl:hasValue mcdm:Cost ;
+                        owl:onProperty mcdm:hasDirection ] ) ] .
+
+mcdm:DistanceBasedMethod a owl:Class ;
+    rdfs:label "Distance-based method"@en,
+        "거리기반 기법"@ko ;
+    rdfs:comment "TOPSIS 등 기준점과의 거리 기반."@ko ;
+    rdfs:subClassOf mcdm:AggregationMethod .
+
+mcdm:EvidencePath a owl:Class ;
+    rdfs:label "근거경로"@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+mcdm:Indicator a owl:Class ;
+    rdfs:label "Indicator"@en,
+        "측정지표"@ko ;
+    rdfs:comment "기준을 측정하는 지표의 추상 클래스. 도메인 계층의 지표 클래스가 이 클래스의 하위클래스로 선언된다."@ko .
+
+mcdm:IntervalScale a owl:NamedIndividual,
+        mcdm:MeasurementScale ;
+    rdfs:label "등간척도"@ko .
+
+mcdm:OrdinalScale a owl:NamedIndividual,
+        mcdm:MeasurementScale ;
+    rdfs:label "순서척도"@ko .
+
+mcdm:OutrankingMethod a owl:Class ;
+    rdfs:label "Outranking method"@en,
+        "아웃랭킹형 기법"@ko ;
+    rdfs:comment "PROMETHEE·ELECTRE 등 쌍대 선호관계 기반."@ko ;
+    rdfs:subClassOf mcdm:AggregationMethod .
+
+mcdm:RatioScale a owl:NamedIndividual,
+        mcdm:MeasurementScale ;
+    rdfs:label "비율척도"@ko .
+
+mcdm:ValueFunctionMethod a owl:Class ;
+    rdfs:label "Value-function method"@en,
+        "가치함수형 기법"@ko ;
+    rdfs:comment "WSM 등 가법 가치함수 기반."@ko ;
+    rdfs:subClassOf mcdm:AggregationMethod .
+
+mcdm:assignedToCriterion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "적용 기준"@ko ;
+    rdfs:domain mcdm:Weight ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:byMethod a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "적용 기법"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:AggregationMethod .
+
+mcdm:forAlternative a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "대상 대안"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:Alternative .
+
+mcdm:forProblem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "대상 의사결정문제"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:DecisionProblem .
+
+mcdm:forScenario a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "적용 시나리오"@ko ;
+    rdfs:domain mcdm:DecisionResult ;
+    rdfs:range mcdm:DecisionScenario .
+
+mcdm:hasNormalization a owl:ObjectProperty ;
+    rdfs:label "정규화값 보유"@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range mcdm:NormalizedValue .
+
+mcdm:hasSubCriterion a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "하위기준"@ko ;
+    rdfs:comment "T1: 추이적 선언을 제거하고 비반사·비대칭(단순 역할)으로 선언. 계층 전체 탐색은 질의의 전이 폐쇄(SPARQL hasSubCriterion+, Cypher *1..)로 처리한다. OWL 2 DL은 추이적(비단순) 속성에 비반사·비대칭 공리를 허용하지 않으므로 둘 중 하나를 택해야 하며, 순환 계층 방지가 더 근본적이라 판단했다."@ko ;
+    rdfs:domain mcdm:CompositeCriterion ;
+    rdfs:range mcdm:Criterion .
+
+mcdm:normalizedBy a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "정규화방법"@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range mcdm:NormalizationMethod .
+
+mcdm:ofAlternative a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "대상 대안"@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range mcdm:Alternative .
+
+mcdm:ofCriterionValue a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "원평가값"@ko ;
+    rdfs:domain mcdm:NormalizedValue ;
+    rdfs:range mcdm:CriterionValue ;
+    owl:inverseOf mcdm:hasNormalization .
+
+mcdm:onCriterion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "대상 기준"@ko ;
+    rdfs:domain mcdm:CriterionValue ;
+    rdfs:range mcdm:LeafCriterion .
+
+mcdm:requiresNormalization a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "정규화 필요"@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range xsd:boolean .
+
+prov:Activity a owl:Class .
+
+mcdm:CompositeCriterion a owl:Class ;
+    rdfs:label "Composite criterion"@en,
+        "상위 기준"@ko ;
+    rdfs:comment "하위기준을 묶는 상위 기준. 방향을 갖지 않는다(v0.2의 '혁신역량' 문제 해소)."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mcdm:hasSubCriterion ;
+            owl:someValuesFrom mcdm:Criterion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty mcdm:hasDirection ],
+        mcdm:Criterion .
+
+mcdm:hasCompensationLevel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "보상 수준"@ko ;
+    rdfs:domain mcdm:AggregationMethod ;
+    rdfs:range mcdm:CompensationLevel .
+
+mcdm:inProblem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "소속 의사결정문제"@ko ;
+    rdfs:domain mcdm:Alternative ;
+    rdfs:range mcdm:DecisionProblem .
+
+mcdm:Benefit a owl:NamedIndividual,
+        mcdm:OptimizationDirection ;
+    rdfs:label "Benefit (maximise)"@en,
+        "편익(최대화)"@ko .
+
+mcdm:Cost a owl:NamedIndividual,
+        mcdm:OptimizationDirection ;
+    rdfs:label "Cost (minimise)"@en,
+        "비용(최소화)"@ko .
+
+mcdm:FullCompensation a owl:NamedIndividual,
+        mcdm:CompensationLevel ;
+    rdfs:label "완전보상"@ko .
+
+mcdm:NonCompensation a owl:NamedIndividual,
+        mcdm:CompensationLevel ;
+    rdfs:label "비보상"@ko .
+
+mcdm:PartialCompensation a owl:NamedIndividual,
+        mcdm:CompensationLevel ;
+    rdfs:label "부분보상"@ko .
+
+mcdm:PreferenceFunction a owl:Class ;
+    rdfs:label "Preference function"@en,
+        "선호함수"@ko .
+
+prov:Entity a owl:Class .
+
+mcdm:CompensationLevel a owl:Class ;
+    rdfs:label "Compensation level"@en,
+        "보상 수준"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( mcdm:FullCompensation mcdm:PartialCompensation mcdm:NonCompensation ) ] .
+
+mcdm:CriterionContribution a owl:Class ;
+    rdfs:label "기준별 기여도"@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+mcdm:LeafCriterion a owl:Class ;
+    rdfs:label "Leaf criterion"@en,
+        "리프 기준"@ko ;
+    rdfs:comment "평가값이 직접 부여되는 기준. 최적화 방향을 정확히 하나 가진다."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:OptimizationDirection ;
+            owl:onProperty mcdm:hasDirection ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        mcdm:Criterion ;
+    owl:disjointWith mcdm:CompositeCriterion ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( mcdm:BenefitCriterion mcdm:CostCriterion ) ] .
+
+mcdm:MeasurementScale a owl:Class ;
+    rdfs:label "Measurement scale"@en,
+        "측정척도"@ko .
+
+mcdm:NormalizedValue a owl:Class ;
+    rdfs:label "Normalized value"@en,
+        "정규화값"@ko ;
+    rdfs:comment "평가값×정규화방법의 재화(v0.2). prov:wasGeneratedBy 는 NormalizationActivity 여야 한다(T7: v0.2 데이터에서 원시값에 걸려 있던 생성 관계를 이쪽으로 이동)."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:CriterionValue ;
+            owl:onProperty mcdm:ofCriterionValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:NormalizationMethod ;
+            owl:onProperty mcdm:normalizedBy ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        prov:Entity .
+
+mcdm:OptimizationDirection a owl:Class ;
+    rdfs:label "Optimization direction"@en,
+        "최적화방향"@ko ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( mcdm:Benefit mcdm:Cost ) ] .
+
+mcdm:Weight a owl:Class ;
+    rdfs:label "Weight"@en,
+        "가중치"@ko ;
+    rdfs:comment "기준의 고유 속성이 아니라 시나리오에 종속되는 개체. 시나리오 내 가중치 합 = 1은 SHACL-SPARQL로 위임."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:Criterion ;
+            owl:onProperty mcdm:assignedToCriterion ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+mcdm:hasDirection a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "최적화방향"@ko ;
+    rdfs:domain mcdm:Criterion ;
+    rdfs:range mcdm:OptimizationDirection .
+
+mcdm:DecisionScenario a owl:Class ;
+    rdfs:label "Decision scenario"@en,
+        "의사결정 시나리오"@ko ;
+    rdfs:comment "하나의 정책 선호 = 하나의 가중치 집합."@ko .
+
+mcdm:Explanation a owl:Class ;
+    rdfs:label "Explanation"@en,
+        "설명"@ko ;
+    rdfs:subClassOf prov:Entity .
+
+mcdm:NormalizationMethod a owl:Class ;
+    rdfs:label "Normalization method"@en,
+        "정규화방법"@ko .
+
+mcdm:CounterfactualCondition a owl:Class ;
+    rdfs:label "Counterfactual explanation"@en,
+        "반사실적 설명"@ko ;
+    rdfs:comment "목표 결과(예: 순위 진입)에 필요한 기준별 입력 변화. 본문 용어 '반사실적 설명'에 맞춰 v0.3.2에서 라벨 변경."@ko ;
+    rdfs:subClassOf mcdm:Explanation .
+
+mcdm:DecisionProblem a owl:Class ;
+    rdfs:label "Decision problem"@en,
+        "의사결정문제"@ko ;
+    rdfs:comment "대안 집합과 기준 집합을 묶는 하나의 평가 과업."@ko .
+
+mcdm:Alternative a owl:Class ;
+    rdfs:label "Alternative"@en,
+        "대안"@ko ;
+    rdfs:comment "평가 대상이 특정 의사결정 문제 안에서 맡는 역할(Agent-Role ODP). 도메인 개체와 동일시하지 않는다."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:DecisionProblem ;
+            owl:onProperty mcdm:inProblem ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+mcdm:CriterionValue a owl:Class ;
+    rdfs:label "Criterion value"@en,
+        "평가값"@ko ;
+    rdfs:comment "대안×리프기준의 원시 평가값. prov:wasDerivedFrom 으로 도메인 관측치에 연결된다."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:Alternative ;
+            owl:onProperty mcdm:ofAlternative ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:LeafCriterion ;
+            owl:onProperty mcdm:onCriterion ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        prov:Entity ;
+    owl:disjointWith mcdm:Explanation .
+
+mcdm:DecisionResult a owl:Class ;
+    rdfs:label "Decision result"@en,
+        "평가결과"@ko ;
+    rdfs:comment "(문제, 시나리오, 기법, 대안) 조합의 산출. 한 (시나리오, 기법) 안의 순위가 1..n 순열이라는 제약은 SHACL-SPARQL로 위임."@ko ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass mcdm:DecisionProblem ;
+            owl:onProperty mcdm:forProblem ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:DecisionScenario ;
+            owl:onProperty mcdm:forScenario ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:AggregationMethod ;
+            owl:onProperty mcdm:byMethod ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass mcdm:Alternative ;
+            owl:onProperty mcdm:forAlternative ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        prov:Entity .
+
+mcdm:Criterion a owl:Class ;
+    rdfs:label "Criterion"@en,
+        "평가기준"@ko .
+
+mcdm:AggregationMethod a owl:Class ;
+    rdfs:label "Aggregation method"@en,
+        "집계기법"@ko .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( mcdm:Benefit mcdm:Cost ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( mcdm:RatioScale mcdm:IntervalScale mcdm:OrdinalScale ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( mcdm:ValueFunctionMethod mcdm:DistanceBasedMethod mcdm:OutrankingMethod ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( mcdm:FullCompensation mcdm:PartialCompensation mcdm:NonCompensation ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( mcdm:CriterionContribution mcdm:EvidencePath mcdm:CounterfactualCondition ) .
+

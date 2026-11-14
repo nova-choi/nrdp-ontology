@@ -1,0 +1,12 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 최혜석
+
+이 저장소의 온톨로지(ontology/*.ttl), SHACL shape, 데이터(data/), 역량질문 문안(cq/), 문서(docs/)는
+Creative Commons Attribution 4.0 International License로 이용할 수 있습니다.
+전문: https://creativecommons.org/licenses/by/4.0/legalcode
+
+데이터의 원자료는 한국과학기술정보연구원 국가과학기술지식정보서비스(NTIS) OpenAPI 과제검색·성과검색
+(공공누리 제1유형: 출처표시)이며, 이용 시 data/README.md의 출처 문구를 함께 표시해야 합니다.
+
+코드(*.py, *.cypher, tools/, pipeline/, analysis/)는 LICENSE-CODE(MIT)를 따릅니다.

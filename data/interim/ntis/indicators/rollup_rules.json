@@ -1,0 +1,31 @@
+{
+ "generated": "2026-10-19T12:37:26",
+ "rules": [
+  "(온톨로지 rollupRule 로 옮길 서술)"
+ ],
+ "unmatched_results": {
+  "rpaper": 497,
+  "rpatent": 2128
+ },
+ "records_dropped_rejected_alias": 493,
+ "programs": 41,
+ "program_year_rows": 143,
+ "included_alternatives": {
+  "main_2021_2023": 32,
+  "sens_2022_2024": 26,
+  "sens_2023": 41,
+  "main_noalias": 26
+ },
+ "alias_share_by_year": {
+  "2015": "678/806",
+  "2016": "794/905",
+  "2017": "1084/1199",
+  "2018": "1168/1254",
+  "2019": "1195/1281",
+  "2020": "1270/1378",
+  "2021": "1348/1464",
+  "2022": "348/1688",
+  "2023": "0/1712",
+  "2024": "187/1852"
+ }
+}

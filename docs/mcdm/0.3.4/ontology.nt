@@ -1,0 +1,597 @@
+<https://w3id.org/nrdp/mcdm#ofAlternative> <http://www.w3.org/2000/01/rdf-schema#label> "대상 대안"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb47 .
+<https://w3id.org/nrdp/mcdm#isFeasible> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+<https://w3id.org/nrdp/mcdm#ofAlternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#forScenario> <http://www.w3.org/2000/01/rdf-schema#label> "적용 시나리오"@ko .
+<https://w3id.org/nrdp/mcdm#explains> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Benefit> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb30 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#assignedToCriterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb55 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#requiresNormalization> .
+<https://w3id.org/nrdp/mcdm#forScenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb27 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb25 .
+<https://w3id.org/nrdp/mcdm#Benefit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#label> "평가값"@ko .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdP> <http://www.w3.org/2000/01/rdf-schema#label> "선호 임계값 p"@ko .
+<https://w3id.org/nrdp/mcdm#forAlternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#Criterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#DistanceBasedMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#Alternative> <http://www.w3.org/2000/01/rdf-schema#label> "Alternative"@en .
+<https://w3id.org/nrdp/mcdm#hasNormalization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#Weight> <http://www.w3.org/2000/01/rdf-schema#comment> "기준의 고유 속성이 아니라 시나리오에 종속되는 개체. 시나리오 내 가중치 합 = 1은 SHACL-SPARQL로 위임."@ko .
+<https://w3id.org/nrdp/mcdm#PartialCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#CompensationLevel> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/2000/01/rdf-schema#label> "원평가값"@ko .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#CounterfactualCondition> <http://www.w3.org/2000/01/rdf-schema#label> "반사실적 설명"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb57 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasCompensationLevel> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb46 .
+<https://w3id.org/nrdp/mcdm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/nrdp/mcdm#Benefit> <http://www.w3.org/2000/01/rdf-schema#label> "Benefit (maximise)"@en .
+<https://w3id.org/nrdp/mcdm#hasAlternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#OutrankingMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#assignedToCriterion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Weight> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasPreferenceModel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb16 <http://www.w3.org/2002/07/owl#oneOf> _:ne684d7366ba74c66b4e0978b965c7c8cb17 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb6 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasSubCriterion> .
+<https://w3id.org/nrdp/mcdm#forScenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#ValueFunctionMethod> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#RatioScale> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb70 .
+<https://w3id.org/nrdp/mcdm#hasNormalization> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb69 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb1 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+<https://w3id.org/nrdp/mcdm#requiresNormalization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#ofAlternative> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#DecisionScenario> <http://www.w3.org/2000/01/rdf-schema#label> "의사결정 시나리오"@ko .
+<https://w3id.org/nrdp/mcdm#hasDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb21 .
+<https://w3id.org/nrdp/mcdm#OrdinalScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#requiresNormalization> <http://www.w3.org/2000/01/rdf-schema#label> "정규화 필요"@ko .
+<https://w3id.org/nrdp/mcdm#MeasurementScale> <http://www.w3.org/2000/01/rdf-schema#label> "측정척도"@ko .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#ofAlternative> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb30 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#forAlternative> <http://www.w3.org/2000/01/rdf-schema#label> "대상 대안"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#FullCompensation> .
+<https://w3id.org/nrdp/mcdm#derivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#FullCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#CompensationLevel> .
+<https://w3id.org/nrdp/mcdm#explains> <http://www.w3.org/2000/01/rdf-schema#label> "설명 대상 결과"@ko .
+<https://w3id.org/nrdp/mcdm#onCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "대상 기준"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb52 .
+<https://w3id.org/nrdp/mcdm#Explanation> <http://www.w3.org/2000/01/rdf-schema#label> "설명"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb9 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasDirection> .
+<https://w3id.org/nrdp/mcdm#reflectsPolicyObjective> <http://www.w3.org/2000/01/rdf-schema#comment> "v0.2의 mcdm:reflectsPolicyGoal(레인지 nrdp:PolicyGoal)을 대체. 레인지를 skos:Concept로 두어 도메인 의존 제거(T11)."@ko .
+<https://w3id.org/nrdp/mcdm#scenarioLabel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/nrdp/mcdm#forProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#comment> "목표 순위 진입에 필요한 해당 기준의 정규화값. 1.0을 넘으면 관측 범위 밖이므로 isFeasible=false. 정규화값과 같은 범위 검사(SHACL M6)는 적용하지 않는다."@ko .
+<https://w3id.org/nrdp/mcdm#DistanceBasedMethod> <http://www.w3.org/2000/01/rdf-schema#label> "거리기반 기법"@ko .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb29 .
+<https://w3id.org/nrdp/mcdm#isFeasible> <http://www.w3.org/2000/01/rdf-schema#label> "실현가능성"@ko .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#NormalizedValue> .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+<https://w3id.org/nrdp/mcdm#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Weight> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb62 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#byMethod> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/2000/01/rdf-schema#comment> "목표 결과(예: 두 대안의 순위 역전)에 필요한 해당 기준의 조정 후 가중치. 나머지 기준의 가중치는 합이 1이 되도록 비례 재조정한다고 가정한다. 순위 역전 조건은 두 대안의 결과를 모두 mcdm:explains 로 가리킨다. v0.3.4 추가(CQ25)."@ko .
+<https://w3id.org/nrdp/mcdm#DecisionScenario> <http://www.w3.org/2000/01/rdf-schema#comment> "하나의 정책 선호 = 하나의 가중치 집합."@ko .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb28 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#hasNormalizedValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb26 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<https://w3id.org/nrdp/mcdm> <http://purl.org/dc/terms/title> "방법 중립적 MCDM 표현 계층"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb2 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasDirection> .
+<https://w3id.org/nrdp/mcdm#forProblem> <http://www.w3.org/2000/01/rdf-schema#label> "대상 의사결정문제"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#NormalizationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "정규화 수행"@ko .
+<https://w3id.org/nrdp/mcdm#forAlternative> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#NonCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/nrdp/mcdm> <http://www.w3.org/2002/07/owl#versionInfo> "0.3.4" .
+<https://w3id.org/nrdp/mcdm#hasScore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#DistanceBasedMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "TOPSIS 등 기준점과의 거리 기반."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#CriterionContribution> .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2000/01/rdf-schema#comment> "평가값이 직접 부여되는 기준. 최적화 방향을 정확히 하나 가진다."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb13 <http://www.w3.org/2002/07/owl#hasValue> <https://w3id.org/nrdp/mcdm#Cost> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb32 <http://www.w3.org/2001/XMLSchema#minInclusive> "0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "Composite criterion"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb61 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#DecisionScenario> .
+<https://w3id.org/nrdp/mcdm#IntervalScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#MeasurementScale> .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "리프 기준"@ko .
+<https://w3id.org/nrdp/mcdm#CostCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#reflectsPolicyObjective> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#CompensationLevel> <http://www.w3.org/2000/01/rdf-schema#label> "Compensation level"@en .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/2000/01/rdf-schema#label> "contribution value"@en .
+<https://w3id.org/nrdp/mcdm#hasScale> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#MeasurementScale> .
+<https://w3id.org/nrdp/mcdm#DecisionProblem> <http://www.w3.org/2000/01/rdf-schema#label> "의사결정문제"@ko .
+<https://w3id.org/nrdp/mcdm#hasDirection> <http://www.w3.org/2000/01/rdf-schema#label> "최적화방향"@ko .
+<https://w3id.org/nrdp/mcdm#RatioScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#Explanation> <http://www.w3.org/2000/01/rdf-schema#label> "Explanation"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb6 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/nrdp/mcdm#Criterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/2000/01/rdf-schema#label> "기여값"@ko .
+<https://w3id.org/nrdp/mcdm#DecisionProblem> <http://www.w3.org/2000/01/rdf-schema#label> "Decision problem"@en .
+<https://w3id.org/nrdp/mcdm#usesPreferenceFunction> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#PreferenceFunction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#EvidencePath> .
+<https://w3id.org/nrdp/mcdm#forProblem> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#usesNormalization> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#byMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#hasScale> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#LeafCriterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#label> "보상 허용 기법"@ko .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb8 <http://www.w3.org/2002/07/owl#intersectionOf> _:ne684d7366ba74c66b4e0978b965c7c8cb10 .
+<https://w3id.org/nrdp/mcdm#assignedToCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#hasRawValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#OutrankingMethod> .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#usesNormalization> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#NormalizationMethod> .
+<https://w3id.org/nrdp/mcdm#hasUnit> <http://www.w3.org/2000/01/rdf-schema#label> "단위"@ko .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값(수치)"@ko .
+<https://w3id.org/nrdp/mcdm#OptimizationDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#Alternative> <http://www.w3.org/2000/01/rdf-schema#label> "대안"@ko .
+<https://w3id.org/nrdp/mcdm#EvaluationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "평가 실행"@ko .
+<https://w3id.org/nrdp/mcdm#hasUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#FullCompensation> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb48 <http://www.w3.org/2002/07/owl#intersectionOf> _:ne684d7366ba74c66b4e0978b965c7c8cb53 .
+<https://w3id.org/nrdp/mcdm#NormalizationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "정규화방법"@ko .
+<https://w3id.org/nrdp/mcdm#FullCompensation> <http://www.w3.org/2000/01/rdf-schema#label> "완전보상"@ko .
+<https://w3id.org/nrdp/mcdm#hasRank> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdQ> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/nrdp/mcdm#hasNormalization> .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "개선 대상 기준"@ko .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/2000/01/rdf-schema#comment> "이 방법이 산출하는 정규화값의 허용 하한. 없으면 하한을 검사하지 않는다(SHACL M6)."@ko .
+<https://w3id.org/nrdp/mcdm#OptimizationDirection> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb16 .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#scenarioLabel> <http://www.w3.org/2000/01/rdf-schema#label> "시나리오 설명"@ko .
+<https://w3id.org/nrdp/mcdm#BenefitCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "Benefit criterion"@en .
+<https://w3id.org/nrdp/mcdm#forScenario> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#DecisionScenario> .
+<https://w3id.org/nrdp/mcdm#OutrankingMethod> <http://www.w3.org/2000/01/rdf-schema#label> "아웃랭킹형 기법"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb49 <http://www.w3.org/2002/07/owl#someValuesFrom> _:ne684d7366ba74c66b4e0978b965c7c8cb50 .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb9 <http://www.w3.org/2002/07/owl#hasValue> <https://w3id.org/nrdp/mcdm#Benefit> .
+<https://w3id.org/nrdp/mcdm#Indicator> <http://www.w3.org/2000/01/rdf-schema#label> "Indicator"@en .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdQ> <http://www.w3.org/2000/01/rdf-schema#label> "무차별 임계값 q"@ko .
+<https://w3id.org/nrdp/mcdm#hasScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#NonCompensatoryMethod> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb56 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#usesPreferenceFunction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/2000/01/rdf-schema#label> "가법 분해 가능"@ko .
+<https://w3id.org/nrdp/mcdm#representsEntity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#Cost> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#OptimizationDirection> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb7 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasDirection> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#explains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+<https://w3id.org/nrdp/mcdm#CompensationLevel> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb40 .
+<https://w3id.org/nrdp/mcdm#CounterfactualCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#Explanation> .
+<https://w3id.org/nrdp/mcdm#hasAlternative> <http://www.w3.org/2000/01/rdf-schema#label> "대안 보유"@ko .
+<https://w3id.org/nrdp/mcdm#isFeasible> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb26 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb38 .
+<https://w3id.org/nrdp/mcdm#OutrankingMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Outranking method"@en .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/2000/01/rdf-schema#comment> "기준의 기여값을 종합점수로 나눈 비율. 종합점수가 양수인 결과에서만 해석할 수 있다(v0.3.4 주석 추가)."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb44 <http://www.w3.org/2002/07/owl#distinctMembers> _:ne684d7366ba74c66b4e0978b965c7c8cb45 .
+<https://w3id.org/nrdp/mcdm#NonCompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#label> "비보상형 기법"@ko .
+<https://w3id.org/nrdp/mcdm#EvaluationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Evaluation run"@en .
+<https://w3id.org/nrdp/mcdm#explains> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Explanation> .
+<https://w3id.org/nrdp/mcdm#hasCompensationLevel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#requiresNormalization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#OrdinalScale> <http://www.w3.org/2000/01/rdf-schema#label> "순서척도"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#FullCompensation> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb13 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasDirection> .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionContribution> .
+<https://w3id.org/nrdp/mcdm#CriterionContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#Explanation> .
+<https://w3id.org/nrdp/mcdm#EvaluationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdP> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb61 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb31 <http://www.w3.org/2002/07/owl#withRestrictions> _:ne684d7366ba74c66b4e0978b965c7c8cb34 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb60 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#hasDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb57 <http://www.w3.org/2002/07/owl#hasValue> <https://w3id.org/nrdp/mcdm#NonCompensation> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb49 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#hasCompensationLevel> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#NormalizationMethod> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb19 <http://www.w3.org/2002/07/owl#distinctMembers> _:ne684d7366ba74c66b4e0978b965c7c8cb20 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#PartialCompensation> .
+<https://w3id.org/nrdp/mcdm#Alternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#normalizedBy> <http://www.w3.org/2000/01/rdf-schema#label> "정규화방법"@ko .
+<https://w3id.org/nrdp/mcdm#onCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb29 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#FullCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#hasAlternative> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Criterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/2000/01/rdf-schema#comment> "v0.3.2: v0.3.0의 [0,1] 데이터타입 제한을 해제하였다. 벡터 정규화·z-score 등은 원시값의 부호에 따라 [0,1] 밖의 값을 내므로, 허용 범위는 정규화방법 개체의 normalizedLowerBound·normalizedUpperBound 로 기록하고 SHACL(mcdm-shapes.ttl M6)로 검사한다. 정규화방법을 데이터 계층 개체로 열어 두기 위한 설계 선택이며, 정규화방법을 스키마의 명명 개체로 둔다면 OWL 2 DL의 hasValue 제한과 데이터 범위 제한으로도 표현할 수 있다."@ko .
+<https://w3id.org/nrdp/mcdm#DistanceBasedMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#RatioScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#MeasurementScale> .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#label> "required normalized value"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/2000/01/rdf-schema#comment> "종합점수를 기준별 기여의 합으로 분해할 수 있는가. WSM·PROMETHEE II(단일기준 순흐름)는 true, TOPSIS는 false. CriterionContribution 은 이 값이 true인 기법의 결과에만 허용(SHACL)."@ko .
+<https://w3id.org/nrdp/mcdm#NormalizationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Normalization run"@en .
+<https://w3id.org/nrdp/mcdm#hasCompensationLevel> <http://www.w3.org/2000/01/rdf-schema#label> "보상 수준"@ko .
+<https://w3id.org/nrdp/mcdm#representsEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb32 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+<https://w3id.org/nrdp/mcdm#onCriterion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+<https://w3id.org/nrdp/mcdm#requiresNormalization> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값 허용 상한"@ko .
+<https://w3id.org/nrdp/mcdm#MeasurementScale> <http://www.w3.org/2000/01/rdf-schema#label> "Measurement scale"@en .
+<https://w3id.org/nrdp/mcdm#scenarioLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionScenario> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb35 .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "정의 클래스. 보상 수준이 완전 또는 부분인 기법으로 추론된다. 집계 논리 3계열과 직교하는 분류 축이다. 보상 수준은 기법 개체(파라미터를 포함한 구성)에 기록하므로, 선형 선호함수를 쓰는 PROMETHEE II처럼 아웃랭킹 논리이면서 부분 보상인 기법도 이 클래스에 속한다. v0.3.2에서 라벨을 '보상형 기법'에서 '보상 허용 기법'으로 변경."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb42 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb63 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#contributionOf> <http://www.w3.org/2000/01/rdf-schema#label> "기여 기준"@ko .
+<https://w3id.org/nrdp/mcdm#NonCompensation> <http://www.w3.org/2000/01/rdf-schema#label> "비보상"@ko .
+<https://w3id.org/nrdp/mcdm#assignedToCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "적용 기준"@ko .
+<https://w3id.org/nrdp/mcdm#NonCompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Non-compensatory method"@en .
+<https://w3id.org/nrdp/mcdm#ValueFunctionMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Value-function method"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb54 .
+<https://w3id.org/nrdp/mcdm#Alternative> <http://www.w3.org/2000/01/rdf-schema#comment> "평가 대상이 특정 의사결정 문제 안에서 맡는 역할(Agent-Role ODP). 도메인 개체와 동일시하지 않는다."@ko .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#measuredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/nrdp/mcdm#IntervalScale> <http://www.w3.org/2000/01/rdf-schema#label> "등간척도"@ko .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#PreferenceFunction> <http://www.w3.org/2000/01/rdf-schema#label> "Preference function"@en .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/2000/01/rdf-schema#label> "필요 원시값"@ko .
+<https://w3id.org/nrdp/mcdm#hasWeightValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Weight> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "하위기준"@ko .
+<https://w3id.org/nrdp/mcdm#BenefitCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "편익형 기준"@ko .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#label> "Decision result"@en .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#label> "필요 정규화값"@ko .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#label> "평가결과"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb2 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#OptimizationDirection> .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb2 .
+<https://w3id.org/nrdp/mcdm#hasUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값 허용 하한"@ko .
+<https://w3id.org/nrdp/mcdm#hasNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값(v0.1, 폐기)"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb3 <http://www.w3.org/2002/07/owl#unionOf> _:ne684d7366ba74c66b4e0978b965c7c8cb4 .
+<https://w3id.org/nrdp/mcdm#CompensationLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasPreferenceModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdQ> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#PreferenceFunction> .
+<https://w3id.org/nrdp/mcdm#Criterion> <http://www.w3.org/2000/01/rdf-schema#label> "평가기준"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb18 .
+<https://w3id.org/nrdp/mcdm#normalizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "concerns criterion"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Benefit> .
+<https://w3id.org/nrdp/mcdm#Cost> <http://www.w3.org/2000/01/rdf-schema#label> "비용(최소화)"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+<https://w3id.org/nrdp/mcdm#DecisionScenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CompositeCriterion> .
+<https://w3id.org/nrdp/mcdm#hasCriterion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Criterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#PartialCompensation> .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#CostCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "비용형 기준"@ko .
+<https://w3id.org/nrdp/mcdm#hasDirection> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#OptimizationDirection> .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb28 .
+<https://w3id.org/nrdp/mcdm#byMethod> <http://www.w3.org/2000/01/rdf-schema#label> "적용 기법"@ko .
+<https://w3id.org/nrdp/mcdm#EvidencePath> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#Explanation> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb62 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#reflectsPolicyObjective> <http://www.w3.org/2000/01/rdf-schema#label> "반영 정책목표"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb31 <http://www.w3.org/2002/07/owl#onDatatype> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#hasPreferenceModel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#PreferenceFunction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasUnit> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#hasScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#OptimizationDirection> <http://www.w3.org/2000/01/rdf-schema#label> "Optimization direction"@en .
+<https://w3id.org/nrdp/mcdm#EvidencePath> <http://www.w3.org/2000/01/rdf-schema#label> "근거경로"@ko .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/nrdp/mcdm#CompositeCriterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb43 .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#comment> "대안×리프기준의 원시 평가값. prov:wasDerivedFrom 으로 도메인 관측치에 연결된다."@ko .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<https://w3id.org/nrdp/mcdm#measuredBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Indicator> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb7 <http://www.w3.org/2002/07/owl#maxCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#comment> "평가값×정규화방법의 재화(v0.2). prov:wasGeneratedBy 는 NormalizationActivity 여야 한다(T7: v0.2 데이터에서 원시값에 걸려 있던 생성 관계를 이쪽으로 이동)."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#usesNormalization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb27 .
+<https://w3id.org/nrdp/mcdm#hasNormalizedValue> <http://www.w3.org/2002/07/owl#deprecated> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb62 .
+<https://w3id.org/nrdp/mcdm#EvaluationActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "한 (시나리오, 기법) 조합의 계산 실행. DecisionResult 는 이 활동으로 생성된다."@ko .
+<https://w3id.org/nrdp/mcdm#CounterfactualCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Counterfactual explanation"@en .
+<https://w3id.org/nrdp/mcdm#BenefitCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#CounterfactualCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdP> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#PreferenceFunction> .
+<https://w3id.org/nrdp/mcdm#Benefit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#OptimizationDirection> .
+<https://w3id.org/nrdp/mcdm#hasDirection> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Criterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb40 <http://www.w3.org/2002/07/owl#oneOf> _:ne684d7366ba74c66b4e0978b965c7c8cb41 .
+<https://w3id.org/nrdp/mcdm#hasScore> <http://www.w3.org/2000/01/rdf-schema#label> "점수"@ko .
+<https://w3id.org/nrdp/mcdm#Weight> <http://www.w3.org/2000/01/rdf-schema#label> "가중치"@ko .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb6 .
+<https://w3id.org/nrdp/mcdm#ofCriterionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#PartialCompensation> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#onCriterion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#LeafCriterion> .
+<https://w3id.org/nrdp/mcdm#OrdinalScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#MeasurementScale> .
+<https://w3id.org/nrdp/mcdm#DecisionScenario> <http://www.w3.org/2000/01/rdf-schema#label> "Decision scenario"@en .
+<https://w3id.org/nrdp/mcdm#measuredBy> <http://www.w3.org/2000/01/rdf-schema#label> "측정지표"@ko .
+<https://w3id.org/nrdp/mcdm#scenarioLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#measuredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#LeafCriterion> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/2000/01/rdf-schema#comment> "T1: 추이적 선언을 제거하고 비반사·비대칭(단순 역할)으로 선언. 계층 전체 탐색은 질의의 전이 폐쇄(SPARQL hasSubCriterion+, Cypher *1..)로 처리한다. OWL 2 DL은 추이적(비단순) 속성에 비반사·비대칭 공리를 허용하지 않으므로 둘 중 하나를 택해야 하며, 순환 계층 방지가 더 근본적이라 판단했다."@ko .
+<https://w3id.org/nrdp/mcdm#inProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#CriterionContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#reflectsPolicyObjective> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionScenario> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb57 .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/nrdp/mcdm#ValueFunctionMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb67 <http://www.w3.org/2002/07/owl#members> _:ne684d7366ba74c66b4e0978b965c7c8cb68 .
+<https://w3id.org/nrdp/mcdm#contributionOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Criterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb27 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#LeafCriterion> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb65 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasWeightValue> <http://www.w3.org/2000/01/rdf-schema#range> _:ne684d7366ba74c66b4e0978b965c7c8cb31 .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb3 .
+<https://w3id.org/nrdp/mcdm#Indicator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb65 <http://www.w3.org/2001/XMLSchema#minInclusive> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/mcdm#assignedToCriterion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#AggregationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Aggregation method"@en .
+<https://w3id.org/nrdp/mcdm#onCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#reflectsPolicyObjective> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#DistanceBasedMethod> .
+<https://w3id.org/nrdp/mcdm#CompensationLevel> <http://www.w3.org/2000/01/rdf-schema#label> "보상 수준"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Cost> .
+<https://w3id.org/nrdp/mcdm#Indicator> <http://www.w3.org/2000/01/rdf-schema#comment> "기준을 측정하는 지표의 추상 클래스. 도메인 계층의 지표 클래스가 이 클래스의 하위클래스로 선언된다."@ko .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb33 <http://www.w3.org/2001/XMLSchema#maxInclusive> "1"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb7 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb59 .
+<https://w3id.org/nrdp/mcdm#forScenario> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#requiredNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#ValueFunctionMethod> <http://www.w3.org/2000/01/rdf-schema#label> "가치함수형 기법"@ko .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/2000/01/rdf-schema#label> "required raw value"@en .
+<https://w3id.org/nrdp/mcdm> <http://purl.org/dc/terms/title> "Method-agnostic MCDM representation layer"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#hasRank> <http://www.w3.org/2000/01/rdf-schema#label> "순위"@ko .
+<https://w3id.org/nrdp/mcdm#hasRawValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm> <http://www.w3.org/2002/07/owl#priorVersion> <https://w3id.org/nrdp/mcdm/0.3.3> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb28 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+<https://w3id.org/nrdp/mcdm#MeasurementScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#NormalizationMethod> .
+<https://w3id.org/nrdp/mcdm#hasCompensationLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#hasNormalization> <http://www.w3.org/2000/01/rdf-schema#label> "정규화값 보유"@ko .
+<https://w3id.org/nrdp/mcdm#Weight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasCompensationLevel> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#CompensationLevel> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#CostCriterion> .
+<https://w3id.org/nrdp/mcdm#NormalizationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb64 <http://www.w3.org/2002/07/owl#onDatatype> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/nrdp/mcdm> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/nrdp/mcdm/0.3.4> .
+<https://w3id.org/nrdp/mcdm#IntervalScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb61 .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/nrdp/mcdm#Weight> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb30 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#hasRawValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionValue> .
+<https://w3id.org/nrdp/mcdm#hasWeightValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#AggregationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#CounterfactualCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "목표 결과(예: 순위 진입)에 필요한 기준별 입력 변화. 본문 용어 '반사실적 설명'에 맞춰 v0.3.2에서 라벨 변경."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb60 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+<https://w3id.org/nrdp/mcdm#Benefit> <http://www.w3.org/2000/01/rdf-schema#label> "편익(최대화)"@ko .
+<https://w3id.org/nrdp/mcdm#hasWeight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/2000/01/rdf-schema#label> "required weight value"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#hasRank> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/2000/01/rdf-schema#label> "필요 가중치"@ko .
+<https://w3id.org/nrdp/mcdm#usesPreferenceFunction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#hasContributionRatio> <http://www.w3.org/2000/01/rdf-schema#label> "기여비율"@ko .
+<https://w3id.org/nrdp/mcdm#Explanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasScale> <http://www.w3.org/2000/01/rdf-schema#label> "측정척도"@ko .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#hasWeight> <http://www.w3.org/2000/01/rdf-schema#label> "가중치 보유"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb55 <http://www.w3.org/2002/07/owl#hasValue> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#hasSubCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#isFeasible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#label> "Criterion value"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb1 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#inProblem> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb29 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#NormalizationMethod> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#DecisionProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#byMethod> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#hasCriterion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#IntervalScale> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb26 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#ofAlternative> .
+<https://w3id.org/nrdp/mcdm#hasWeightValue> <http://www.w3.org/2000/01/rdf-schema#label> "가중치 값"@ko .
+<https://w3id.org/nrdp/mcdm#EvidencePath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#CostCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "Cost criterion"@en .
+<https://w3id.org/nrdp/mcdm#hasScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb39 .
+<https://w3id.org/nrdp/mcdm#forAlternative> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb49 .
+<https://w3id.org/nrdp/mcdm#inProblem> <http://www.w3.org/2000/01/rdf-schema#label> "소속 의사결정문제"@ko .
+<https://w3id.org/nrdp/mcdm#ofAlternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#requiresNormalization> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/nrdp/mcdm#OutrankingMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#OptimizationDirection> <http://www.w3.org/2000/01/rdf-schema#label> "최적화방향"@ko .
+<https://w3id.org/nrdp/mcdm#representsEntity> <http://www.w3.org/2000/01/rdf-schema#label> "표상 개체"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb12 <http://www.w3.org/2002/07/owl#intersectionOf> _:ne684d7366ba74c66b4e0978b965c7c8cb14 .
+<https://w3id.org/nrdp/mcdm> <http://www.w3.org/2000/01/rdf-schema#comment> "v0.3: 도메인 독립 모듈로 분리. 기준 방향 공리를 리프 기준으로 한정, 집계기법을 집계 논리(가치함수·거리·열위관계)와 보상 수준의 두 축으로 분해, PROV-O 정렬 선언."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb56 <http://www.w3.org/2002/07/owl#intersectionOf> _:ne684d7366ba74c66b4e0978b965c7c8cb58 .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#hasNormalization> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#NormalizedValue> .
+<https://w3id.org/nrdp/mcdm#normalizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#Cost> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#forAlternative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#NormalizationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Normalization method"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb26 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#hasRank> <http://www.w3.org/2000/01/rdf-schema#range> _:ne684d7366ba74c66b4e0978b965c7c8cb64 .
+<https://w3id.org/nrdp/mcdm#requiredRawValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Compensation-admitting method"@en .
+<https://w3id.org/nrdp/mcdm#NonCompensatoryMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Cost> .
+<https://w3id.org/nrdp/mcdm#AggregationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "집계기법"@ko .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#DecisionProblem> <http://www.w3.org/2000/01/rdf-schema#comment> "대안 집합과 기준 집합을 묶는 하나의 평가 과업."@ko .
+<https://w3id.org/nrdp/mcdm> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb64 <http://www.w3.org/2002/07/owl#withRestrictions> _:ne684d7366ba74c66b4e0978b965c7c8cb66 .
+<https://w3id.org/nrdp/mcdm#normalizedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#NormalizationMethod> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#preferenceThresholdP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb22 <http://www.w3.org/2002/07/owl#distinctMembers> _:ne684d7366ba74c66b4e0978b965c7c8cb23 .
+<https://w3id.org/nrdp/mcdm#normalizedLowerBound> <http://www.w3.org/2000/01/rdf-schema#label> "normalized value lower bound"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#OrdinalScale> .
+<https://w3id.org/nrdp/mcdm#representsEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "대안이 표상하는 도메인 개체. 레인지를 두지 않는 것이 계층 독립의 조건이다."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb50 <http://www.w3.org/2002/07/owl#oneOf> _:ne684d7366ba74c66b4e0978b965c7c8cb51 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb28 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#ofCriterionValue> .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb63 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb15 .
+<https://w3id.org/nrdp/mcdm#NormalizationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb11 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#NonCompensation> .
+<https://w3id.org/nrdp/mcdm#supportsAdditiveDecomposition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#hasNormalizedValue> <http://www.w3.org/2000/01/rdf-schema#comment> "v0.1 전용. v0.2부터 NormalizedValue 패턴으로 대체."@ko .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/2000/01/rdf-schema#label> "Normalized value"@en .
+<https://w3id.org/nrdp/mcdm#inProblem> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#Alternative> .
+<https://w3id.org/nrdp/mcdm#PreferenceFunction> <http://www.w3.org/2000/01/rdf-schema#label> "선호함수"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb24 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#NormalizedValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/nrdp/mcdm#Explanation> .
+<https://w3id.org/nrdp/mcdm#forProblem> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#comment> "(문제, 시나리오, 기법, 대안) 조합의 산출. 한 (시나리오, 기법) 안의 순위가 1..n 순열이라는 제약은 SHACL-SPARQL로 위임."@ko .
+<https://w3id.org/nrdp/mcdm#usesNormalization> <http://www.w3.org/2000/01/rdf-schema#label> "사용 정규화방법"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb27 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#onCriterion> .
+<https://w3id.org/nrdp/mcdm#requiredWeightValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CounterfactualCondition> .
+<https://w3id.org/nrdp/mcdm#RatioScale> <http://www.w3.org/2000/01/rdf-schema#label> "비율척도"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb63 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb60 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#forProblem> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb48 .
+<https://w3id.org/nrdp/mcdm#Indicator> <http://www.w3.org/2000/01/rdf-schema#label> "측정지표"@ko .
+<https://w3id.org/nrdp/mcdm#forProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasWeight> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#Weight> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/nrdp/mcdm#DecisionResult> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb60 .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#comment> "하위기준을 묶는 상위 기준. 방향을 갖지 않는다(v0.2의 '혁신역량' 문제 해소)."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb1 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#hasRawValue> <http://www.w3.org/2000/01/rdf-schema#label> "원시값"@ko .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/nrdp/mcdm#CostCriterion> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb12 .
+<https://w3id.org/nrdp/mcdm#hasAlternative> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/nrdp/mcdm#inProblem> .
+<https://w3id.org/nrdp/mcdm#Cost> <http://www.w3.org/2000/01/rdf-schema#label> "Cost (minimise)"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#inProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#NonCompensation> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb63 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#forAlternative> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb13 .
+<https://w3id.org/nrdp/mcdm#Weight> <http://www.w3.org/2000/01/rdf-schema#label> "Weight"@en .
+_:ne684d7366ba74c66b4e0978b965c7c8cb62 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/nrdp/mcdm#contributionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#NonCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/nrdp/mcdm#CompensationLevel> .
+<https://w3id.org/nrdp/mcdm#hasAlternative> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:ne684d7366ba74c66b4e0978b965c7c8cb5 .
+<https://w3id.org/nrdp/mcdm#BenefitCriterion> <http://www.w3.org/2002/07/owl#equivalentClass> _:ne684d7366ba74c66b4e0978b965c7c8cb8 .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/2000/01/rdf-schema#comment> "이 방법이 산출하는 정규화값의 허용 상한. 없으면 상한을 검사하지 않는다(SHACL M6)."@ko .
+<https://w3id.org/nrdp/mcdm#byMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+<https://w3id.org/nrdp/mcdm#hasScore> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionResult> .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb55 .
+<https://w3id.org/nrdp/mcdm#DistanceBasedMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Distance-based method"@en .
+<https://w3id.org/nrdp/mcdm#OutrankingMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "PROMETHEE·ELECTRE 등 쌍대 선호관계 기반."@ko .
+<https://w3id.org/nrdp/mcdm#hasRawValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#BenefitCriterion> .
+<https://w3id.org/nrdp/mcdm#LeafCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "Leaf criterion"@en .
+<https://w3id.org/nrdp/mcdm#CriterionValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/nrdp/mcdm#contributionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#ValueFunctionMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "WSM 등 가법 가치함수 기반."@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb33 .
+<https://w3id.org/nrdp/mcdm#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/2000/01/rdf-schema#comment> "종합점수 가운데 해당 기준의 몫. 한 결과의 기준별 기여값을 모두 더하면 종합점수와 같다(SHACL M7). WSM은 w_j·r_ij, PROMETHEE II는 w_j·φ_j(a). v0.3.4 추가: 순흐름이 0 이하인 결과에서는 기여비율이 정의되지 않으므로 절대값으로 기록한다."@ko .
+<https://w3id.org/nrdp/mcdm#usesPreferenceFunction> <http://www.w3.org/2000/01/rdf-schema#label> "사용 선호함수"@ko .
+<https://w3id.org/nrdp/mcdm#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "가중치 도출 근거"@ko .
+<https://w3id.org/nrdp/mcdm#byMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb36 <http://www.w3.org/2002/07/owl#members> _:ne684d7366ba74c66b4e0978b965c7c8cb37 .
+<https://w3id.org/nrdp/mcdm> <http://purl.org/dc/terms/creator> "최혜석" .
+<https://w3id.org/nrdp/mcdm#hasWeightValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb61 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#forScenario> .
+<https://w3id.org/nrdp/mcdm#hasCompensationLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#assignedToCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#EvaluationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/nrdp/mcdm#PartialCompensation> <http://www.w3.org/2000/01/rdf-schema#label> "부분보상"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#hasPreferenceModel> <http://www.w3.org/2000/01/rdf-schema#label> "선호 모형"@ko .
+<https://w3id.org/nrdp/mcdm#hasValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#NormalizedValue> .
+<https://w3id.org/nrdp/mcdm#inProblem> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/nrdp/mcdm#DecisionProblem> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb29 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/nrdp/mcdm#normalizedBy> .
+<https://w3id.org/nrdp/mcdm#ValueFunctionMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/nrdp/mcdm#AggregationMethod> .
+<https://w3id.org/nrdp/mcdm#Criterion> <http://www.w3.org/2000/01/rdf-schema#label> "Criterion"@en .
+<https://w3id.org/nrdp/mcdm#contributionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionContribution> .
+<https://w3id.org/nrdp/mcdm#isFeasible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/nrdp/mcdm#CompositeCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "상위 기준"@ko .
+<https://w3id.org/nrdp/mcdm#NormalizationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#hasWeight> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#DecisionScenario> .
+<https://w3id.org/nrdp/mcdm#CriterionContribution> <http://www.w3.org/2000/01/rdf-schema#label> "기준별 기여도"@ko .
+_:ne684d7366ba74c66b4e0978b965c7c8cb39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#Alternative> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:ne684d7366ba74c66b4e0978b965c7c8cb1 .
+_:ne684d7366ba74c66b4e0978b965c7c8cb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:ne684d7366ba74c66b4e0978b965c7c8cb9 .
+<https://w3id.org/nrdp/mcdm#hasContributionValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#CriterionContribution> .
+<https://w3id.org/nrdp/mcdm#concernsCriterion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/nrdp/mcdm#CompensatoryMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/nrdp/mcdm#PartialCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/nrdp/mcdm#hasRank> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://w3id.org/nrdp/mcdm#Explanation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/nrdp/mcdm#normalizedUpperBound> <http://www.w3.org/2000/01/rdf-schema#label> "normalized value upper bound"@en .
+<https://w3id.org/nrdp/mcdm#normalizedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/nrdp/mcdm#NormalizedValue> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb30 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/nrdp/mcdm#Criterion> .
+<https://w3id.org/nrdp/mcdm#hasScale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:ne684d7366ba74c66b4e0978b965c7c8cb35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/nrdp/mcdm#hasCriterion> <http://www.w3.org/2000/01/rdf-schema#label> "기준 보유"@ko .

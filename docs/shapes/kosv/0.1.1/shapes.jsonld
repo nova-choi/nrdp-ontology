@@ -1,0 +1,469 @@
+[
+  {
+    "@id": "https://w3id.org/nrdp/kosv#CorrespondenceShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b4"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b5"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b6"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b7"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#Correspondence"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b4",
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K1: 대응표의 이전 판이 정확히 1개여야 함"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sourceEdition"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b5",
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K1: 대응표의 이후 판이 정확히 1개여야 함"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#targetEdition"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b6",
+    "http://www.w3.org/ns/shacl#disjoint": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#targetEdition"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K1: 이전 판과 이후 판이 같음"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sourceEdition"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b7",
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K1: 대응 근거 누락"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#correspondenceBasis"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#SplitAllocationWarningShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#severity": [
+      {
+        "@id": "http://www.w3.org/ns/shacl#Warning"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b16"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b16",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K5: 분할·N:M 연관에 배분 비중이 없음 — 집계 시 기본 배분 규칙(균등 배분 등)이 적용됨을 기록할 것"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this WHERE {\n            $this kosv:changeType ?ct . FILTER (?ct IN (kosv:Split, kosv:MergeResplit))\n            FILTER NOT EXISTS { ?x kosv:shareOf $this }\n          }"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#sh_prefixes",
+    "http://www.w3.org/ns/shacl#declare": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b1"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b2"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b1",
+    "http://www.w3.org/ns/shacl#namespace": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3id.org/nrdp/kosv#"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefix": [
+      {
+        "@value": "kosv"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b2",
+    "http://www.w3.org/ns/shacl#namespace": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "http://rdf-vocabulary.ddialliance.org/xkos#"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefix": [
+      {
+        "@value": "xkos"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b3",
+    "http://www.w3.org/ns/shacl#namespace": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "http://www.w3.org/2004/02/skos/core#"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefix": [
+      {
+        "@value": "skos"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#AssociationEditionShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b12"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b12",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K3: 개념 {?c} 가 대응표의 해당 판({?ed})에 속하지 않음"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?c ?ed WHERE {\n            ?corr xkos:madeOf $this .\n            { ?corr kosv:sourceEdition ?ed . $this xkos:sourceConcept ?c . }\n            UNION\n            { ?corr kosv:targetEdition ?ed . $this xkos:targetConcept ?c . }\n            FILTER NOT EXISTS { ?c skos:inScheme ?ed }\n          }"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#AllocationShareShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b13"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b14"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b15"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#AllocationShare"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b13",
+    "http://www.w3.org/ns/shacl#datatype": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#maxInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minInclusive": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#shareValue"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b14",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K4: 연관 {?a} 의 원천 {?f} 에 대한 배분 비중 합이 {?sum} (1이어야 함)"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?a ?f (SUM(?v) AS ?sum) WHERE {\n            $this kosv:shareOf ?a ; kosv:fromConcept ?f .\n            ?x kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:shareValue ?v .\n          } GROUP BY $this ?a ?f\n            HAVING (ABS(SUM(?v) - 1.0) > 0.0001)\n          "
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b15",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K4: 배분 쌍({?f}→{?t})이 연관의 원천·대상이 아님"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?f ?t WHERE {\n            $this kosv:shareOf ?a ; kosv:fromConcept ?f ; kosv:toConcept ?t .\n            FILTER ( NOT EXISTS { ?a xkos:sourceConcept ?f } || NOT EXISTS { ?a xkos:targetConcept ?t } )\n          }"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/nrdp/kosv#AssociationCardinalityShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b8"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b9"
+      },
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b10"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#sparql": [
+      {
+        "@id": "_:n5c90a5926b224d94bad249cca21c9e92b11"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b8",
+    "http://www.w3.org/ns/shacl#maxCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K2: 변경 유형이 정확히 1개여야 함"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#changeType"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b9",
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K2: 원천 개념 없음(신설은 연관이 아니라 kosv:introducedIn 으로 기록)"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b10",
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K2: 대상 개념 없음(종료는 연관이 아니라 kosv:discontinuedIn 으로 기록)"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#minCount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "http://rdf-vocabulary.ddialliance.org/xkos#targetConcept"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5c90a5926b224d94bad249cca21c9e92b11",
+    "@type": [
+      "http://www.w3.org/ns/shacl#SPARQLConstraint"
+    ],
+    "http://www.w3.org/ns/shacl#message": [
+      {
+        "@value": "K2: 변경 유형 {?ct} 와 원천 {?ns}개·대상 {?nt}개가 맞지 않음"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefixes": [
+      {
+        "@id": "https://w3id.org/nrdp/kosv#sh_prefixes"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#select": [
+      {
+        "@value": "\n          SELECT $this ?ct ?ns ?nt WHERE {\n            $this kosv:changeType ?ct .\n            { SELECT $this (COUNT(DISTINCT ?s) AS ?ns) WHERE { $this xkos:sourceConcept ?s } GROUP BY $this }\n            { SELECT $this (COUNT(DISTINCT ?t) AS ?nt) WHERE { $this xkos:targetConcept ?t } GROUP BY $this }\n            FILTER (\n              ( ?ct IN (kosv:Identity, kosv:Rename, kosv:Relocation) && (?ns != 1 || ?nt != 1) ) ||\n              ( ?ct = kosv:Merge        && (?ns < 2  || ?nt != 1) ) ||\n              ( ?ct = kosv:Split        && (?ns != 1 || ?nt < 2) ) ||\n              ( ?ct = kosv:MergeResplit && (?ns < 2  || ?nt < 2) )\n            )\n          }"
+      }
+    ]
+  }
+]
