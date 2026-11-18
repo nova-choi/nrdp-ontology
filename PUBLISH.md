@@ -2,7 +2,7 @@
 
 이 폴더는 그대로 GitHub 저장소가 되도록 준비되어 있다. 계정이 필요한 다섯 단계만 남아 있다. 순서대로 하면 1~2시간이면 끝나고, w3id 병합만 며칠 걸린다.
 
-`w3id.org/nrdp` 경로는 2026-10-31 기준 비어 있다(perma-id/w3id.org master에 `nrdp/` 없음).
+`w3id.org/nrdp` 경로는 2026-10-31 기준 비어 있다(perma-id/w3id.org master에 `ids/nrdp/` 없음).
 
 ## 1. 자리표시자 채우기
 
@@ -37,7 +37,7 @@ python tools/configure_release.py --github-user <GitHub 계정> --email <w3id에
 ## 4. w3id.org 등록
 
 1. https://github.com/perma-id/w3id.org 를 포크한다.
-2. 포크의 루트에 `nrdp/` 폴더를 만들고 이 저장소의 `w3id/nrdp/.htaccess`와 `w3id/nrdp/README.md`를 넣는다.
+2. 포크의 `ids/` 아래에 `nrdp/` 폴더(`ids/nrdp/`)를 만들고 이 저장소의 `w3id/nrdp/.htaccess`와 `w3id/nrdp/README.md`를 넣는다.
 3. Pull Request를 올린다. 제목 예: `Add nrdp (national R&D portfolio MCDM ontology)`. 보통 며칠 안에 병합된다.
 4. 병합 후 확인:
    ```bash
